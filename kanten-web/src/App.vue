@@ -1,18 +1,57 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+
+
+import { ref, onMounted } from 'vue'
+import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from '@/firebase'
+
+
+
+
+const todos = ref([
+  {
+    id: 'id1',
+    content: 'content 1',
+    done: false,
+  },
+  {
+    id: 'id2',
+    content: 'content 2',
+    done: false,
+  },
+])
+
+// get ...
+onMounted(() => {
+  onSnapshot(collection(db, 'cities'), (querySnapshot) => {
+    const dbTodos = [];
+    querySnapshot.forEach((doc) => {
+      const todo = {
+        id: doc.id,
+        content: doc.data().content,
+        done: doc.data().done
+      }
+      dbTodos.push(todo)
+    });
+    todos.value = fbTodos
+  });
+})
+
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt='Vue logo' class='logo' src='@/assets/logo.svg' width='125' height='125' />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div class='wrapper'>
+      <HelloWorld msg='You did it!' />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to='/'>Home</RouterLink>
+        <RouterLink to='/about'>About</RouterLink>
       </nav>
     </div>
   </header>
