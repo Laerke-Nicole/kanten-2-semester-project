@@ -3,13 +3,12 @@ import { RouterLink, RouterView } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
 
 
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '@/firebase'
 
 
-
-
+//adding database for events
 const todos = ref([
   {
     id: 'id1',
@@ -39,10 +38,37 @@ onMounted(() => {
   });
 })
 
+//register/sign in 
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { useRouter } from 'vue-router';
+
+const router = useRouter(); //get a reference to our vue router
+const isLoggedIn = ref(false);
+
+let auth;
+onMounted(() => {
+  auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+    }
+    else {
+      isLoggedIn.value = false;
+    }
+  });
+});
+
+const handleSignOut = () => {
+  signOut(auth).then(() => {
+    router.push("/");
+  });
+};
+
 
 </script>
 
 <template>
+
   <header>
     <img alt='Vue logo' class='logo' src='@/assets/logo.svg' width='125' height='125' />
 
@@ -52,6 +78,10 @@ onMounted(() => {
       <nav>
         <RouterLink to='/'>Home</RouterLink>
         <RouterLink to='/about'>About</RouterLink>
+        <RouterLink to='/register'>Register</RouterLink>
+        <RouterLink to='/sign-in'>Sign-in</RouterLink>
+        <RouterLink to='/feed'>Feed</RouterLink>
+        <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
       </nav>
     </div>
   </header>
