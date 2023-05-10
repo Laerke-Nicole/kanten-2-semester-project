@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -31,6 +32,8 @@ const router = createRouter({
   ],
 });
 
+
+//register/log in
 const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     const removeListener = onAuthStateChanged(

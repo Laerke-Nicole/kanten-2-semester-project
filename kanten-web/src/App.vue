@@ -8,35 +8,21 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '@/firebase'
 
 
-//adding database for events
-const todos = ref([
-  {
-    id: 'id1',
-    content: 'content 1',
-    done: false,
-  },
-  {
-    id: 'id2',
-    content: 'content 2',
-    done: false,
-  },
-])
-
-// get ...
-onMounted(() => {
-  onSnapshot(collection(db, 'cities'), (querySnapshot) => {
-    const dbTodos = [];
-    querySnapshot.forEach((doc) => {
-      const todo = {
-        id: doc.id,
-        content: doc.data().content,
-        done: doc.data().done
-      }
-      dbTodos.push(todo)
-    });
-    todos.value = fbTodos
-  });
-})
+// // get ...
+// onMounted(() => {
+//   onSnapshot(collection(db, 'cities'), (querySnapshot) => {
+//     const dbEvents = [];
+//     querySnapshot.forEach((doc) => {
+//       const event = {
+//         id: doc.id,
+//         content: doc.data().content,
+//         done: doc.data().done
+//       }
+//       dbEvents.push(event)
+//     });
+//     events.value = fbEvents
+//   });
+// })
 
 //register/sign in 
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';

@@ -6,6 +6,7 @@ import { initializeApp } from 'firebase/app';
 // Cloud firestone
 import { getFirestore } from 'firebase/firestore';
 
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyAoKtUqjD90pJeNV27dMc_yTE9jCtkOe5U',
