@@ -77,7 +77,6 @@ const handleSignOut = () => {
 
       <nav>
         <RouterLink to='/'>Home</RouterLink>
-        <RouterLink to='/about'>About</RouterLink>
         <RouterLink to='/register'>Register</RouterLink>
         <RouterLink to='/sign-in'>Sign-in</RouterLink>
         <RouterLink to='/feed'>Feed</RouterLink>
