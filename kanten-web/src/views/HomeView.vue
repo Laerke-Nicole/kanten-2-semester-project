@@ -57,11 +57,19 @@
 <script setup>
 // imports
 import { onMounted, ref } from 'vue'
-import { collection, onSnapshot, addDoc } from 'firebase/firestore';
+import { 
+  collection, onSnapshot, 
+  addDoc, doc, deleteDoc, updateDoc, 
+  query, orderBy
+} from 'firebase/firestore';
 import { db } from '@/firebase'
 
 // firebase refs
 const eventsCollectionRef = collection(db, 'events')
+
+// order the events
+const eventsCollectionQuery = query(eventsCollectionRef, orderBy("date", "desc"));
+
 
 
 // events
@@ -85,11 +93,12 @@ const events = ref([
 const newEventContent = ref('')
 
 
-// adding a new event to the list
+// adding a new event to the list with content
 const addEvent = () => {
   addDoc(eventsCollectionRef, {
     content: newEventContent.value,
     done: false,
+    date: Date.now(),
   });
   newEventContent.value = ''
 }
@@ -97,19 +106,23 @@ const addEvent = () => {
 
 // delete event
 const deleteEvent = id => {
-  events.value = events.value.filter(event => event.id !== id)
+  deleteDoc(doc(eventsCollectionRef, id));
 }
 
-// toggle done
+// toggle done - when done button is clicked 
 const toggleDone = id => {
   const index = events.value.findIndex(event => event.id === id)
-  events.value[index].done = !events.value[index].done 
+
+  updateDoc(doc(eventsCollectionRef, id), {
+    done: !events.value[index].done
+  });
+
 }
 
 
-// get ...
+// get events
 onMounted(() => {
-  onSnapshot(eventsCollectionRef, (querySnapshot) => {
+  onSnapshot(eventsCollectionQuery, (querySnapshot) => {
     const fbEvents = [];
     querySnapshot.forEach((doc) => {
       const event = {
