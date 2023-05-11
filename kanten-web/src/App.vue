@@ -1,28 +1,12 @@
 <script setup>
+// imports
 import { RouterLink, RouterView } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
-
 
 import { onMounted, ref } from 'vue'
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '@/firebase'
 
-
-// // get ...
-// onMounted(() => {
-//   onSnapshot(collection(db, 'cities'), (querySnapshot) => {
-//     const dbEvents = [];
-//     querySnapshot.forEach((doc) => {
-//       const event = {
-//         id: doc.id,
-//         content: doc.data().content,
-//         done: doc.data().done
-//       }
-//       dbEvents.push(event)
-//     });
-//     events.value = fbEvents
-//   });
-// })
 
 //register/sign in 
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
@@ -68,6 +52,7 @@ const handleSignOut = () => {
         <RouterLink to='/feed'>Feed</RouterLink>
         <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
         <RouterLink to='/admin'>Admin</RouterLink>
+
       </nav>
     </div>
   </header>

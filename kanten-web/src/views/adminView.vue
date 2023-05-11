@@ -2,7 +2,7 @@
     <div class="event-list">
   
       <div class="title">
-        Events - Kanten
+        <h1>Add events</h1>
       </div>
   
       <!-- add event -->
@@ -12,7 +12,7 @@
           <p class="control">
             <!-- input field when adding event -->
               <input v-model="newEventContent" class="input p-2" type="text" placeholder="Add an artist">
-              <input class="input p-2" type="text" placeholder="Add a date">
+              <input v-model="newEventDate" class="input p-2" type="text" placeholder="Add a date">
               <input class="input p-2" type="text" placeholder="Add a venue">
               <input class="input p-2" type="text" placeholder="Add a brief description">
               <input class="input p-2" type="text" placeholder="Add a sales url">
@@ -25,39 +25,34 @@
                     <p>{{ genre.genre }}</p>
                   </option>
                 </select>
-              
           </p>
   
           <!-- button that adds event -->
           <p class="control">
-            <button @click="" :disabled="!newEventContent" class="button p-2 ml-3">Add</button>
+            <button @click="" :disabled="!addEventParameters" class="add-button ml-8">Add</button>
           </p>
         </div>
       </form>
   
   
       <!-- events in a list -->
-      <div v-for="event in events" class="card m-2">
-        <div class="card-content">
+      <div v-for="event in events" class="card">
+        <div class="card-content mb-4">
           <div class="content p-2" :class="{ 'has-background-success' : event.done}">
             <div class="columns">
               <div class="column" :class="{ 'has-text-success line-through' : event.done }">
                 {{ event.content }}
-                <!-- {{ event.date }}
-                {{ event.venue }}
-                {{ event.artist }}
-                {{ event.url_sales }}
-                {{ event.genre }} -->
+                {{ event.date }}
               </div>
   
               <div class="column">
                 <!-- add button -->
-                <button @click="toggleDone(event.id)" class="button p-3 m-1" :class="event.done ? 'is-success' : 'is-not-yet-success'">
+                <button @click="toggleDone(event.id)" class="button mt-2 mr-2 mb-5" :class="event.done ? 'is-success' : 'is-not-yet-success'">
                   &check;
                 </button>
   
                 <!-- delete button -->
-                <button @click="deleteEvent(event.id)" class="button p-3 m-1">
+                <button @click="deleteEvent(event.id)" class="button mt-2 mb-5">
                   &cross;
                 </button>
               </div>
@@ -87,7 +82,7 @@
   const eventsCollectionRef = collection(db, 'events')
   
   // order the events
-  const eventsCollectionQuery = query(eventsCollectionRef, orderBy("date", "desc"));
+  const eventsCollectionQuery = query(eventsCollectionRef, orderBy("order", "desc"));
   
   
   
@@ -120,17 +115,26 @@
   
   // add event
   
+  const addEventParameters = () => {
+    newEventContent
+    newEventDate
+  } 
+
+
   // input field for adding event
   const newEventContent = ref('')
+  const newEventDate = ref('')
   
   // adding a new event to the list with content
   const addEvent = () => {
     addDoc(eventsCollectionRef, {
       content: newEventContent.value,
+      date: newEventDate.value,
       done: false,
-      date: Date.now(),
+      order: Date.now(),
     });
     newEventContent.value = ''
+    newEventDate.value = ''
   }
   
   
@@ -158,6 +162,7 @@
         const event = {
           id: doc.id,
           content: doc.data().content,
+          date: doc.data().date,
           done: doc.data().done
         }
         fbEvents.push(event)
@@ -192,45 +197,72 @@
   </script>
   
   <style scoped>
+  h1 {
+    color: var(--white-headline);
+    font-size: 60px;
+  }
+
+  /* whole event list parameters */
   .event-list {
     max-width: 400px;
-    margin: 0 auto;
-    padding: 10px;
-    padding: 18px;
+    padding: 70px 0 70px 120px;
     display: flex;
     flex-direction: column;
   }
   
-  .input {
-    color: black;
-  }
-  
   .field {
     display: flex;
-    background-color: red;
-    padding: 50px;
+    padding-bottom: 70px;
+  }
+
+  /* parameters */
+  .input {
+    margin-bottom: 10px;
+    width: 500px;
   }
   
+  .control ::placeholder {
+    color: var(--black-text);
+  }
+
+  /* button styling for add + check and cross */
+  .add-button {
+    background-color: var(--red-cross);
+    color: var(--black-headline);
+    padding: 10px 50px;
+  }
+
   .button {
-    background-color: rosybrown;
-    color: black;
+    background-color: var(--red-cross);
+    color: var(--black-headline);
+    padding: 5px 20px 10px 20px;
   }
   
   
   /* individual events */
+  .column {
+    font-size: 22px;
+    font-family: var(--text-font);
+    line-height: normal;
+  }
+
   .content {
-    background-color: white;
-    color: black;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: var(--white-headline);
+    color: var(--black-headline);
+    width: 500px;
+   
   }
   
   
   /* an event thats done */
   .has-background-success {
-    background-color: green;
+    background-color: var(--green-check-box);
   }
   
   .has-text-success {
-    color: greenyellow;
+    color: var(--green-check);
   }
   
   .line-through {
@@ -239,27 +271,25 @@
   
   /* check button */
   .is-success {
-    background-color: purple;
+    background-color: var(--green-check);
   }
   
   
   /* an event that isnt done */
   /* cross button */
   .is-not-yet-success {
-    background-color: aqua;
+    background-color: var(--grey-check);
   }
   
   
   /* genre dropdown styling */
   .genres {
-    background-color: green;
-    color: yellow;
+    color: var(--black-text);
     padding: 10px;
   }
   
   .genre {
-    color: black;
-    padding: 10px;
+    color: var(--black-headline);  
   }
   
   </style>
