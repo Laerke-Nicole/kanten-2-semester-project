@@ -13,7 +13,15 @@
             <!-- input field when adding event -->
               <input v-model="newEventContent" class="input p-2" type="text" placeholder="Add an artist">
               <input v-model="newEventDate" class="input p-2" type="text" placeholder="Add a date">
-              <input class="input p-2" type="text" placeholder="Add a venue">
+
+              <!-- address -->
+              <select class="address">
+                  <option v-for="place in address" :key="place">
+                    <p>{{ place.venue }}</p>
+                    <p>{{ place.address }}</p>
+                  </option>
+                </select>
+
               <input class="input p-2" type="text" placeholder="Add a brief description">
               <input class="input p-2" type="text" placeholder="Add a sales url">
               <input class="input p-2" type="text" placeholder="Add a target groups age">
@@ -40,7 +48,7 @@
         <div class="card-content mb-4">
           <div class="content p-2" :class="{ 'has-background-success' : event.done}">
             <div class="columns">
-              <div class="column" :class="{ 'has-text-success line-through' : event.done }">
+              <div class="column" :class="{ 'has-text-success' : event.done }">
                 {{ event.content }}
                 {{ event.date }}
               </div>
@@ -191,6 +199,20 @@
       genre: 'X-MASSIVE DUB',
     },
   ])
+
+  // address
+  const address = ref([
+    {
+      id: 'address_one',
+      venue: 'KANTEN',
+      address: 'FINSENSGADE 1, 6700 ESBJERG',
+    },
+    {
+      id: 'address_two',
+      venue: 'KRAFTVÆRKET',
+      address: 'GL NOVRUPVEJ 14, 6705 ESBJERG',
+    },
+  ])
   
   
   
@@ -263,10 +285,6 @@
   
   .has-text-success {
     color: var(--green-check);
-  }
-  
-  .line-through {
-    text-decoration: line-through;
   }
   
   /* check button */
