@@ -9,30 +9,57 @@
       <form @submit.prevent="addEvent">
         <div class="field">
   
+          <!-- input field when adding event -->
           <p class="control">
-            <!-- input field when adding event -->
-              <input v-model="newEventContent" class="input p-2" type="text" placeholder="Add an artist">
-              <input v-model="newEventDate" class="input p-2" type="text" placeholder="Add a date">
+            <!-- artist -->
+              <input v-model="newEventArtist" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="artist" placeholder="Add an artist">
+              
+              <!-- date -->
+              <div class="date-dropdown">
+                <select v-model="newEventDate" class="dates w-full border-0 py-1.5 pl-6 pr-20">
+                  <option v-for="date in dates" :key="date" >
+                    <p>{{ date.date }}</p>
+                  </option>
+                  <option v-for="month in dates" :key="month" >
+                    <p>{{ month.date }}</p>
+                  </option>
+                </select>
+              </div>
+              
+              <!-- <input v-model="newEventDate" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="date" placeholder="Add a date"> -->
 
               <!-- address -->
-              <select class="address">
-                  <option v-for="place in address" :key="place">
+              <select v-model="newEventVenue" class="address-dropdopwn w-full border-0 py-1.5 pl-6 pr-20">
+                  <option class="address-menu" v-for="place in address" :key="place">
                     <p>{{ place.venue }}</p>
                     <p>{{ place.address }}</p>
                   </option>
                 </select>
 
-              <input class="input p-2" type="text" placeholder="Add a brief description">
-              <input class="input p-2" type="text" placeholder="Add a sales url">
-              <input class="input p-2" type="text" placeholder="Add a target groups age">
-              <input class="input p-2" type="text" placeholder="Price">
+              <!-- description -->
+              <input v-model="newEventDes" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="des" placeholder="Add a brief description">
+
+              <!-- sales url -->
+              <input v-model="newEventUrlSales" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="sales_url" placeholder="Add a sales url">
+
+              <!-- group age -->
+              <input v-model="newEventAgeGroup" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="age" placeholder="Add a target groups age">
+
+              <!-- price -->
+              <input v-model="newEventPrice" type="text" name="price" class=" price w-full border-0 py-1.5 pl-7 pr-20" placeholder="0.00"/>
   
-                <!-- genre -->
-                <select class="genres">
-                  <option class="genre" v-for="genre in genres" :key="genre">
-                    <p>{{ genre.genre }}</p>
-                  </option>
-                </select>
+              <!-- genre -->
+              <select v-model="newEventGenre" class="genres w-full border-0 py-1.5 pl-6 pr-20">
+                <option class="genre" v-for="genre in genres" :key="genre">
+                  <p>{{ genre.genre }}</p>
+                </option>
+              </select>
+              
+
+              <!-- image -->
+              <input v-model="newEventImage" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="img" placeholder="Add a photo url">
+
+
           </p>
   
           <!-- button that adds event -->
@@ -46,21 +73,33 @@
       <!-- events in a list -->
       <div v-for="event in events" class="card">
         <div class="card-content mb-4">
-          <div class="content p-2" :class="{ 'has-background-success' : event.done}">
+          <div class="content p-2 w-full border-0 py-1.5 pl-7 pr-20" :class="{ 'has-background-success' : event.done}">
             <div class="columns">
-              <div class="column" :class="{ 'has-text-success' : event.done }">
-                {{ event.content }}
-                {{ event.date }}
+              <div class="column mt-5" :class="{ 'has-text-success' : event.done }">
+                <div class="left-col">
+                  {{ event.artist }}
+                  {{ event.date }}
+                  {{ event.venue }}
+                  {{ event.image }}
+                  {{ event.genre }}
+                </div>
+
+                <div class="right-col">
+                  {{ event.des }}
+                  {{ event.urlSales }}
+                  {{ event.ageGroup }}
+                  {{ event.price }}
+                </div>
+
               </div>
-  
-              <div class="column">
+              <div class="buttons">
                 <!-- add button -->
-                <button @click="toggleDone(event.id)" class="button mt-2 mr-2 mb-5" :class="event.done ? 'is-success' : 'is-not-yet-success'">
+                <button @click="toggleDone(event.id)" class="button mt-5 mr-2 mb-2" :class="event.done ? 'is-success' : 'is-not-yet-success'">
                   &check;
                 </button>
   
                 <!-- delete button -->
-                <button @click="deleteEvent(event.id)" class="button mt-2 mb-5">
+                <button @click="deleteEvent(event.id)" class="button mt-5 mb-2">
                   &cross;
                 </button>
               </div>
@@ -69,6 +108,10 @@
         </div>
       </div>
     </div>
+
+
+
+
   </template>
   
   
@@ -98,51 +141,80 @@
   const events = ref([
     // {
     //   id: 'id1',
-    //   content: 'Rave',
     //   date: '',
     //   venue: '',
-    //   artust: '',
+    //   artist: '',
     //   description: '',
     //   url_sales: '',
     //   genre: '',
+    //   price: '',
+    //   image: '',
     //   done: false,
     // },
     // {
     //   id: 'id2',
-    //   content: 'Hip Hop',
     //   date: '',
     //   venue: '',
-    //   artust: '',
+    //   artist: '',
     //   description: '',
     //   url_sales: '',
     //   genre: '',
+    //   price: '',
+    //   image: '',
     //   done: true,
     // },
   ])
   
   
-  // add event
-  
+  // storing which parameters that will react to "add" button
   const addEventParameters = () => {
-    newEventContent
+    newEventArtist
     newEventDate
+    newEventVenue
+    newEventDes
+    newEventUrlSales
+    newEventAgeGroup
+    newEventPrice
+    newEventGenre
+    newEventImage
   } 
 
 
   // input field for adding event
-  const newEventContent = ref('')
+  const newEventArtist = ref('')
   const newEventDate = ref('')
+  const newEventVenue = ref('')
+  const newEventDes = ref('')
+  const newEventUrlSales = ref('')
+  const newEventAgeGroup = ref('')
+  const newEventPrice = ref('')
+  const newEventGenre = ref('')
+  const newEventImage = ref('')
   
   // adding a new event to the list with content
   const addEvent = () => {
     addDoc(eventsCollectionRef, {
-      content: newEventContent.value,
+      artist: newEventArtist.value,
       date: newEventDate.value,
+      venue: newEventVenue.value,
+      des: newEventDes.value,
+      urlSales: newEventUrlSales.value,
+      ageGroup: newEventAgeGroup.value,
+      price: newEventPrice.value,
+      genre: newEventGenre.value,
+      image: newEventImage.value,
       done: false,
       order: Date.now(),
     });
-    newEventContent.value = ''
+    newEventArtist.value = ''
     newEventDate.value = ''
+    newEventVenue.value = ''
+    newEventDes.value = ''
+    newEventUrlSales.value = ''
+    newEventAgeGroup.value = ''
+    newEventPrice.value = ''
+    newEventGenre.value = ''
+    newEventImage.value = ''
   }
   
   
@@ -162,16 +234,23 @@
   }
   
   
-  // get events
+  // get events - writes out the value we wrote in the input onto the event itself
   onMounted(() => {
     onSnapshot(eventsCollectionQuery, (querySnapshot) => {
       const fbEvents = [];
       querySnapshot.forEach((doc) => {
         const event = {
           id: doc.id,
-          content: doc.data().content,
+          artist: doc.data().artist,
           date: doc.data().date,
-          done: doc.data().done
+          venue: doc.data().venue,
+          des: doc.data().des,
+          urlSales: doc.data().urlSales,
+          ageGroup: doc.data().ageGroup,
+          price: doc.data().price,
+          genre: doc.data().genre,
+          image: doc.data().image,
+          done: doc.data().done,
         }
         fbEvents.push(event)
       });
@@ -179,7 +258,96 @@
     });
   })
   
-  
+
+  // date
+  // const dates = ref ([
+  //   {
+  //     date: [1, 2, 3, 4]
+  //   }
+  //   // {
+  //   //   date: '.01',
+  //   // },
+  //   // {
+  //   //   date: '.02',
+  //   // },
+  //   // {
+  //   //   date: '.03',
+  //   // },
+  //   // {
+  //   //   date: '.04',
+  //   // },
+  //   // {
+  //   //   date: '.05',
+  //   // },
+  //   // {
+  //   //   date: '.06',
+  //   // },
+  //   // {
+  //   //   date: '.07',
+  //   // },
+  //   // {
+  //   //   date: '.08',
+  //   // },
+  //   // {
+  //   //   date: '.09',
+  //   // },
+  //   // {
+  //   //   date: '.10',
+  //   // },
+  //   // {
+  //   //   date: '.12',
+  //   // },
+  //   // {
+  //   //   date: '.13',
+  //   // },
+  //   // {
+  //   //   date: '.14',
+  //   // },
+  //   // {
+  //   //   date: '.15',
+  //   // },
+  //   // {
+  //   //   date: '.16',
+  //   // },
+  //   // {
+  //   //   date: '.17',
+  //   // },
+  // ])
+
+
+
+
+
+  // const getDates = () => {
+  //   const dates = ref([
+  //     {
+  //       date: '1'
+  //     },
+  //   ])
+
+  //   const month = ref([
+  //     {
+  //       month: 'januar',
+  //     }
+  //   ])
+
+  //   const time = ref([
+  //     {
+
+  //     }
+  //   ])
+
+  //   return {
+  //     date,
+  //     month
+  //   }
+
+  // }
+
+
+
+
+
   // genres
   const genres = ref([
     {
@@ -213,11 +381,21 @@
       address: 'GL NOVRUPVEJ 14, 6705 ESBJERG',
     },
   ])
+
+
   
-  
-  
+
+
   </script>
   
+
+
+
+
+
+
+
+
   <style scoped>
   h1 {
     color: var(--white-headline);
@@ -238,9 +416,13 @@
   }
 
   /* parameters */
-  .input {
+  .control .input {
     margin-bottom: 10px;
     width: 500px;
+  }
+
+  .control select {
+    margin-bottom: 10px;
   }
   
   .control ::placeholder {
@@ -258,23 +440,18 @@
     background-color: var(--red-cross);
     color: var(--black-headline);
     padding: 5px 20px 10px 20px;
-  }
-  
-  
-  /* individual events */
-  .column {
     font-size: 22px;
-    font-family: var(--text-font);
     line-height: normal;
   }
+  
 
+  /* individual events */
   .content {
     display: flex;
     flex-wrap: nowrap;
     background-color: var(--white-headline);
     color: var(--black-headline);
     width: 500px;
-   
   }
   
   
@@ -299,15 +476,51 @@
     background-color: var(--grey-check);
   }
   
-  
+
+  .price {
+    color: var(--black-text);
+    margin-bottom: 10px;
+  }
+
+  .price ::placeholder {
+    color: var(--black-text);
+  }
+
   /* genre dropdown styling */
   .genres {
     color: var(--black-text);
-    padding: 10px;
   }
   
   .genre {
     color: var(--black-headline);  
   }
   
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--text-font);
+  }
+
+  .left-col {
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+  }
+
+  .right-col {
+    display: flex;
+    align-items: center;
+  }
+
+
   </style>
