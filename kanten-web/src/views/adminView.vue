@@ -12,60 +12,83 @@
           <!-- input field when adding event -->
           <p class="control">
             <!-- artist -->
-              <input v-model="newEventArtist" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="artist" placeholder="Add an artist">
-              
-              <!-- date -->
-              <div class="date-dropdown">
-                <select v-model="newEventDate" class="dates w-full border-0 py-1.5 pl-6 pr-20">
-                  <option v-for="date in dates" :key="date" >
-                    <p>{{ date.date }}</p>
-                  </option>
-                  <option v-for="month in dates" :key="month" >
-                    <p>{{ month.date }}</p>
-                  </option>
-                </select>
-              </div>
-              
-              <!-- <input v-model="newEventDate" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="date" placeholder="Add a date"> -->
+            <input v-model="newEventArtist" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="artist" placeholder="Add an artist">
+            
+            <!-- date -->
+            <div class="top-dropdown-p">
+              <p>Select a date and time in the dropdown: </p>
+            </div>
 
-              <!-- address -->
-              <select v-model="newEventVenue" class="address-dropdopwn w-full border-0 py-1.5 pl-6 pr-20">
-                  <option class="address-menu" v-for="place in address" :key="place">
-                    <p>{{ place.venue }}</p>
-                    <p>{{ place.address }}</p>
-                  </option>
-                </select>
-
-              <!-- description -->
-              <input v-model="newEventDes" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="des" placeholder="Add a brief description">
-
-              <!-- sales url -->
-              <input v-model="newEventUrlSales" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="sales_url" placeholder="Add a sales url">
-
-              <!-- group age -->
-              <input v-model="newEventAgeGroup" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="age" placeholder="Add a target groups age">
-
-              <!-- price -->
-              <input v-model="newEventPrice" type="text" name="price" class=" price w-full border-0 py-1.5 pl-7 pr-20" placeholder="0.00"/>
-  
-              <!-- genre -->
-              <select v-model="newEventGenre" class="genres w-full border-0 py-1.5 pl-6 pr-20">
-                <option class="genre" v-for="genre in genres" :key="genre">
-                  <p>{{ genre.genre }}</p>
+            <div class="date-dropdown">
+              <select v-model="newEventDate" class="dates w-full border-0 py-1.5 pl-6 pr-20">
+                <option v-for="date in dates" :key="date" >
+                  <p>{{ date.date }}</p>
+                </option>
+                <option v-for="month in dates" :key="month" >
+                  <p>{{ month.date }}</p>
                 </option>
               </select>
-              
+            </div>
+            
+            <!-- <input v-model="newEventDate" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="date" placeholder="Add a date"> -->
 
-              <!-- image -->
-              <input v-model="newEventImage" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="img" placeholder="Add a photo url">
+            <!-- address -->
+            <div class="top-dropdown-p">
+              <p>Select a venue in the dropdown: </p>
+            </div>
 
+            <select v-model="newEventVenue" class="address-dropdopwn w-full border-0 py-1.5 pl-6 pr-20">
+                <option class="address-menu" v-for="place in address" :key="place">
+                  <p>{{ place.venue }}</p>
+                  <p>{{ place.address }}</p>
+                </option>
+              </select>
+
+            <!-- description -->
+            <input v-model="newEventDes" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="des" placeholder="Add a brief description">
+
+            <!-- sales url -->
+            <input v-model="newEventUrlSales" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="sales_url" placeholder="Add a sales url">
+
+            <!-- group age -->
+            <input v-model="newEventAgeGroup" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="age" placeholder="Add a target groups age">
+
+            <!-- price -->
+            <input v-model="newEventPrice" type="text" name="price" class=" price w-full border-0 py-1.5 pl-7 pr-20" placeholder="0.00 DKK"/>
+
+            <!-- genre -->
+            <div class="top-dropdown-p">
+              <p>Select a genre in the dropdown: </p>
+            </div>
+
+            <select v-model="newEventGenre" class="genres w-full border-0 py-1.5 pl-6 pr-20">
+              <!--  <option selected disabled value="Select a venue">Please select a venue...</option> -->
+              <option class="genre" v-for="genre in genres" :value="genre.genre" :key="genre">
+                <p>{{ genre.genre }}</p>
+              </option> 
+            </select>
+         
+
+            <!-- image -->
+            <!-- <input class="input image-input w-full border-0" type="file" name="File input" @change="imgURL"> -->
+
+
+            <img :src="addEventParameters.imgURL" alt="post image" width="200" height="200" class="input image-input w-full border-0">
+
+              <input v-on:change="imgURL" type="file" label="File input" @change="uploadImg">
+
+
+
+
+
+            <!-- button that adds event -->
+            <div class="control">
+              <button @click="" :disabled="addEventParameters.uploadBtnDisabled" class="button2 mt-5">Add</button>
+            </div>
 
           </p>
   
-          <!-- button that adds event -->
-          <p class="control">
-            <button @click="" :disabled="!addEventParameters" class="add-button ml-8">Add</button>
-          </p>
+          
         </div>
       </form>
   
@@ -74,25 +97,19 @@
       <div v-for="event in events" class="card">
         <div class="card-content mb-4">
           <div class="content p-2 w-full border-0 py-1.5 pl-7 pr-20" :class="{ 'has-background-success' : event.done}">
-            <div class="columns">
               <div class="column mt-5" :class="{ 'has-text-success' : event.done }">
-                <div class="left-col">
                   {{ event.artist }}
                   {{ event.date }}
                   {{ event.venue }}
-                  {{ event.image }}
+                  {{ event.imgURL }}
                   {{ event.genre }}
-                </div>
-
-                <div class="right-col">
                   {{ event.des }}
                   {{ event.urlSales }}
                   {{ event.ageGroup }}
                   {{ event.price }}
-                </div>
 
               </div>
-              <div class="buttons">
+              <div class="y-n-buttons">
                 <!-- add button -->
                 <button @click="toggleDone(event.id)" class="button mt-5 mr-2 mb-2" :class="event.done ? 'is-success' : 'is-not-yet-success'">
                   &check;
@@ -103,7 +120,6 @@
                   &cross;
                 </button>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -121,13 +137,20 @@
   
   <script setup>
   // imports
-  import { onMounted, ref } from 'vue'
+  import { onMounted, reactive } from 'vue'
+  import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
   import { 
-    collection, onSnapshot, 
+    collection, onSnapshot,   
     addDoc, doc, deleteDoc, updateDoc, 
     query, orderBy
   } from 'firebase/firestore';
   import { db } from '@/firebase'
+
+  // importing modules
+  import genres from '@/modules/useGenres' 
+  import address from '@/modules/useAddress' 
+
+  const storage = getStorage();
   
   // firebase refs
   const eventsCollectionRef = collection(db, 'events')
@@ -167,18 +190,32 @@
   
   
   // storing which parameters that will react to "add" button
+  // let addEventParameters = reactive ({
+  //   newEventArtist : '',
+  //   newEventDate : '',
+  //   newEventVenue : '',
+  //   newEventDes : '',
+  //   newEventUrlSales : '',
+  //   newEventAgeGroup : '',
+  //   newEventPrice : '',
+  //   newEventGenre : '',
+  //   imgURL : '',
+  //   uploadBtnDisabled: true,
+  // })
+    
   const addEventParameters = () => {
     newEventArtist
-    newEventDate
-    newEventVenue
+    newEventDate 
+    newEventVenue 
     newEventDes
-    newEventUrlSales
+    newEventUrlSales 
     newEventAgeGroup
     newEventPrice
-    newEventGenre
-    newEventImage
-  } 
-
+    newEventGenre 
+    imgURL
+    uploadBtnDisabled
+  }
+  
 
   // input field for adding event
   const newEventArtist = ref('')
@@ -189,7 +226,9 @@
   const newEventAgeGroup = ref('')
   const newEventPrice = ref('')
   const newEventGenre = ref('')
-  const newEventImage = ref('')
+  const imgURL = ref('')
+  const uploadBtnDisabled = ref('')
+
   
   // adding a new event to the list with content
   const addEvent = () => {
@@ -202,7 +241,7 @@
       ageGroup: newEventAgeGroup.value,
       price: newEventPrice.value,
       genre: newEventGenre.value,
-      image: newEventImage.value,
+      imgURL: imgURL.value,
       done: false,
       order: Date.now(),
     });
@@ -214,7 +253,7 @@
     newEventAgeGroup.value = ''
     newEventPrice.value = ''
     newEventGenre.value = ''
-    newEventImage.value = ''
+    imgURL.value = ''
   }
   
   
@@ -249,7 +288,7 @@
           ageGroup: doc.data().ageGroup,
           price: doc.data().price,
           genre: doc.data().genre,
-          image: doc.data().image,
+          imgURL: doc.data().imgURL,
           done: doc.data().done,
         }
         fbEvents.push(event)
@@ -259,129 +298,70 @@
   })
   
 
-  // date
-  // const dates = ref ([
-  //   {
-  //     date: [1, 2, 3, 4]
-  //   }
-  //   // {
-  //   //   date: '.01',
-  //   // },
-  //   // {
-  //   //   date: '.02',
-  //   // },
-  //   // {
-  //   //   date: '.03',
-  //   // },
-  //   // {
-  //   //   date: '.04',
-  //   // },
-  //   // {
-  //   //   date: '.05',
-  //   // },
-  //   // {
-  //   //   date: '.06',
-  //   // },
-  //   // {
-  //   //   date: '.07',
-  //   // },
-  //   // {
-  //   //   date: '.08',
-  //   // },
-  //   // {
-  //   //   date: '.09',
-  //   // },
-  //   // {
-  //   //   date: '.10',
-  //   // },
-  //   // {
-  //   //   date: '.12',
-  //   // },
-  //   // {
-  //   //   date: '.13',
-  //   // },
-  //   // {
-  //   //   date: '.14',
-  //   // },
-  //   // {
-  //   //   date: '.15',
-  //   // },
-  //   // {
-  //   //   date: '.16',
-  //   // },
-  //   // {
-  //   //   date: '.17',
-  //   // },
-  // ])
+
+
+  // Firebase storage upload image + get download URL + enable button after image uploaded
+const uploadImg = async(event) => {
+  let file = event.target.files[0]; // get the file
+  console.log("file", file)
+
+// Create the file metadata
+/** @type {any} */
+const metadata = {
+  contentType: 'image/jpeg'
+};
+
+
+// Upload file and metadata to the object 'images/mountains.jpg'
+const storageRef = ref(storage, 'images/' + file.name);
+const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
 
 
+// Listen for state changes, errors, and completion of the upload.
+uploadTask.on('state_changed',
+  (snapshot) => {
+    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    console.log('Upload is ' + progress + '% done');
+    switch (snapshot.state) {
+      case 'paused':
+        console.log('Upload is paused');
+        break;
+      case 'running':
+        console.log('Upload is running');       
+        break;
+    }
+  }, 
+  (error) => {
+    // A full list of error codes is available at
+    // https://firebase.google.com/docs/storage/web/handle-errors
+    switch (error.code) {
+      case 'storage/unauthorized':
+        // User doesn't have permission to access the object
+        break;
+      case 'storage/canceled':
+        // User canceled the upload
+        break;
 
+      // ...
 
-  // const getDates = () => {
-  //   const dates = ref([
-  //     {
-  //       date: '1'
-  //     },
-  //   ])
+      case 'storage/unknown':
+        // Unknown error occurred, inspect error.serverResponse
+        break;
+    }
+  }, 
+  () => {
+    // Upload completed successfully, now we can get the download URL
+    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+      console.log('File available at', downloadURL);
 
-  //   const month = ref([
-  //     {
-  //       month: 'januar',
-  //     }
-  //   ])
-
-  //   const time = ref([
-  //     {
-
-  //     }
-  //   ])
-
-  //   return {
-  //     date,
-  //     month
-  //   }
-
-  // }
-
-
-
-
-
-  // genres
-  const genres = ref([
-    {
-      id: 'genre_one',
-      genre: 'DEFT',
-    },
-    {
-      id: 'genre_two',
-      genre: 'MANA CLUB',
-    },
-    {
-      id: 'genre_three',
-      genre: 'VERTEX',
-    },
-    {
-      id: 'genre_four',
-      genre: 'X-MASSIVE DUB',
-    },
-  ])
-
-  // address
-  const address = ref([
-    {
-      id: 'address_one',
-      venue: 'KANTEN',
-      address: 'FINSENSGADE 1, 6700 ESBJERG',
-    },
-    {
-      id: 'address_two',
-      venue: 'KRAFTVÆRKET',
-      address: 'GL NOVRUPVEJ 14, 6705 ESBJERG',
-    },
-  ])
-
+      addEventParameters.imgURL = downloadURL // update variable imgURL and put the image URL link in it. 
+      addEventParameters.uploadBtnDisabled = false // enable button after image uploaded is complete
+    });
+  }  
+);
+}
 
   
 
@@ -397,9 +377,18 @@
 
 
   <style scoped>
+
+  .event-list {
+    display: flex;
+  }
+
   h1 {
     color: var(--white-headline);
     font-size: 60px;
+  }
+
+  .top-dropdown-p p {
+    color: var(--white-text);
   }
 
   /* whole event list parameters */
@@ -417,12 +406,12 @@
 
   /* parameters */
   .control .input {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     width: 500px;
   }
 
   .control select {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
   
   .control ::placeholder {
@@ -430,11 +419,16 @@
   }
 
   /* button styling for add + check and cross */
-  .add-button {
-    background-color: var(--red-cross);
-    color: var(--black-headline);
-    padding: 10px 50px;
+  .control {
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
   }
+
+  .button2 {
+    width: 150px;
+  }
+  
 
   .button {
     background-color: var(--red-cross);
@@ -446,14 +440,23 @@
   
 
   /* individual events */
+  .card {
+    display: flex;
+  }
+
   .content {
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: column;
     background-color: var(--white-headline);
     color: var(--black-headline);
     width: 500px;
   }
-  
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--text-font);
+  }
   
   /* an event thats done */
   .has-background-success {
@@ -494,22 +497,6 @@
   .genre {
     color: var(--black-headline);  
   }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .columns {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .column {
-    display: flex;
-    flex-direction: column;
-    font-family: var(--text-font);
-  }
 
   .left-col {
     display: flex;
@@ -522,5 +509,23 @@
     align-items: center;
   }
 
+  .address-menu {
+    color: var(--black-text);
+  }
+
+  /* image upload */
+
+  .image-input {
+    color: var(--white-text);
+    margin-bottom: 12px;
+  }
+
+
+
 
   </style>
+
+
+
+
+

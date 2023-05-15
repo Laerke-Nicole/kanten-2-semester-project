@@ -10,6 +10,71 @@
 }
 
 
+/*styling button*/
+button {
+  transition: 0.3s;
+}
+
+/* black button */
+.button1 {
+  background-color:var(--primary-color);
+  position: relative;
+  color: var(--white-text);
+  padding: 10px 50px;
+  cursor: pointer;
+  border: 0;
+  transition: 0.3s;
+  font-family: var(--text-font);
+  font-size: 16px;
+  text-decoration: none;
+  overflow: hidden;
+  text-align: center;
+  z-index: 1;
+}
+
+.button1:hover {
+  transition: 0.3s;
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%, 0 41%);
+}
+
+
+/* responsive button */
+@media only screen and (max-width: 850px) {
+  .button1 {
+    font-size: 15px;
+  }
+}
+
+
+/* white button */
+.button2 {
+  background-color:var(--secondary-color);
+  position: relative;
+  color: var(--black-text);
+  padding: 10px 50px;
+  cursor: pointer;
+  border: 0;
+  transition: 0.3s;
+  font-family: var(--text-font);
+  font-size: 16px;
+  text-decoration: none;
+  overflow: hidden;
+  text-align: center;
+  z-index: 1;
+}
+
+.button2:hover {
+  transition: 0.3s;
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%, 0 41%);
+}
+
+
+/* responsive button */
+@media only screen and (max-width: 850px) {
+  .button2 {
+    font-size: 15px;
+  }
+}
 
 /* 
 

@@ -86,26 +86,3 @@ p {
     font-size: 15px;
   }
 }
-
-/*styling button*/
-#button1 {
-  cursor: pointer;
-  background-color: var(--tertiary-color);
-  color: var(--white-headline);
-  border: 0;
-  transition: 0.3s;
-  font-family: var(--text-font);
-  font-size: 16px;
-  text-decoration: none;
-  padding: 10px 30px; 
-  overflow: hidden;
-  text-align: center;
-  z-index: 1;
-}
-
-/* responsive button */
-@media only screen and (max-width: 850px) {
-  #button1 {
-    font-size: 15px;
-  }
-}
