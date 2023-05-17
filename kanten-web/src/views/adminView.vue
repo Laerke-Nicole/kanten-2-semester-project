@@ -32,15 +32,14 @@
             
             <!-- <input v-model="newEventDate" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="date" placeholder="Add a date"> -->
 
-            <!-- address -->
+            <!-- venue -->
             <div class="top-dropdown-p">
               <p>Select a venue in the dropdown: </p>
             </div>
 
-            <select v-model="newEventVenue" class="address-dropdopwn w-full border-0 py-1.5 pl-6 pr-20">
-                <option class="address-menu" v-for="place in address" :key="place">
-                  <p>{{ place.venue }}</p>
-                  <p>{{ place.address }}</p>
+            <select v-model="newEventVenue" class="venue-dropdopwn w-full border-0 py-1.5 pl-6 pr-20">
+                <option class="venue-menu" v-for="venue in venues" :key="place">
+                  <p>{{ venue.venue }}</p>
                 </option>
               </select>
 
@@ -51,7 +50,7 @@
             <input v-model="newEventUrlSales" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="sales_url" placeholder="Add a sales url">
 
             <!-- group age -->
-            <input v-model="newEventAgeGroup" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="age" placeholder="Add a target groups age">
+            <input v-model="newEventAgeGroup" class="input w-full border-0 py-1.5 pl-7 pr-20" type="text" name="age" placeholder="Add a target group age">
 
             <!-- price -->
             <input v-model="newEventPrice" type="text" name="price" class=" price w-full border-0 py-1.5 pl-7 pr-20" placeholder="0.00 DKK"/>
@@ -70,12 +69,7 @@
          
 
             <!-- image -->
-            <!-- <input class="input image-input w-full border-0" type="file" name="File input" @change="imgURL"> -->
-
-
-            <img :src="addEventParameters.imgURL" alt="post image" width="200" height="200" class="input image-input w-full border-0">
-
-              <input v-on:change="imgURL" type="file" label="File input" @change="uploadImg">
+            <input v-on:change="imgURL" class="image" alt="event image" type="file" label="File input" width="200" height="200" @change="uploadImg">
 
 
 
@@ -83,7 +77,7 @@
 
             <!-- button that adds event -->
             <div class="control">
-              <button @click="" :disabled="addEventParameters.uploadBtnDisabled" class="button2 mt-5">Add</button>
+              <button @click="" :disabled="addEventParameters.uploadBtnDisabled" class="button2 mt-10">Add</button>
             </div>
 
           </p>
@@ -98,17 +92,27 @@
         <div class="card-content mb-4">
           <div class="content p-2 w-full border-0 py-1.5 pl-7 pr-20" :class="{ 'has-background-success' : event.done}">
               <div class="column mt-5" :class="{ 'has-text-success' : event.done }">
-                  {{ event.artist }}
-                  {{ event.date }}
-                  {{ event.venue }}
-                  {{ event.imgURL }}
-                  {{ event.genre }}
-                  {{ event.des }}
-                  {{ event.urlSales }}
-                  {{ event.ageGroup }}
-                  {{ event.price }}
+                <div class="pb-4">
+                  <p> {{ event.artist }} </p>
+                 <p> {{ event.date }} </p>
+                 <p> {{ event.venue }} </p>
+                </div>
+                  
+                <div>
+                  <p> {{ event.genre }} </p>
+                  <p> {{ event.des }} </p>
+                  <p> {{ event.urlSales }} </p>
+                  <p>{{ event.ageGroup }} </p>
+                  <p> {{ event.price }} </p>
+                </div>
+                
+                  
+                  
+                  
+                  
 
               </div>
+              <img :src="event.imgURL">
               <div class="y-n-buttons">
                 <!-- add button -->
                 <button @click="toggleDone(event.id)" class="button mt-5 mr-2 mb-2" :class="event.done ? 'is-success' : 'is-not-yet-success'">
@@ -137,8 +141,8 @@
   
   <script setup>
   // imports
-  import { onMounted, reactive } from 'vue'
-  import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
+  import { onMounted, ref } from 'vue'
+  import { getStorage, ref as refFB, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
   import { 
     collection, onSnapshot,   
     addDoc, doc, deleteDoc, updateDoc, 
@@ -148,7 +152,7 @@
 
   // importing modules
   import genres from '@/modules/useGenres' 
-  import address from '@/modules/useAddress' 
+  import venues from '@/modules/useVenues' 
 
   const storage = getStorage();
   
@@ -190,18 +194,6 @@
   
   
   // storing which parameters that will react to "add" button
-  // let addEventParameters = reactive ({
-  //   newEventArtist : '',
-  //   newEventDate : '',
-  //   newEventVenue : '',
-  //   newEventDes : '',
-  //   newEventUrlSales : '',
-  //   newEventAgeGroup : '',
-  //   newEventPrice : '',
-  //   newEventGenre : '',
-  //   imgURL : '',
-  //   uploadBtnDisabled: true,
-  // })
     
   const addEventParameters = () => {
     newEventArtist
@@ -227,7 +219,7 @@
   const newEventPrice = ref('')
   const newEventGenre = ref('')
   const imgURL = ref('')
-  const uploadBtnDisabled = ref('')
+  const uploadBtnDisabled = ref('true')
 
   
   // adding a new event to the list with content
@@ -313,7 +305,7 @@ const metadata = {
 
 
 // Upload file and metadata to the object 'images/mountains.jpg'
-const storageRef = ref(storage, 'images/' + file.name);
+const storageRef = refFB(storage, 'images/' + file.name);
 const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
 
@@ -356,8 +348,8 @@ uploadTask.on('state_changed',
     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
       console.log('File available at', downloadURL);
 
-      addEventParameters.imgURL = downloadURL // update variable imgURL and put the image URL link in it. 
-      addEventParameters.uploadBtnDisabled = false // enable button after image uploaded is complete
+      imgURL.value = downloadURL // update variable imgURL and put the image URL link in it. 
+      uploadBtnDisabled.value = false // enable button after image uploaded is complete
     });
   }  
 );
@@ -416,6 +408,10 @@ uploadTask.on('state_changed',
   
   .control ::placeholder {
     color: var(--black-text);
+  }
+
+  .image {
+    color: var(--white-text);
   }
 
   /* button styling for add + check and cross */
@@ -509,7 +505,7 @@ uploadTask.on('state_changed',
     align-items: center;
   }
 
-  .address-menu {
+  .venue-menu {
     color: var(--black-text);
   }
 
