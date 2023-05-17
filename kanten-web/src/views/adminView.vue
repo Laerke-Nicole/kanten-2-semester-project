@@ -93,9 +93,10 @@
           <div class="content p-2 w-full border-0 py-1.5 pl-7 pr-20" :class="{ 'has-background-success' : event.done}">
               <div class="column mt-5" :class="{ 'has-text-success' : event.done }">
                 <div class="pb-4">
+                  <img :src="event.imgURL">
                   <p> {{ event.artist }} </p>
-                 <p> {{ event.date }} </p>
-                 <p> {{ event.venue }} </p>
+                  <p> {{ event.date }} </p>
+                  <p> {{ event.venue }} </p>
                 </div>
                   
                 <div>
@@ -112,7 +113,7 @@
                   
 
               </div>
-              <img :src="event.imgURL">
+              
               <div class="y-n-buttons">
                 <!-- add button -->
                 <button @click="toggleDone(event.id)" class="button mt-5 mr-2 mb-2" :class="event.done ? 'is-success' : 'is-not-yet-success'">

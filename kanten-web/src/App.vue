@@ -132,9 +132,31 @@ const handleSignOut = () => {
     </Dialog>
   </header>
 
+  <!-- footer -->
+  <footer>
+    <div class="primary-background-img">
+      <div>
+        <h2>Kanten</h2>
+        <p>GL NOVRUPVEJ 14, 6705 ESBJERG Ø</p>
+        <p>+45 28  97 11 85</p>
+        <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+        <p>COPYRIGHT KANTEN 2022</p>
+      </div>
 
-
-
+      <div>
+        <div>
+          <img src="" alt="kanten logo">
+        </div>
+        <div>
+          <div>
+            <img src="" alt="facebook logo">
+            <img src="" alt="instagram logo">
+            <img src="" alt="discord logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
 
