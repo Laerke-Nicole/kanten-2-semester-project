@@ -1,14 +1,14 @@
 <template>
   <!-- front page -->
   <div class="front-page primary-background-img">
-    <div class="">
+    <div class="front-page-top">
       <p>For unge drevet af unge</p>
       <h1>Kommende events</h1>
     </div>
 
     <!-- sorting in events -->
     <div class="sorting-events">
-      <p>Kalender</p>
+      <p class="sorting-event-p">Kalender</p>
       <p>Genre</p>
       <p>Artister</p>
       <p>Event</p>
@@ -88,11 +88,36 @@
 
 <script setup>
 // imports
-import addEvent from '@/views/AdminView.vue' 
+import event from '@/views/AdminView.vue' 
 
 
 </script>
 
+
 <style scoped>
+.front-page {
+  padding-top: 50px;
+  padding-left: 10%;
+}
+
+.front-page-top h1 {
+  font-size: 70px;
+  line-height: 1;
+  padding-bottom: 12px;
+}
+
+.sorting-events {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 40px;
+}
+
+.sorting-events p {
+  padding: 0 5% 0 5%;
+}
+
+.sorting-event-p {
+  padding-left: 0 !important;
+}
 
 </style>

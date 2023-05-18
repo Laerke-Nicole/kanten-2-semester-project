@@ -38,7 +38,7 @@
             </div>
 
             <select v-model="newEventVenue" class="venue-dropdopwn w-full border-0 py-1.5 pl-6 pr-20">
-                <option class="venue-menu" v-for="venue in venues" :key="place">
+                <option class="venue-menu" v-for="venue in venues" :key="venue">
                   <p>{{ venue.venue }}</p>
                 </option>
               </select>

@@ -10,6 +10,36 @@
 }
 
 
+/* background images */
+.primary-background-img{
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/primary-img.jpg?alt=media&token=60f1a4d5-d484-42c4-807c-9f32551877dc');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.secondary-background-img {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/secondary-img.jpg?alt=media&token=cf401050-a933-4ebc-833a-78887cf410f8');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.secondary-background-img-light {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/secondary-img-light.jpg?alt=media&token=ea0579bf-0680-48dd-9564-5d47fae0345f');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tertiary-background-img {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/tertiary-img.jpg?alt=media&token=9380b573-4687-43e0-97cc-c859584426a3');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
 /*styling button*/
 button {
   transition: 0.3s;

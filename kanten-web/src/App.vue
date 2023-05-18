@@ -1,7 +1,7 @@
 <script setup>
 // imports
 import { RouterLink, RouterView } from 'vue-router'
-// import HelloWorld from './components/HelloWorld.vue'
+
 
 import { onMounted, ref } from 'vue'
 import { collection, onSnapshot } from 'firebase/firestore';
@@ -65,24 +65,29 @@ const handleSignOut = () => {
 
 <template>
 
-<header class="bg-white">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 mt-0">
-      <div class="flex lg:flex-1">
+<!-- <header class="bg-white"> -->
+
+    <!-- navigation on big screen -->
+    <!-- <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"> -->
+
+      <!-- logo in top left corner -->
+      <!-- <div class="flex lg:flex-1">
         <RouterLink to='/'>
           <div class="pl-10">
             <img class="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart-small.svg?alt=media&token=33e9c95c-fad9-4827-ae1e-5032e7d9070d" alt="" />
           </div>
-          
-
         </RouterLink>
-        
-      </div>
-      <div class="flex lg:hidden">
+      </div> -->
+
+      <!-- hamburgebar icon -->
+      <!-- <div class="flex lg:hidden">
         <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = true">
           <Bars3Icon class="h-6 w-6" aria-hidden="true" />
         </button>
-      </div>
-      <PopoverGroup class="hidden lg:flex lg:gap-x-12">
+      </div> -->
+
+      <!-- links in navigation -->
+      <!-- <PopoverGroup class="hidden lg:flex lg:gap-x-12">
         <RouterLink to='/'>Events</RouterLink>
         <RouterLink to='/about'>Om Kanten</RouterLink>
         <RouterLink to='/volounteers'>De frivillige</RouterLink>
@@ -90,27 +95,36 @@ const handleSignOut = () => {
         <RouterLink to='/feed'>Feed</RouterLink>
         <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
         <RouterLink to='/admin'>Admin</RouterLink>
-      </PopoverGroup>
+      </PopoverGroup> -->
 
       
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <!-- right side with log in system -->
+      <!-- <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <RouterLink to='/sign-in'>Log ind</RouterLink>
         <RouterLink to='/register'>Register</RouterLink>
       </div>
-    </nav>
-    <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
+    </nav> -->
+
+    
+    <!-- mobile navigation -->
+    <!-- <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
       <div class="fixed inset-0 z-10" />
-      <DialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-        <div class="flex items-center justify-between">
-          <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">Your Company</span>
+      <DialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"> -->
+
+        <!-- top part with Kantens logo -->
+        <!-- <div class="flex items-center justify-between">
+          <RouterLink to='/' class="-m-1.5 p-1.5">
             <img class="h-8 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart-small.svg?alt=media&token=33e9c95c-fad9-4827-ae1e-5032e7d9070d" alt="kanten-logo" />
-          </a>
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
+          </RouterLink> -->
+
+          <!-- x button to close menu -->
+          <!-- <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
             <XMarkIcon class="h-6 w-6" aria-hidden="true" />
           </button>
-        </div>
-        <div class="mt-6 flow-root">
+        </div> -->
+
+        <!-- links in hamburger menu -->
+        <!-- <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
               <RouterLink to='/' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Events</RouterLink>
@@ -120,58 +134,23 @@ const handleSignOut = () => {
               <RouterLink to='/feed' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Feed</RouterLink>
               <button @click="handleSignOut" v-if="isLoggedIn" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sign out</button>
               <RouterLink to='/admin' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Admin</RouterLink>
-            </div>
+            </div> -->
 
-            <div class="py-6">
+            <!-- log in in hamburger menu -->
+            <!-- <div class="py-6">
               <RouterLink to='/sign-in' class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log ind</RouterLink>
               <RouterLink to='/register' class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Register</RouterLink>
             </div>
           </div>
         </div>
       </DialogPanel>
-    </Dialog>
-  </header>
-
-  <!-- footer -->
-  <footer>
-    <div class="primary-background-img">
-      <div>
-        <h2>Kanten</h2>
-        <p>GL NOVRUPVEJ 14, 6705 ESBJERG Ø</p>
-        <p>+45 28  97 11 85</p>
-        <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
-        <p>COPYRIGHT KANTEN 2022</p>
-      </div>
-
-      <div>
-        <div>
-          <img src="" alt="kanten logo">
-        </div>
-        <div>
-          <div>
-            <img src="" alt="facebook logo">
-            <img src="" alt="instagram logo">
-            <img src="" alt="discord logo">
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </Dialog> -->
+  <!-- </header> -->
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-  <!-- <header>
+  <header>
     <img alt='Vue logo' class='logo' src='@/assets/logo.svg' width='125' height='125' />
 
     <div class='wrapper'>
@@ -190,72 +169,100 @@ const handleSignOut = () => {
 
       </nav>
     </div>
-  </header> -->
+  </header>
 
+  
   <RouterView />
+  <!-- footer -->
+  <footer>
+    <div class="footer primary-background-img">
+      <div class="footer-information">
+        <h2>Kanten</h2>
+        <p>GL NOVRUPVEJ 14, 6705 ESBJERG Ø</p>
+        <p>+45 28  97 11 85</p>
+        <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+        <p class="last-p">COPYRIGHT KANTEN 2022</p>
+      </div>
+
+      <div class="footer-socials">
+        <div class="footer-logo">
+          <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart.svg?alt=media&token=44a06326-7c9a-47a5-bc7b-cc03f6a6af6f" alt="">
+        </div>
+        <div>
+          <div class="socials-logo">
+            <RouterLink to="//www.facebook.com/kanten.esbjerg/" target="_blank">
+              <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/facebook-logo.svg?alt=media&token=7d6d5851-a412-4c26-9a61-2f63764b2285" alt="facebook logo">
+            </RouterLink>
+            <RouterLink to="//www.instagram.com/kanten_esbjerg/" target="_blank">
+              <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/instagram-logo.svg?alt=media&token=d5cc537a-36c3-455c-80f0-4427def5fad5" alt="instagram logo">
+            </RouterLink>
+            <RouterLink to="//discord.gg/x9gEQyUn" target="_blank">
+              <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/discord-logo.svg?alt=media&token=7e359cc2-56f9-4186-9edf-6806f4f3f0d1" alt="discord logo">
+            </RouterLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding-bottom: 70px;
+  padding-top: 50px;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.footer-information {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  width: 50%;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-
+.footer-information h2 {
+  color: var(--black-headline);
+  font-size: 60px;
+  line-height: 1;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.footer-information p {
+  padding-bottom: 8px;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.last-p {
+  padding: 0 !important;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.footer-socials {
+  padding-left: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 50%;
 }
 
-nav a:first-of-type {
-  border: 0;
+.footer-logo {
+  padding-bottom: 50px;
+  padding-left: 25%;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.footer-logo img {
+  height: 70px;
 }
+
+.socials-logo {
+  display: flex;
+  gap: 14px;
+}
+
+.socials-logo img {
+  height: 45px;
+}
+
+
+
 </style>
