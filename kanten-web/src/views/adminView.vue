@@ -370,9 +370,11 @@ uploadTask.on('state_changed',
 
 
   <style scoped>
-
-  .event-list {
+    .event-list {
+    max-width: 400px;
+    padding: 150px 0 70px 120px;
     display: flex;
+    flex-direction: column;
   }
 
   h1 {
@@ -385,13 +387,6 @@ uploadTask.on('state_changed',
   }
 
   /* whole event list parameters */
-  .event-list {
-    max-width: 400px;
-    padding: 70px 0 70px 120px;
-    display: flex;
-    flex-direction: column;
-  }
-  
   .field {
     display: flex;
     padding-bottom: 70px;

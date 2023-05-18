@@ -97,8 +97,7 @@ button {
 }
 
 .button1:hover {
-  transition: 0.3s;
-  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%, 0 41%);
+  clip-path: var(--edge-button);
 }
 
 
@@ -128,8 +127,7 @@ button {
 }
 
 .button2:hover {
-  transition: 0.3s;
-  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%, 0 41%);
+  clip-path: var(--edge-button);
 }
 
 

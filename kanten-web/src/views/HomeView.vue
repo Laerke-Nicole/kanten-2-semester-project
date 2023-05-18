@@ -109,7 +109,7 @@ import events from '@/views/AdminView.vue'
 <style scoped>
 /* front page */
 .front-page {
-  padding: 50px 0 40px 10%;
+  padding: 150px 0 40px 10%;
 }
 
 .front-page-top h1 {
@@ -138,7 +138,7 @@ import events from '@/views/AdminView.vue'
 
 /* event  */
 .event {
-  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 0 12%);
+  clip-path: var(--edge-box);
 }
 
 
@@ -185,7 +185,7 @@ import events from '@/views/AdminView.vue'
 }
 
 .news-letter-card {
-  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 0 12%);
+  clip-path: var(--edge-box);
   padding: 50px 0 50px 10%;
   display: flex;
   flex-direction: column;
@@ -196,7 +196,7 @@ import events from '@/views/AdminView.vue'
   display: flex;
   flex-direction: column;
   width: 60%;
-  background-color: transparent;
+  background-color: var(--white-headline);
   outline: none;
   box-shadow: 0px 10px 20px -18px;
   border: 2px solid var(--black-text);
@@ -207,6 +207,11 @@ import events from '@/views/AdminView.vue'
 .news-letter-card input::placeholder {
   color: var(--black-text);
   font-family: var(--text-font);
+}
+
+.news-letter-card input {
+  font-family: var(--text-font);
+  color: var(--black-headline);
 }
 
 .news-letter-buttom {

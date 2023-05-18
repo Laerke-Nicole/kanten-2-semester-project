@@ -23,15 +23,14 @@
 
 
   /* hover color */
-  --primary-hover: #fbc8a9;
-  --secondary-hover: #914211;
+  --hover-color: #b66c43;
 
   /*color for text*/
   --white-headline: #f9f9f9; /*color used for background and text*/
-  --white-text: #f9f9f9;
+  --white-text: #f3f3f3;
 
   --black-headline: #333333;
-  --black-text: #404040;
+  --black-text: #444444;
 
   /*background color*/
   --background-color: #333333;
@@ -40,9 +39,18 @@
   --red-cross: #ef4444;
   --green-check: #4ade80;
   --green-check-box: #dcfce7;
+}
 
+/* clip path */
+:root {
+  /* for boxes */
+--edge-box: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 0 12%);
+
+/* for buttons */
+--edge-button: polygon(18% 0, 100% 0, 100% 100%, 0 100%, 0 41%);
 
 }
+
 
 *,
 *::before,
