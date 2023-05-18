@@ -17,68 +17,79 @@
 
 
   <div class="events-list secondary-background-img">
-    <!-- loop with event -->
-    <div class="event primary-background-img">
+      <!-- loop with event -->
+      <div class="event primary-background-img" v-for="event in events" :key="event">
 
-      <!-- image -->
-      <div>
-        <img :src="event.imgURL">
-      </div>
+        <!-- image -->
+        <div>
+          <img :src="event.imgURL" alt="event image">
+        </div>
 
-      <!-- shown information -->
-      <div>
+        <!-- shown information -->
+        <div>
+          
+          <!-- make one about type with music, this and this -->
+          <p>{{ event.type }}</p>
+          <h3>{{ event.artist }}</h3>
+          <h5>{{ event.date }}</h5>
+        </div>
         
-        <!-- make one about type with music, this and this -->
-        <p>{{ event.type }}</p>
-        <h3>{{ event.artist }}</h3>
-        <h5>{{ event.date }}</h5>
+        <!-- loop images for each genre -->
+        <!-- change to logo for genre -->
+        <div>
+          <img :src="event.logo" alt="genre logo">
+        </div>
       </div>
-      
-      <!-- loop images for each genre -->
-      <!-- change to logo for genre -->
-      <div>
-        <img :src="event.logo" alt="genre logo">
-      </div>
-    </div>
+
   </div>
 
-  <div class="comment-section primary-background-img">
-    <div>
-      <div>
-        <h2>Hvad synes andre om Kanten</h2>
-        <p>Læs andre folks oplevelse på vores Discord server <br>
-          eller skriv hvad du synes om Kanten</p>
+  <!-- comment section -->
+  <div class="primary-background-img">
+    <div class="divider">
+        <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/section-divider.svg?alt=media&token=d7049148-7ea7-43f8-9895-2478464b257b" alt="wave">
       </div>
 
-      <div>
-        <button>
-          <p>Kommentarer</p>
-        </button>
+    <div class="comment-section">
+      <div class="comment-section-left">
+        <div class="comment-section-text">
+          <h2>Hvad synes andre om Kanten</h2>
+          <p>Læs andre folks oplevelse på vores Discord server <br>
+            eller skriv hvad du synes om Kanten</p>
+        </div>
+
+        <div class="comment-section-button">
+          <button class="button1">Kommentarer</button>
+        </div>
+      </div>
+
+      <!-- right side of comment section -->
+      <div class="comment-section-right">
+        <div class="comment-section-discord-logo">
+          <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/discord-logo.svg?alt=media&token=7e359cc2-56f9-4186-9edf-6806f4f3f0d1" alt="discord logo">
+        </div>
       </div>
     </div>
-    <div>
-      <div>
-        <img src="" alt="discord logo">
-      </div>
-    </div>
+    
   </div>
 
+
+  <!-- news letter section -->
   <div class="news-letter tertiary-background-img">
     <div class="news-letter-card primary-background-img">
       <div>
         <h2>Nyhedsbrev</h2>
       </div>
-      <div>
-        <input type="text">
-        <input type="text">
+      <div class="news-letter-form">
+        <input class="input" name="name" placeholder="Dit navn" type="name">
+        <input class="input" name="email" placeholder="Din mailadresse" type="email">      
       </div>
 
-      <div>
-        <div>
-          <p>Få straks at vide om nye events, og artister i Kanten</p>
+      <div class="news-letter-buttom">
+        <div class="news-letter-botton">
+          <button class="button1">Tilmeld</button>
         </div>
         <div>
-          <button></button>
+          <p>Få straks at vide om<br>nye events og artister i Kanten</p>
         </div>
       </div>
     </div>
@@ -89,27 +100,25 @@
 <script setup>
 // imports
 import event from '@/views/AdminView.vue' 
+import events from '@/views/AdminView.vue' 
 
 
 </script>
 
 
 <style scoped>
+/* front page */
 .front-page {
-  padding-top: 50px;
-  padding-left: 10%;
+  padding: 50px 0 40px 10%;
 }
 
 .front-page-top h1 {
-  font-size: 70px;
-  line-height: 1;
   padding-bottom: 12px;
 }
 
 .sorting-events {
   display: flex;
   flex-direction: row;
-  padding-bottom: 40px;
 }
 
 .sorting-events p {
@@ -118,6 +127,93 @@ import event from '@/views/AdminView.vue'
 
 .sorting-event-p {
   padding-left: 0 !important;
+}
+
+
+/* event list */
+.events-list {
+  width: 100%;
+  padding: 50px 10%;
+}
+
+/* event  */
+.event {
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 0 12%);
+}
+
+
+/* comment section */
+.comment-section {
+  display: flex;
+}
+
+.divider {
+  height: 0;
+}
+
+/* left side of comment side */
+
+.comment-section-left {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 110px 0 50px 10%;
+}
+
+.comment-section-button {
+  padding-top: 24px;
+}
+
+/* right side of comment side */
+.comment-section-right {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-section-right img {
+  width: 100px;
+}
+
+
+/* newsletter */
+.news-letter {
+  width: 100%;
+  padding: 50px 10%;
+  justify-content: center;
+}
+
+.news-letter-card {
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 0 12%);
+  padding: 50px 0 50px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-letter-card input {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: transparent;
+  outline: none;
+  box-shadow: 0px 10px 20px -18px;
+  border: 2px solid var(--black-text);
+  padding: 10px 0 10px 25px;
+  margin: 12px 0;
+}
+
+.news-letter-card input::placeholder {
+  color: var(--black-text);
+  font-family: var(--text-font);
+}
+
+.news-letter-buttom {
+  display: flex;
+  flex-direction: row;
+  padding-top: 14px;
+  gap: 24px;
 }
 
 </style>

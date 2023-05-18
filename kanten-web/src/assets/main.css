@@ -40,6 +40,39 @@
 }
 
 
+/*styling text*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--headline-font);
+  color: var(--black-headline);
+  line-height: 1;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 45px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 16px;
+  color: var(--black-text);
+  font-family: var(--text-font);
+}
+
+/* making all p responsive for smaller screens */
+@media only screen and (max-width: 850px) {
+  p {
+    font-size: 15px;
+  }
+}
+
+
 /*styling button*/
 button {
   transition: 0.3s;
@@ -50,7 +83,8 @@ button {
   background-color:var(--primary-color);
   position: relative;
   color: var(--white-text);
-  padding: 10px 50px;
+  font-size: 16px;
+  padding: 10px 30px;
   cursor: pointer;
   border: 0;
   transition: 0.3s;

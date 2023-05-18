@@ -238,16 +238,17 @@ const handleSignOut = () => {
 }
 
 .footer-socials {
-  padding-left: 25%;
+  padding-left: 10%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-logo {
   padding-bottom: 50px;
-  padding-left: 25%;
 }
 
 .footer-logo img {
