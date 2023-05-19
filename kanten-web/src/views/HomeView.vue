@@ -18,7 +18,7 @@
 
   <div class="events-list secondary-background-img">
       <!-- loop with event -->
-      <div class="event primary-background-img" v-for="event in events" :key="event">
+      <div v-for="event in events" :key="event" class="event primary-background-img" >
 
         <!-- image -->
         <div>
@@ -27,9 +27,7 @@
 
         <!-- shown information -->
         <div>
-          
-          <!-- make one about type with music, this and this -->
-          <p>{{ event.type }}</p>
+          <p>{{ event.category }}</p>
           <h3>{{ event.artist }}</h3>
           <h5>{{ event.date }}</h5>
         </div>
@@ -93,6 +91,12 @@
         </div>
       </div>
     </div>
+  </div>
+
+
+  <div>
+    <RouterLink to='/event' class="button1"><button>Event page</button></RouterLink>
+    
   </div>
 
 </template>
@@ -199,7 +203,7 @@ import events from '@/views/AdminView.vue'
   background-color: var(--white-headline);
   outline: none;
   box-shadow: 0px 10px 20px -18px;
-  border: 2px solid var(--black-text);
+  border: 2px solid var(--primary-color);
   padding: 10px 0 10px 25px;
   margin: 12px 0;
 }

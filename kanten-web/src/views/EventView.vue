@@ -1,4 +1,7 @@
 <template>
+    <div v-for="event in events" :key="event">
+
+    </div>
     <div class="front-img">
         <img :src="event.imgURL">
         <div>
@@ -64,7 +67,6 @@
         <div>
             <div>
                 <h2>Om {{ event.artist }}</h2>
-                <!-- make artist description -->
                 <p>{{ event.artistDec }}</p>
             </div>
             <div>
@@ -80,7 +82,9 @@
 
 <script setup>
 // imports
-import addEvent from '@/views/AdminView.vue' 
+import event from '@/views/AdminView.vue' 
+import events from '@/views/AdminView.vue' 
+
 
 </script>
 
