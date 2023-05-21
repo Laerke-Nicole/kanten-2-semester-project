@@ -1,6 +1,6 @@
 <template>
-    <div class="login-page">
-        <form class="form">
+    <div class="login-page tertiary-background-img">
+        <form class="form primary-background-img">
             <h3 class="form-title">Opret en bruger</h3>
             <div class="display: flex gap-1">
                 <p>Allerede medlem?</p>
@@ -55,7 +55,8 @@ const register = () => {
 .login-page {
     display: flex;
     justify-content: center;
-    padding: 200px 10% 200px 10%;
+    height: 100vh;
+    padding: 150px 10% 120px 10%;
 }
 
 .form {
@@ -90,7 +91,7 @@ const register = () => {
   box-shadow: 0px 10px 20px -18px;
   border: 2px solid var(--primary-color);
   padding: 10px 0 10px 25px;
-  margin: 12px 0;
+  margin: 6px 0;
 }
 
 .input-container input::placeholder {

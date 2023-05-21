@@ -1,6 +1,6 @@
 <template>
-    <div class="login-page">
-        <form class="form">
+    <div class="login-page tertiary-background-img">
+        <form class="form primary-background-img">
             <h3 class="form-title">Log ind</h3>
             <div class="input-container">
                 <p><input type="text" placeholder="E-mail" v-model="email"></p>
@@ -13,7 +13,7 @@
             <RouterLink to='/'><p class="underline text-right">Glemt adgangskode?</p></RouterLink>
             
             <p class="signup-link mt-7">Ingen bruger?</p>
-            <RouterLink to='/'><p class="underline">Opret en bruger</p></RouterLink> 
+            <RouterLink to='/register'><p class="underline">Opret en bruger</p></RouterLink> 
         </form>
     </div>
 
@@ -63,13 +63,14 @@ const register = () => {
 .login-page {
     display: flex;
     justify-content: center;
-    padding: 200px 10% 200px 10%;
+    padding: 150px 10% 70px 10%;
 }
 
 .form {
   background-color: var(--secondary-color);
   display: block;
   padding: 1rem;
+  padding-bottom: 2rem;
   max-width: 350px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
@@ -98,7 +99,7 @@ const register = () => {
   box-shadow: 0px 10px 20px -18px;
   border: 2px solid var(--primary-color);
   padding: 10px 0 10px 25px;
-  margin: 12px 0;
+  margin: 6px 0;
 }
 
 .input-container input::placeholder {
