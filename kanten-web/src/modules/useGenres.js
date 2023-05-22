@@ -3,11 +3,11 @@ import { ref } from 'vue'
   const genres = ref([
     {
       id: 'genre_one',
-      genre: 'DEFT',
+      genre: 'MANA CLUB',
     },
     {
       id: 'genre_two',
-      genre: 'MANA CLUB',
+      genre: 'DEFT',
     },
     {
       id: 'genre_three',

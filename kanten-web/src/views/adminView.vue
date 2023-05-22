@@ -417,8 +417,6 @@ uploadTask.on('state_changed',
 }
 
 
-  
-
 
 </script>
   

@@ -3,11 +3,11 @@ import { ref } from 'vue'
  const venues = ref([
     {
       id: 'venue_one',
-      venue: 'FINSENSGADE 1, 6700 ESBJERG',
+      venue: 'Finsensgade 1, 6700 Esbjerg',
     },
     {
       id: 'venue_two',
-      venue: 'GL NOVRUPVEJ 14, 6705 ESBJERG',
+      venue: 'GL Novrupvej 14, 6705 Esbjerg',
     },
   ])
 

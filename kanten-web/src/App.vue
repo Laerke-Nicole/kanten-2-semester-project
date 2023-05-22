@@ -92,7 +92,6 @@ const handleSignOut = () => {
         <RouterLink to='/about'>Om Kanten</RouterLink>
         <RouterLink to='/volounteers'>De frivillige</RouterLink>
         <RouterLink to='/contact'>Kontakt</RouterLink>
-        <RouterLink to='/feed'>Feed</RouterLink>
         <button @click="handleSignOut" v-if="isLoggedIn">Log ud</button>
         <RouterLink to='/admin'>Admin</RouterLink>
       </PopoverGroup>
@@ -101,7 +100,7 @@ const handleSignOut = () => {
       <!-- right side with log in system -->
       <div class="log-in-system hidden lg:flex lg:flex-1 lg:justify-end">
         <RouterLink to='/sign-in'>Log ind</RouterLink>
-        <RouterLink to='/register'>Register</RouterLink>
+        <!-- <RouterLink to='/register'>Register</RouterLink> -->
       </div>
     </nav>
 
@@ -131,14 +130,13 @@ const handleSignOut = () => {
               <RouterLink to='/about' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Om Kanten</RouterLink>
               <RouterLink to='/volounteers' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">De frivillige</RouterLink>
               <RouterLink to='/contact' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Kontakt</RouterLink>
-              <RouterLink to='/feed' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Feed</RouterLink>
               <RouterLink to='/admin' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Admin</RouterLink>
             </div>
 
             <!-- log in in hamburger menu -->
             <div class="hamburgermenu-buttom-content py-6">
               <RouterLink to='/sign-in' class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log ind</RouterLink>
-              <RouterLink to='/register' class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Register</RouterLink>
+              <!-- <RouterLink to='/register' class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Register</RouterLink> -->
               <button @click="handleSignOut" v-if="isLoggedIn" class="button1 mt-3">Log ud</button>
             </div>
           </div>

@@ -35,7 +35,7 @@ const logIn = () => {
     signInWithEmailAndPassword(getAuth(), email.value, password.value)
     .then((data) => {
         console.log('Successfuly signed in!', data);
-        router.push('/feed') //redirect to the feed
+        router.push('/admin') //redirect to the admin
     })
     .catch((error) => {
         console.log(error.code);

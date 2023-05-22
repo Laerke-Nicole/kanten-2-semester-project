@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="login-page tertiary-background-img">
         <form class="form primary-background-img">
             <h3 class="form-title">Opret en bruger</h3>
@@ -107,4 +107,4 @@ const register = () => {
 
 
 
-</style>
+</style> -->
