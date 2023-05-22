@@ -93,12 +93,6 @@
     </div>
   </div>
 
-
-  <div>
-    <RouterLink to='/event' class="button1"><button>Event page</button></RouterLink>
-    
-  </div>
-
 </template>
 
 <script setup>

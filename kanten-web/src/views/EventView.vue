@@ -1,8 +1,18 @@
 <template>
     <div v-for="event in events" :key="event">
+       
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       
+        test: {{ event }}
 
-    </div>
-    <div class="front-img">
+        
+
+            <div class="front-img">
         <img :src="event.imgURL">
         <div>
             <p>{{ event.genre }}</p>
@@ -11,7 +21,7 @@
         <div>
             <p> {{ event.date }} </p>
             <div>
-                <!-- change to logo for genre -->
+
                 <img :src="event.logo">
             </div>
         </div>
@@ -26,7 +36,7 @@
                         <h3>{{ event.artist }}</h3>
                     </div>
                     <div>
-                        <RouterLink to={{ event.urlSales }}><button>Gratis billetter</button></RouterLink>
+                        <a :href="event.urlSales" target="_blank"><button>Gratis billetter</button></a>
                     </div>
                 </div>
             </div>
@@ -48,7 +58,7 @@
     </div>
 
     <div>
-        <!-- type event fx musik, osv -->
+
         <h2>{{ event.type }} starter</h2>
         <div>
             <div>
@@ -74,19 +84,90 @@
             </div>
         </div>
     </div>
+        
+    </div>  
+    
 
     <div class="collage primary-background-img">
         
     </div>
 </template>
 
+
+  
 <script setup>
 // imports
-import event from '@/views/AdminView.vue' 
-import events from '@/views/AdminView.vue' 
+import { onMounted, ref } from 'vue'
+import { getStorage, ref as refFB } from 'firebase/storage'
+import { 
+  collection, onSnapshot,   
+
+  query, orderBy
+} from 'firebase/firestore';
+import { db } from '@/firebase'
+
+// importing modules
+import dates from '@/modules/useDates'
+import months from '@/modules/useMonths'
+import categories from '@/modules/useCategories'
+import genres from '@/modules/useGenres' 
+import venues from '@/modules/useVenues' 
+
+const storage = getStorage();
+
+// firebase refs
+const eventsCollectionRef = collection(db, 'events')
+
+// order the events
+const eventsCollectionQuery = query(eventsCollectionRef, orderBy("order", "desc"));
+
+
+
+// events
+const events = ref([
+ 
+])
+
+
+
+
+
+// get events - writes out the value we wrote in the input onto the event itself
+onMounted(() => {
+  onSnapshot(eventsCollectionQuery, (querySnapshot) => {
+    const fbEvents = [];
+    querySnapshot.forEach((doc) => {
+      const event = {
+        id: doc.id,
+        artist: doc.data().artist,
+        artistDes: doc.data().artistDes,
+        date: doc.data().date,
+        month: doc.data().month,
+        time: doc.data().time,
+        venue: doc.data().venue,
+        des: doc.data().des,
+        urlSales: doc.data().urlSales,
+        ageGroup: doc.data().ageGroup,
+        price: doc.data().price,
+        category: doc.data().category,
+        genre: doc.data().genre,
+        imgURL: doc.data().imgURL,
+        done: doc.data().done,
+      }
+      fbEvents.push(event)
+    });
+    events.value = fbEvents
+    console.log("test: ", fbEvents)
+  });
+})
+
+
+
+  
 
 
 </script>
+  
 
 <style scoped>
 

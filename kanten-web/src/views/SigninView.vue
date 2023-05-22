@@ -8,16 +8,17 @@
             <div class="input-container">
                 <p><input type="password" placeholder="Adgangskode" v-model="password"></p>
                 <p v-if="errMsg">{{ errMsg }}</p>
-                </div>
-                <p><button @click="register" type="submit" class="button1">Log ind</button></p>
-            <RouterLink to='/'><p class="underline text-right">Glemt adgangskode?</p></RouterLink>
+            </div>
+                <p><button @click.prevent="logIn" type="submit" class="button1">Log ind</button></p>
+            <!-- <RouterLink to='/'><p class="underline text-right">Glemt adgangskode?</p></RouterLink> -->
             
-            <p class="signup-link mt-7">Ingen bruger?</p>
-            <RouterLink to='/register'><p class="underline">Opret en bruger</p></RouterLink> 
+            <!-- <p class="signup-link mt-7">Ingen bruger?</p>
+            <RouterLink to='/register'><p class="underline">Opret en bruger</p></RouterLink>  -->
         </form>
     </div>
 
 </template>
+
 
 <script setup>
 import { ref } from "vue";
@@ -29,10 +30,11 @@ const password = ref("");
 const errMsg = ref() //ERROR MESSAGE
 const router = useRouter() //get a reference to our vue router
 
-const register = () => {
+const logIn = () => {
+    console.log("set")
     signInWithEmailAndPassword(getAuth(), email.value, password.value)
     .then((data) => {
-        console.log('Successfuly signed in!');
+        console.log('Successfuly signed in!', data);
         router.push('/feed') //redirect to the feed
     })
     .catch((error) => {
@@ -58,6 +60,7 @@ const register = () => {
 
 
 </script>
+
 
 <style scoped>
 .login-page {

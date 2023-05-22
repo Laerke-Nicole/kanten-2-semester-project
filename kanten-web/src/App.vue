@@ -93,7 +93,7 @@ const handleSignOut = () => {
         <RouterLink to='/volounteers'>De frivillige</RouterLink>
         <RouterLink to='/contact'>Kontakt</RouterLink>
         <RouterLink to='/feed'>Feed</RouterLink>
-        <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
+        <button @click="handleSignOut" v-if="isLoggedIn">Log ud</button>
         <RouterLink to='/admin'>Admin</RouterLink>
       </PopoverGroup>
 
@@ -139,7 +139,7 @@ const handleSignOut = () => {
             <div class="hamburgermenu-buttom-content py-6">
               <RouterLink to='/sign-in' class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log ind</RouterLink>
               <RouterLink to='/register' class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Register</RouterLink>
-              <button @click="handleSignOut" v-if="isLoggedIn" class="button1 mt-3">Sign out</button>
+              <button @click="handleSignOut" v-if="isLoggedIn" class="button1 mt-3">Log ud</button>
             </div>
           </div>
         </div>
@@ -163,9 +163,12 @@ const handleSignOut = () => {
       </div>
 
       <div class="footer-socials">
-        <div class="footer-logo">
-          <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart.svg?alt=media&token=44a06326-7c9a-47a5-bc7b-cc03f6a6af6f" alt="">
-        </div>
+        <RouterLink to='/'>
+          <div class="footer-logo">
+            <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart.svg?alt=media&token=44a06326-7c9a-47a5-bc7b-cc03f6a6af6f" alt="">
+          </div>
+        </RouterLink>
+        
         <div>
           <div class="socials-logo">
             <RouterLink to="//www.facebook.com/kanten.esbjerg/" target="_blank">
@@ -195,6 +198,7 @@ header {
 nav a {
   color: var(--black-headline);
   font-family: var(--text-font);
+  transition: 0.3s;
 }
 
 nav a:hover {
@@ -208,6 +212,11 @@ nav a.router-link-exact-active {
 .hamburgermenu-box a {
   color: var(--black-headline);
   font-family: var(--text-font);
+  transition: 0.3s;
+}
+
+.hamburgermenu-box a:hover {
+  color: var(--hover-color);
 }
 
 .hamburgermenu-box a.router-link-exact-active {
@@ -283,6 +292,11 @@ nav a.router-link-exact-active {
 
 .socials-logo img {
   height: 45px;
+  transition: 0.3s;
+}
+
+.socials-logo img:hover {
+  scale: 1.1;
 }
 
 
