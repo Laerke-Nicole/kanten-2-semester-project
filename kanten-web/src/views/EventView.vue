@@ -134,6 +134,7 @@ import months from '@/modules/useMonths'
 import categories from '@/modules/useCategories'
 import genres from '@/modules/useGenres' 
 import venues from '@/modules/useVenues' 
+import AdminView from './AdminView.vue';
 
 const storage = getStorage();
 
@@ -183,9 +184,9 @@ onMounted(() => {
   });
 })
 
-
-
   
+
+
 
 
 </script>
@@ -265,6 +266,7 @@ onMounted(() => {
 .ticket-box-left {
     display: flex;
     flex-direction: column;
+    padding-right: 200px;
 }
 
 .ticket-box-left h3 {
@@ -286,6 +288,10 @@ onMounted(() => {
 
 .des-box{
     width: 50%;
+}
+
+.des-box h2 {
+    padding-right: 15%;
 }
 
 .des-box p {
@@ -366,7 +372,93 @@ onMounted(() => {
 }
  
 
+/* responsive */
+@media only screen and (max-width: 1200px) {
+    .ticket-box-left {
+    padding-right: 350px;
+    }
+}
 
+@media only screen and (max-width: 1140px) {
+    .ticket-box-left {
+    padding-right: 300px;
+    }
+}
+
+@media only screen and (max-width: 1070px) {
+    .ticket-box-left {
+    padding-right: 250px;
+    }
+}
+
+@media only screen and (max-width: 985px) {
+    .ticket-box-left {
+    padding-right: 200px;
+    }
+}
+
+@media only screen and (max-width: 905px) {
+    .ticket-box-left {
+    padding-right: 150px;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .ticket-box-left {
+    padding-right: 120px;
+    }
+
+    .des-box h2 {
+        font-size: 36px;
+    }
+
+    .location-box h2 {
+        font-size: 36px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .collage-images {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .ticket-box h3{
+        font-size: 50px;
+    }
+    .ticket-box-left {
+    padding-right: 110px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .ticket-box-info {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .ticket-box-right {
+        justify-content: flex-start;
+        align-self: flex-start;
+        padding-top: 12px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+  .event-start h2 {
+    font-size: 45px;
+  }  
+
+  .event-start p {
+    font-size: 28px;
+  }  
+}
+
+
+
+
+/* end responsive */
 
 
 </style>

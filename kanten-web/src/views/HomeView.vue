@@ -7,19 +7,46 @@
     </div>
 
     <!-- sorting in events -->
-    <div class="sorting-events">
-      <p class="sorting-event-p">Kalender</p>
-      <p>Genre</p>
-      <p>Artister</p>
-      <p>Event</p>
+    <div class="sorting-events flex flex-row">
+        <a href=""><p class="sorting-event-p">Event</p></a>
+        <a href=""><p>Kalender</p></a>
+        <a href=""><p>Genre</p></a>
     </div>
+
+    <!-- <div class="btn-container flex flex-col">
+      <div class="flex">
+        <div v-for="category in categories" :key="category" class="category-list">
+          <button type="button" class="filter-btn" data-id="shakes">
+            <p>{{ category.category }}</p>
+          </button> 
+        </div>
+      </div>
+      
+      <div class="flex">
+        <div v-for="month in months" :key="month" class="category-list">
+          <button type="button" class="filter-btn" data-id="shakes">
+            <p>{{ month.month }}</p>
+          </button> 
+        </div>
+      </div>
+      
+      <div class="flex">
+        <div v-for="genre in genres" :key="genre" class="category-list">
+          <button type="button" class="filter-btn" data-id="shakes">
+            <p>{{ genre.genre }}</p>
+          </button> 
+        </div>
+      </div>
+      
+    </div> -->
   </div>
 
 
   <div class="events-list-background secondary-background-img">
       <!-- loop with event -->
-      <RouterLink to='/event'>
-        <div v-for="event in events" :key="event" class="event-list primary-background-img" >
+      <RouterLink :to="{ name: 'event', params: { id: events.id }}">
+       
+        <div v-for="event in events" :key="event" class="event-list primary-background-img">
 
         <!-- image -->
         <div class="event-card-img">
@@ -62,7 +89,10 @@
         </div>
         -->
         </div>
+      
       </RouterLink>
+     
+    
       
 
 
@@ -121,7 +151,7 @@
         <div class="news-letter-botton">
           <button class="button1">Tilmeld</button>
         </div>
-        <div>
+        <div class="news-letter-buttom-p">
           <p>Få straks at vide om<br>nye events og artister i Kanten</p>
         </div>
       </div>
@@ -199,6 +229,18 @@ onMounted(() => {
 
 
 
+// sorting
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
@@ -211,7 +253,7 @@ onMounted(() => {
 }
 
 .front-page-top h1 {
-  padding-bottom: 12px;
+  padding-bottom: 6px;
 }
 
 .sorting-events {
@@ -219,12 +261,18 @@ onMounted(() => {
   flex-direction: row;
 }
 
-.sorting-events p {
-  padding: 0 5% 0 5%;
+.sorting-events a {
+  margin: 0 5% 0 5%;
+  margin-left: 0 !important;
 }
 
-.sorting-event-p {
-  padding-left: 0 !important;
+.sorting-events p {
+  padding: 6px;
+}
+
+.sorting-events p:hover {
+  color: var(--hover-color);
+
 }
 
 
@@ -244,6 +292,7 @@ onMounted(() => {
 /* event  */
 .event {
   padding: 50px 0;
+  
 }
 
 .event-card-img {
@@ -295,7 +344,7 @@ onMounted(() => {
 .comment-section-left {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  /* width: 60%; */
   padding: 12% 0 70px 10%;
 }
 
@@ -368,5 +417,128 @@ onMounted(() => {
   background-color: red;
   color: red;
 } */
+
+
+
+
+
+
+
+/* responsive  */
+@media only screen and (max-width: 930px) {
+  .event-card-img img {
+    height: 150px;
+  }
+
+  .event-list h3 {
+    font-size: 60px
+  }
+  
+
+  .event-card-date {
+    padding-top: 30px;
+  }
+
+  .event-list h5 {
+    font-size: 30px;
+  }
+}
+
+ 
+
+@media only screen and (max-width: 780px) {
+  .news-letter-form input {
+    width: 80%;
+  }
+
+  .news-letter-buttom {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .event-card-img {
+    padding: 30px 0 40px 10%;
+  }
+
+  .event-card-content {
+    padding-top: 30px;
+  }
+
+  .event-card-img img {
+    height: 125px;
+  }
+
+  .event-list h3 {
+    font-size: 45px;
+    padding-top: 6px;
+  }
+
+  .event-card-date {
+    padding-top: 40px;
+  }
+
+  .event-list h5 {
+    font-size: 18px;
+  }
+
+  .comment-section-left {
+    padding-top: 20%;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .event-card-img img {
+    height: 100px;
+  }
+
+  .event-list h3 {
+    font-size: 40px;
+    transform: scaleY(1.2);
+    padding-top: 4px;
+  }
+
+  .event-card-date {
+    padding-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .comment-section h2 {
+    font-size: 36px;
+  }
+
+  .comment-section p {
+    padding-right: 10%;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .event-list h3 {
+    font-size: 30px;
+    transform: scaleY(1.4);
+  }
+
+  .event-card-date {
+    padding-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .front-page-top h1 {
+    font-size: 50px;
+  }
+}
+
+
+
+/* responsive end */
+
+
+
+
+
+
 
 </style>

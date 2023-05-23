@@ -302,4 +302,40 @@ nav a.router-link-exact-active {
 
 
 
+
+
+/* responsive  */
+
+@media only screen and (max-width: 680px) {
+    .footer {
+      flex-direction: column;
+      padding: 10%;
+      align-items: flex-start;
+    }
+
+    .footer-information {
+      padding: 0;
+    }
+
+    .footer-socials {
+      padding-top: 60px;
+      padding-left: 0;
+    }
+
+    .footer-logo {
+      padding-bottom: 32px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .footer {
+      padding: 10%;
+      align-items: flex-start;
+    }
+}
+
+/* responsive end */
+
+
+
 </style>

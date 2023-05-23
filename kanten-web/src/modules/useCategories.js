@@ -2,10 +2,10 @@ import { ref } from 'vue'
 
   const categories = ref([
     {
-      category: 'Musik',
+      category: "Musik",
     },
     {
-      category: 'Kulturarrangement',
+      category: "Kulturarrangement",
     },
   ])
 

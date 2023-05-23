@@ -58,7 +58,7 @@
             <p>Select a venue in the dropdown: </p>
           </div>
 
-          <select v-model="newEventVenue" class="venue-dropdopwn border-0 py-1.5 pl-6 pr-20">
+          <select v-model="newEventVenue" class="venue-dropdown border-0 py-1.5 pl-6 pr-20">
               <option class="venue-menu" v-for="venue in venues" :key="venue">
                 <p>{{ venue.venue }}</p>
               </option>
@@ -74,13 +74,13 @@
           <input v-model="newEventAgeGroup" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="age" placeholder="Add a target group age">
 
           <!-- price -->
-          <input v-model="newEventPrice" type="text" name="price" class=" price border-0 py-1.5 pl-7 pr-20" placeholder="0.00 DKK"/>
+          <input v-model="newEventPrice" type="text" name="price" class="price border-0 py-1.5 pl-7 pr-20" placeholder="0.00 DKK"/>
 
           <!-- category -->
           <div class="top-dropdown-p">
             <p>Select a category in the dropdown: </p>
           </div>
-          <select v-model="newEventCategory" class="border-0 py-1.5 pl-6 pr-20">
+          <select v-model="newEventCategory" class="category border-0 py-1.5 pl-6 pr-20">
             <option v-for="category in categories" :key="category">
               <p>{{ category.category }}</p>
             </option> 
@@ -605,6 +605,140 @@ h4 {
   margin-bottom: 12px;
 }
 
+
+
+
+
+
+/* responsive  */
+
+@media only screen and (max-width: 860px) {
+  .control .input {
+    width: 400px;
+  }
+
+  .content {
+    width: 400px;
+  }
+
+  .date-dropdown {
+    display: flex;
+    flex-direction: column !important;
+    gap: 0px;
+  }
+
+  .date-dropdown select {
+    width: 400px;
+    margin-bottom: 6px;
+  }
+
+  .date-dropdown input {
+    width: 400px;
+  }
+
+  .venue-dropdown {
+    width: 400px;
+  }
+
+  .price {
+    width: 400px;
+  }
+
+  .category {
+    width: 400px;
+  }
+
+  .genres {
+    width: 400px;
+  }
+
+}
+
+@media only screen and (max-width: 550px) {
+  .control .input {
+    width: 300px;
+  }
+
+  .content {
+    width: 300px;
+  }
+
+  .date-dropdown {
+    display: flex;
+    flex-direction: column !important;
+    gap: 0px;
+  }
+
+  .date-dropdown select {
+    width: 300px;
+    margin-bottom: 6px;
+  }
+
+  .date-dropdown input {
+    width: 300px;
+  }
+
+  .venue-dropdown {
+    width: 300px;
+  }
+
+  .price {
+    width: 300px;
+  }
+
+  .category {
+    width: 300px;
+  }
+
+  .genres {
+    width: 300px;
+  }
+
+}
+
+
+@media only screen and (max-width: 390px) {
+  .control .input {
+    width: 270px;
+  }
+
+  .content {
+    width: 270px;
+  }
+
+  .date-dropdown {
+    display: flex;
+    flex-direction: column !important;
+    gap: 0px;
+  }
+
+  .date-dropdown select {
+    width: 270px;
+    margin-bottom: 6px;
+  }
+
+  .date-dropdown input {
+    width: 270px;
+  }
+
+  .venue-dropdown {
+    width: 270px;
+  }
+
+  .price {
+    width: 270px;
+  }
+
+  .category {
+    width: 270px;
+  }
+
+  .genres {
+    width: 270px;
+  }
+
+}
+/* responsive end */
 
 
 
