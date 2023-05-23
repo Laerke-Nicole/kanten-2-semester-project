@@ -92,14 +92,13 @@ const handleSignOut = () => {
         <RouterLink to='/about'>Om Kanten</RouterLink>
         <RouterLink to='/volounteers'>De frivillige</RouterLink>
         <RouterLink to='/contact'>Kontakt</RouterLink>
-        <button @click="handleSignOut" v-if="isLoggedIn">Log ud</button>
-        <RouterLink to='/admin'>Admin</RouterLink>
       </PopoverGroup>
 
       
       <!-- right side with log in system -->
       <div class="log-in-system hidden lg:flex lg:flex-1 lg:justify-end">
         <RouterLink to='/sign-in'>Log ind</RouterLink>
+        <button @click="handleSignOut" v-if="isLoggedIn" class="button1 signout mt-3">Log ud</button>
         <!-- <RouterLink to='/register'>Register</RouterLink> -->
       </div>
     </nav>
@@ -130,7 +129,6 @@ const handleSignOut = () => {
               <RouterLink to='/about' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Om Kanten</RouterLink>
               <RouterLink to='/volounteers' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">De frivillige</RouterLink>
               <RouterLink to='/contact' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Kontakt</RouterLink>
-              <RouterLink to='/admin' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Admin</RouterLink>
             </div>
 
             <!-- log in in hamburger menu -->
@@ -223,6 +221,7 @@ nav a.router-link-exact-active {
 
 .log-in-system {
   gap: 16px;
+  align-items: center;
 }
 
 .hamburgermenu-top-content {
@@ -233,6 +232,10 @@ nav a.router-link-exact-active {
   font-size: 16px;
   color: var(--black-text);
   font-family: var(--text-font);
+}
+
+.signout {
+  margin: 0;
 }
 
 

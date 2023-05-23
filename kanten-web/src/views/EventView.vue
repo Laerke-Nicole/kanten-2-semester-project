@@ -2,6 +2,7 @@
     <div v-for="event in events" :key="event">
         <div class="front-img">
             <img :src="event.imgURL">
+
             <div class="front-img-text">
                 <div class="front-img-top">
                     <p>{{ event.genre }}</p>
