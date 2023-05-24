@@ -254,6 +254,7 @@ onMounted(() => {
 
 .front-page-top h1 {
   padding-bottom: 6px;
+  font-size: 80px;
 }
 
 .sorting-events {
@@ -383,7 +384,7 @@ onMounted(() => {
 .news-letter-card input {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 40%;
   background-color: var(--white-headline);
   outline: none;
   box-shadow: 0px 10px 20px -18px;
@@ -523,13 +524,18 @@ onMounted(() => {
   .event-card-date {
     padding-top: 30px;
   }
+
+  .front-page-top h1 {
+    font-size: 60px;
+  }
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 420px) {
   .front-page-top h1 {
     font-size: 50px;
   }
 }
+
 
 
 
