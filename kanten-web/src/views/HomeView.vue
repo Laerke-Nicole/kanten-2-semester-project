@@ -146,13 +146,22 @@
         <h2>Nyhedsbrev</h2>
       </div>
       <div class="news-letter-form">
-        <input class="input" name="name" placeholder="Dit navn" type="name">
-        <input class="input" name="email" placeholder="Din mailadresse" type="email">      
+        <!-- <input class="input" name="name" placeholder="Dit navn" type="name">
+        <input class="input" name="email" placeholder="Din mailadresse" type="email">    
+         -->
+        
+        <!-- mailchimp -->
+        <div class="mc-field-group">
+          <input type="text" value="" name="FNAME" placeholder="Dit navn" class="" id="mce-FNAME">
+        </div>
+        <div class="mc-field-group">
+          <input type="email" value="" name="EMAIL" placeholder="Din mailadresse" class="required email" id="mce-EMAIL" required>
+        </div>
       </div>
 
       <div class="news-letter-buttom">
         <div class="news-letter-botton">
-          <button class="button1">Tilmeld</button>
+          <button type="submit" value="Tilmeld" name="subscribe" id="mc-embedded-subscribe" class="button1">Tilmeld</button>
         </div>
         <div class="news-letter-buttom-p">
           <p>Få straks at vide om<br>nye events og artister i Kanten</p>
@@ -413,7 +422,9 @@ onMounted(() => {
   gap: 24px;
 }
 
-
+#mc-embedded-subscribe {
+  margin: 0;
+}
 
 
 
@@ -552,3 +563,6 @@ onMounted(() => {
 
 
 </style>
+
+
+
