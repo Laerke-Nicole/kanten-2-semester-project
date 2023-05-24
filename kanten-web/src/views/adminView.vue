@@ -96,6 +96,12 @@
               <p>{{ genre.genre }}</p>
             </option> 
           </select>
+
+          <!-- <select v-model="newEventGenre" class="genres border-0 py-1.5 pl-6 pr-20">
+            <option class="genre" v-for="genre in genres" :value="genre.genre" :key="genre">
+                <img :src="genres.logo" alt="">
+            </option> 
+          </select> -->
         
 
           <!-- image -->
@@ -136,6 +142,7 @@
                 
               <div>
                 <p> {{ event.genre }} </p>
+                <img :src="event.logo">
                 <p> {{ event.des }} </p>
                 <p>{{ event.ageGroup }} </p>
                 <p> {{ event.price }} </p>
@@ -235,7 +242,6 @@ const events = ref([
 
 
 // storing which parameters that will react to "add" button
-  
 const addEventParameters = () => {
   newEventArtist
   newEventArtistDes
@@ -415,6 +421,9 @@ uploadTask.on('state_changed',
   }  
 );
 }
+
+
+
 
 
 
@@ -604,7 +613,6 @@ h4 {
   color: var(--white-text);
   margin-bottom: 12px;
 }
-
 
 
 

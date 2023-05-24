@@ -12,9 +12,11 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/event',
+      path: '/event/:id',
       name: 'event',
       component: () => import('../views/EventView.vue'),
+      props:true
+
     },
     {
       path: '/register',

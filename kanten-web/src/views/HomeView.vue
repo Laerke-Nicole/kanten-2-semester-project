@@ -44,53 +44,56 @@
 
   <div class="events-list-background secondary-background-img">
       <!-- loop with event -->
-      <RouterLink :to="{ name: 'event', params: { id: events.id }}">
+      
        
-        <div v-for="event in events" :key="event" class="event-list primary-background-img">
-
-        <!-- image -->
-        <div class="event-card-img">
-          <img :src="event.imgURL" alt="event image">
-        </div>
-
-        <!-- shown information -->
-        <div class="event-card-content">
-          <p>{{ event.category }}</p>
-          <h3>{{ event.artist }}</h3>
-
-          <div class="event-card-date"> 
-            <h5>{{ event.date }}</h5>
-            <h5>{{ event.month }}</h5>
-            <h5>{{ event.time }}</h5>
-          </div>
-        </div>
-
-        <!-- <div v-if="genres.genre == 'MANA CLUB'">
-          <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/mana-club-text.svg?alt=media&token=6cabf297-be39-43c2-a6f3-3af9d0ab7bf3" alt="genre logo">
-        </div> -->
-
-        <!-- show logo for genre -->
-        <!-- <div class="event-card-genre-logos">
-            <div v-if="event.genre === 'MANA CLUB'">
-              <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/mana-club-text.svg?alt=media&token=6cabf297-be39-43c2-a6f3-3af9d0ab7bf3" alt="genre logo">
+        <div v-for="event in events" :key="event">
+          <RouterLink :to="{ name: 'event', params: { id: event.id }}">
+            <div class="event-list primary-background-img">
+            <!-- image -->
+            <div class="event-card-img">
+              <img :src="event.imgURL" alt="event image">
             </div>
 
-            <div v-else="genre.value == 'DEFT'">
-              <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/deft-text.svg?alt=media&token=6fefdb95-87ab-4abb-a776-8b436235b4b6" alt="genre logo">
+            <!-- shown information -->
+            <div class="event-card-content">
+              <p>{{ event.category }}</p>
+              <h3>{{ event.artist }}</h3>
+
+              <div class="event-card-date"> 
+                <h5>{{ event.date }}</h5>
+                <h5>{{ event.month }}</h5>
+                <h5>{{ event.time }}</h5>
+              </div>
             </div>
 
-            <div v-else="genre.value == 'VERTEX'">
-              <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/vertex-text.svg?alt=media&token=42be8067-5452-4209-8678-cd08f5b22429" alt="genre logo">
-            </div>
 
-            <div v-else="genre.value == 'X-MASSIVE DUB'">
-              <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/x-massive-dub-text.svg?alt=media&token=d6cbe42d-5c89-4fad-b9c1-75e410fd8466" alt="genre logo">
+
+
+
+            <!-- show logo for genre -->
+            <!-- <div class="event-card-genre-logos">
+                <div v-if="genres.genre === 'MANA CLUB'">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/mana-club-text.svg?alt=media&token=6cabf297-be39-43c2-a6f3-3af9d0ab7bf3" alt="genre logo">
+                </div>
+
+                <div v-else-if="genres.genre === 'DEFT'">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/deft-text.svg?alt=media&token=6fefdb95-87ab-4abb-a776-8b436235b4b6" alt="genre logo">
+                </div>
+
+                <div v-else-if="genres.genre === 'VERTEX'">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/vertex-text.svg?alt=media&token=42be8067-5452-4209-8678-cd08f5b22429" alt="genre logo">
+                </div>
+
+                <div v-else="genres.genre === 'X-MASSIVE DUB'">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/x-massive-dub-text.svg?alt=media&token=d6cbe42d-5c89-4fad-b9c1-75e410fd8466" alt="genre logo">
+                </div>
+            </div> -->
             </div>
-        </div>
-        -->
+        
+      </RouterLink>
         </div>
       
-      </RouterLink>
+     
      
     
       
@@ -418,6 +421,7 @@ onMounted(() => {
   background-color: red;
   color: red;
 } */
+
 
 
 

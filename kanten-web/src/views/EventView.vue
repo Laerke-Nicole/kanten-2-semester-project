@@ -1,7 +1,27 @@
 <template>
+
+    <!-- <div v-if="events">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>{{ events.artist }}</p>
+        <p>{{ events.genre }}</p>
+        
+    </div> -->
+
     <div v-for="event in events" :key="event">
         <div class="front-img">
-            <img :src="event.imgURL">
+            <div>
+                <img :src="event.imgURL">
+            </div>
+            
 
             <div class="front-img-text">
                 <div class="front-img-top">
@@ -184,10 +204,6 @@ onMounted(() => {
   });
 })
 
-  
-
-
-
 
 </script>
   
@@ -199,9 +215,12 @@ onMounted(() => {
 
 .front-img img {
     width: 100%;
+    height: auto;
+    position: absolute;
 }
 
 .front-img-text {
+    height: 81vh;
     padding-left: 10%;
     display: flex;
     flex-direction: column;
@@ -211,6 +230,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    padding-top: 80px;
 }
 
 .front-img-top p {
@@ -233,6 +253,7 @@ onMounted(() => {
 .front-img-bottom {
     display: flex;
     flex-direction: row;
+    padding-top: 30vh;
 }
 
 .front-img-date {
@@ -266,7 +287,7 @@ onMounted(() => {
 .ticket-box-left {
     display: flex;
     flex-direction: column;
-    padding-right: 200px;
+    padding-right: 400px;
 }
 
 .ticket-box-left h3 {
@@ -306,7 +327,7 @@ onMounted(() => {
 /* eventet starter */
 .event-start {
     padding: 50px 10%;
-    background-color: rgb(87, 71, 177);
+    background-color: var(--background-color);
 }
 
 .event-start h2 {
@@ -372,6 +393,8 @@ onMounted(() => {
 }
  
 
+
+
 /* responsive */
 @media only screen and (max-width: 1200px) {
     .ticket-box-left {
@@ -418,6 +441,26 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 800px) {
+    .about-content-box {
+        flex-direction: column-reverse;
+    }
+
+    .about-left{
+        width: 100%;
+        padding-top: 0px;
+        padding-bottom: 70px;
+    }
+
+    .about-right {
+        padding-top: 50px;
+        padding-bottom: 24px;
+        width: 100%;
+    }
+
+    .about-right img {
+        width: 100%;
+    }
+
     .collage-images {
         flex-direction: column;
     }
