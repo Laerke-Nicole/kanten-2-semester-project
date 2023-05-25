@@ -206,32 +206,7 @@ const eventsCollectionQuery = query(eventsCollectionRef, orderBy("order", "desc"
 
 // events
 const events = ref([
-  // {
-  //   id: 'id1',
-  //   date: '',
-  //   venue: '',
-  //   artist: '',
-  //   description: '',
-  //   url_sales: '',
-  //   category: '',
-  //   genre: '',
-  //   price: '',
-  //   image: '',
-  //   done: false,
-  // },
-  // {
-  //   id: 'id2',
-  //   date: '',
-  //   venue: '',
-  //   artist: '',
-  //   description: '',
-  //   url_sales: '',
-  //   category: '',
-  //   genre: '',
-  //   price: '',
-  //   image: '',
-  //   done: true,
-  // },
+
 ])
 
 

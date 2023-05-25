@@ -133,6 +133,62 @@
     </div>
   </div>
 
+
+
+<div class="news-letter tertiary-background-img">
+  <div id="mc_embed_signup" class="news-letter-card primary-background-img">
+    <form action="https://easv365.us21.list-manage.com/subscribe/post?u=3e04c9aa23d2cf67b4490960e&amp;id=27f0872f15&amp;v_id=112&amp;f_id=007f54e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Nyhedsbrev</h2>
+
+        <div class="indicates-required"><span class="asterisk">*</span> angiver påkrævet</div>
+
+        <div class="mc-field-group news-letter-form">
+          <label for="mce-FNAME">Dit navn </label>
+          <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+          <span id="mce-FNAME-HELPERTEXT" class="helper_text"></span>
+        </div>
+
+          <div class="mc-field-group">
+            <label for="mce-EMAIL">Din mailadresse  <span class="asterisk">*</span>
+            </label>
+            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+            <span id="mce-EMAIL-HELPERTEXT" class="helper_text">Din mailadresse</span>
+          </div>
+          
+          <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
+            <div class="content__gdpr">
+              <label>Markedsføringstilladelser</label>
+              <p>Venligst godkend at få tilsendt nyhedsbrev pr mail.</p>
+              <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
+                <label class="checkbox subfield" for="gdpr_1167"><input type="checkbox" id="gdpr_1167" name="gdpr[1167]" value="Y" class="av-checkbox "><span>Jeg godkender at få tilsendt emails</span> </label>
+              </fieldset>
+              <p>Du kan altid afmelde dit nyhedsbrev ved at klikke på linket i footeren af vores emails. </p>
+            </div>
+            <div class="content__gdprLegal">
+              <p>Vi bruger Mailchimp som vores marketingplatform. Ved at klikke nedenfor for at abonnere, anerkender du, at dine oplysninger vil blive overført til Mailchimp til behandling. <a href="https://mailchimp.com/legal/terms" target="_blank">Lær mere om Mailchimps privatlivspolitik her. </a></p>
+            </div>
+          </div>
+          <div id="mce-responses" class="clear foot">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+          </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_3e04c9aa23d2cf67b4490960e_27f0872f15" tabindex="-1" value=""></div>
+          <div class="optionalParent">
+            <div class="clear foot">
+              <input type="submit" value="Tilmeld" name="subscribe" id="mc-embedded-subscribe" class="button1 button">
+              <p class="brandingLogo"><a href="http://eepurl.com/irYdf-" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
+            </div>
+          </div>
+      </div>
+    </form>
+  </div>
+
+  <!--End mc_embed_signup-->
+</div>
+
+
+
 </template>
 
  
@@ -335,7 +391,6 @@ onMounted(() => {
 .news-letter {
   width: 100%;
   padding: 50px 10%;
-  justify-content: center;
 }
 
 .news-letter-card {
@@ -344,6 +399,22 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.mc-field-group {
+  padding: 0 !important;
+}
+
+.mc-field-group input {
+  background-color: var(--white-headline) !important;
+  outline: none !important;
+  box-shadow: 0px 10px 20px -18px !important;
+  border: 2px solid var(--primary-color) !important;
+}
+
+.helper_text {
+  background-color: transparent !important;
+  color: var(--black-text) !important;
 }
 
 .news-letter-card input {
