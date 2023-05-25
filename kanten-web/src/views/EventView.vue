@@ -15,8 +15,12 @@
         <p>{{ events.genre }}</p>
         
     </div> -->
+    test:
+ <div v-for="event in events">
 
-    <div v-for="event in events" :key="event">
+    test singleitem:{{ event.id }}
+</div>
+    <div v-for="event in eventSingleItem" :key="event">
         <div class="front-img">
             <div>
                 <img :src="event.imgURL">
@@ -139,7 +143,7 @@
   
 <script setup>
 // imports
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { getStorage, ref as refFB } from 'firebase/storage'
 import { 
   collection, onSnapshot,   
@@ -167,9 +171,11 @@ const eventsCollectionQuery = query(eventsCollectionRef, orderBy("order", "desc"
 
 
 // events
-const events = ref([
+let events = ref([
  
 ])
+
+console.log("events ref", events)
 
 
 
@@ -202,6 +208,15 @@ onMounted(() => {
     events.value = fbEvents
     console.log("test: ", fbEvents)
   });
+})
+
+
+
+const eventSingleItem = computed(() => {
+   
+  //debugger
+  //console.log("test id", events.value[0])
+      return events.value.filter(item => item.id == "1op6Nq7I4MuXsHwhIozU")
 })
 
 
