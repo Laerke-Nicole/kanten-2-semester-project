@@ -104,88 +104,52 @@
 
   <!-- news letter section -->
   <div class="news-letter tertiary-background-img">
-    <div class="news-letter-card primary-background-img">
-      <div>
-        <h2>Nyhedsbrev</h2>
-      </div>
-      <div class="news-letter-form">
-        <!-- <input class="input" name="name" placeholder="Dit navn" type="name">
-        <input class="input" name="email" placeholder="Din mailadresse" type="email">    
-         -->
-        
-        <!-- mailchimp -->
-        <div class="mc-field-group">
-          <input type="text" value="" name="FNAME" placeholder="Dit navn" class="" id="mce-FNAME">
-        </div>
-        <div class="mc-field-group">
-          <input type="email" value="" name="EMAIL" placeholder="Din mailadresse" class="required email" id="mce-EMAIL" required>
-        </div>
-      </div>
+    <div id="mc_embed_signup" class="news-letter-card primary-background-img">
+      <form action="https://easv365.us21.list-manage.com/subscribe/post?u=3e04c9aa23d2cf67b4490960e&amp;id=27f0872f15&amp;v_id=112&amp;f_id=007f54e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+          <h2>Nyhedsbrev</h2>
 
-      <div class="news-letter-buttom">
-        <div class="news-letter-botton">
-          <button type="submit" value="Tilmeld" name="subscribe" id="mc-embedded-subscribe" class="button1">Tilmeld</button>
+          <div class="indicates-required"><span class="asterisk">*</span> angiver påkrævet</div>
+
+          <div class="mc-field-group news-letter-form">
+            <label for="mce-FNAME">Dit navn </label>
+            <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+          </div>
+
+            <div class="mc-field-group">
+              <label for="mce-EMAIL">Din mailadresse  <span class="asterisk">*</span>
+              </label>
+              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+            </div>
+            
+            <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
+              <div class="content__gdpr">
+                <p class="pt-6">Venligst godkend at få tilsendt nyhedsbrev pr mail.</p>
+                <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
+                  <label class="checkbox subfield" for="gdpr_1167"><input type="checkbox" id="gdpr_1167" name="gdpr[1167]" value="Y" class="av-checkbox "><span>Jeg godkender at få tilsendt emails</span> </label>
+                </fieldset>
+                <p class="pb-2 text-sm">Du kan altid afmelde dit nyhedsbrev ved at klikke på linket i footeren af vores emails. </p>
+              </div>
+              <div class="content__gdprLegal pb-5">
+                <p class="text-sm">Vi bruger Mailchimp som vores marketingplatform. Ved at klikke nedenfor for at abonnere, anerkender du, at dine oplysninger vil blive overført til Mailchimp til behandling. <a href="https://mailchimp.com/legal/terms" target="_blank" class="underline">Lær mere om Mailchimps privatlivspolitik her. </a></p>
+              </div>
+            </div>
+            <div id="mce-responses" class="clear foot">
+              <div class="response" id="mce-error-response" style="display:none"></div>
+              <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_3e04c9aa23d2cf67b4490960e_27f0872f15" tabindex="-1" value=""></div>
+            <div class="optionalParent">
+              <div class="clear foot">
+                <input type="submit" value="Tilmeld" name="subscribe" id="mc-embedded-subscribe" class="button1 button">
+                <p class="brandingLogo"><a href="http://eepurl.com/irYdf-" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
+              </div>
+            </div>
         </div>
-        <div class="news-letter-buttom-p">
-          <p>Få straks at vide om<br>nye events og artister i Kanten</p>
-        </div>
-      </div>
+      </form>
     </div>
+    <!--End mc_embed_signup-->
   </div>
-
-
-
-<div class="news-letter tertiary-background-img">
-  <div id="mc_embed_signup" class="news-letter-card primary-background-img">
-    <form action="https://easv365.us21.list-manage.com/subscribe/post?u=3e04c9aa23d2cf67b4490960e&amp;id=27f0872f15&amp;v_id=112&amp;f_id=007f54e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-      <div id="mc_embed_signup_scroll">
-        <h2>Nyhedsbrev</h2>
-
-        <div class="indicates-required"><span class="asterisk">*</span> angiver påkrævet</div>
-
-        <div class="mc-field-group news-letter-form">
-          <label for="mce-FNAME">Dit navn </label>
-          <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
-          <span id="mce-FNAME-HELPERTEXT" class="helper_text"></span>
-        </div>
-
-          <div class="mc-field-group">
-            <label for="mce-EMAIL">Din mailadresse  <span class="asterisk">*</span>
-            </label>
-            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
-            <span id="mce-EMAIL-HELPERTEXT" class="helper_text">Din mailadresse</span>
-          </div>
-          
-          <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
-            <div class="content__gdpr">
-              <label>Markedsføringstilladelser</label>
-              <p>Venligst godkend at få tilsendt nyhedsbrev pr mail.</p>
-              <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
-                <label class="checkbox subfield" for="gdpr_1167"><input type="checkbox" id="gdpr_1167" name="gdpr[1167]" value="Y" class="av-checkbox "><span>Jeg godkender at få tilsendt emails</span> </label>
-              </fieldset>
-              <p>Du kan altid afmelde dit nyhedsbrev ved at klikke på linket i footeren af vores emails. </p>
-            </div>
-            <div class="content__gdprLegal">
-              <p>Vi bruger Mailchimp som vores marketingplatform. Ved at klikke nedenfor for at abonnere, anerkender du, at dine oplysninger vil blive overført til Mailchimp til behandling. <a href="https://mailchimp.com/legal/terms" target="_blank">Lær mere om Mailchimps privatlivspolitik her. </a></p>
-            </div>
-          </div>
-          <div id="mce-responses" class="clear foot">
-            <div class="response" id="mce-error-response" style="display:none"></div>
-            <div class="response" id="mce-success-response" style="display:none"></div>
-          </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_3e04c9aa23d2cf67b4490960e_27f0872f15" tabindex="-1" value=""></div>
-          <div class="optionalParent">
-            <div class="clear foot">
-              <input type="submit" value="Tilmeld" name="subscribe" id="mc-embedded-subscribe" class="button1 button">
-              <p class="brandingLogo"><a href="http://eepurl.com/irYdf-" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
-            </div>
-          </div>
-      </div>
-    </form>
-  </div>
-
-  <!--End mc_embed_signup-->
-</div>
 
 
 
@@ -395,14 +359,27 @@ onMounted(() => {
 
 .news-letter-card {
   clip-path: var(--edge-box);
-  padding: 50px 0 50px 10%;
+  padding: 50px 10% 50px 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+#mc_embed_signup_scroll h2 {
+  font-size: 45px !important;
+  margin: 0 !important;
+}
+
+.indicates-required {
+  color: var(--black-text);
+  font-size: 14px !important;
+  font-family: var(--text-font);
+}
+
 .mc-field-group {
   padding: 0 !important;
+  color: var(--black-headline);
+  font-family: var(--text-font);
 }
 
 .mc-field-group input {
@@ -410,47 +387,31 @@ onMounted(() => {
   outline: none !important;
   box-shadow: 0px 10px 20px -18px !important;
   border: 2px solid var(--primary-color) !important;
-}
-
-.helper_text {
-  background-color: transparent !important;
-  color: var(--black-text) !important;
-}
-
-.news-letter-card input {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  background-color: var(--white-headline);
-  outline: none;
-  box-shadow: 0px 10px 20px -18px;
-  border: 2px solid var(--primary-color);
-  padding: 10px 0 10px 25px;
-  margin: 12px 0;
-}
-
-.news-letter-card input::placeholder {
-  color: var(--black-text);
-  font-family: var(--text-font);
-}
-
-.news-letter-card input {
-  font-family: var(--text-font);
-  color: var(--black-headline);
-}
-
-.news-letter-buttom {
-  display: flex;
-  flex-direction: row;
-  padding-top: 14px;
-  gap: 24px;
+  border-radius: 0 !important;
+  margin: 4px 0;
 }
 
 #mc-embedded-subscribe {
   margin: 0;
 }
 
-
+.button1 {
+  background-color:var(--primary-color) !important;
+  color: var(--white-text) !important;
+  font-size: 16px !important;
+  padding: 10px 30px !important;
+  margin-bottom: 12px !important;
+  cursor: pointer;
+  border: 0 !important;
+  transition: 0.3s !important;
+  font-family: var(--text-font) !important;
+  font-size: 16px !important;
+  overflow: hidden;
+  text-align: center !important;
+  z-index: 1 !important;
+  border-radius: 0 !important;
+  height: auto !important;
+}
 
 /* .genre_one {
   background-color: red;
@@ -484,6 +445,11 @@ onMounted(() => {
   }
 }
 
+@media only screen and (max-width: 850px) {
+  .button1 {
+    font-size: 15px !important;
+  }
+}
  
 
 @media only screen and (max-width: 780px) {
@@ -526,6 +492,10 @@ onMounted(() => {
   .comment-section-left {
     padding-top: 20%;
   }
+
+  #mc_embed_signup_scroll h2 {
+  font-size: 35px !important;
+}
 }
 
 @media only screen and (max-width: 610px) {
