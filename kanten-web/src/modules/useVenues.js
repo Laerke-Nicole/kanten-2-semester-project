@@ -4,6 +4,7 @@ import { ref } from 'vue'
     {
       id: "venue_one",
       venue: "Finsensgade 1, 6700 Esbjerg",
+      
     },
     {
       id: "venue_two",

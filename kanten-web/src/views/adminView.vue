@@ -5,6 +5,10 @@
       <h1>Add events</h1>
     </div>
 
+<div>
+  <img :src="manaclubLogo" alt="">
+</div>
+
     <!-- add event -->
     <form @submit.prevent="addEvent">
       <div class="field">
@@ -186,6 +190,7 @@ import {
   query, orderBy
 } from 'firebase/firestore';
 import { db } from '@/firebase'
+import eventdb from '../modules/eventdb' 
 
 // importing modules
 import dates from '@/modules/useDates'
@@ -194,20 +199,26 @@ import categories from '@/modules/useCategories'
 import genres from '@/modules/useGenres' 
 import venues from '@/modules/useVenues' 
 
+const { events } = eventdb()
+
 const storage = getStorage();
+
+
+
+
 
 // firebase refs
 const eventsCollectionRef = collection(db, 'events')
 
-// order the events
-const eventsCollectionQuery = query(eventsCollectionRef, orderBy("order", "desc"));
+// // order the events
+// const eventsCollectionQuery = query(eventsCollectionRef, orderBy("order", "desc"));
 
 
 
-// events
-const events = ref([
+// // // events
+// // const events = ref([
 
-])
+// // ])
 
 
 // storing which parameters that will react to "add" button
@@ -297,33 +308,33 @@ const toggleDone = id => {
 }
 
 
-// get events - writes out the value we wrote in the input onto the event itself
-onMounted(() => {
-  onSnapshot(eventsCollectionQuery, (querySnapshot) => {
-    const fbEvents = [];
-    querySnapshot.forEach((doc) => {
-      const event = {
-        id: doc.id,
-        artist: doc.data().artist,
-        artistDes: doc.data().artistDes,
-        date: doc.data().date,
-        month: doc.data().month,
-        time: doc.data().time,
-        venue: doc.data().venue,
-        des: doc.data().des,
-        urlSales: doc.data().urlSales,
-        ageGroup: doc.data().ageGroup,
-        price: doc.data().price,
-        category: doc.data().category,
-        genre: doc.data().genre,
-        imgURL: doc.data().imgURL,
-        done: doc.data().done,
-      }
-      fbEvents.push(event)
-    });
-    events.value = fbEvents
-  });
-})
+// // // get data from firebase - writes out the value we wrote in the input onto the uploaded event 
+// // onMounted(() => {
+// //   onSnapshot(eventsCollectionQuery, (querySnapshot) => {
+// //     const fbEvents = [];
+// //     querySnapshot.forEach((doc) => {
+// //       const event = {
+// //         id: doc.id,
+// //         artist: doc.data().artist,
+// //         artistDes: doc.data().artistDes,
+// //         date: doc.data().date,
+// //         month: doc.data().month,
+// //         time: doc.data().time,
+// //         venue: doc.data().venue,
+// //         des: doc.data().des,
+// //         urlSales: doc.data().urlSales,
+// //         ageGroup: doc.data().ageGroup,
+// //         price: doc.data().price,
+// //         category: doc.data().category,
+// //         genre: doc.data().genre,
+// //         imgURL: doc.data().imgURL,
+// //         done: doc.data().done,
+// //       }
+// //       fbEvents.push(event)
+// //     });
+// //     events.value = fbEvents
+// //   });
+// // })
 
 
 
@@ -393,15 +404,36 @@ uploadTask.on('state_changed',
 );
 }
 
+
+
+
+
+
+
+let manaclubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/mana-club-text.svg?alt=media&token=6cabf297-be39-43c2-a6f3-3af9d0ab7bf3')
+let deftLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/deft-text.svg?alt=media&token=6fefdb95-87ab-4abb-a776-8b436235b4b6')
+let vertexLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/vertex-text.svg?alt=media&token=42be8067-5452-4209-8678-cd08f5b22429')
+let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/x-massive-dub-text.svg?alt=media&token=d6cbe42d-5c89-4fad-b9c1-75e410fd8466')
+
+
+// paste so that logoone links to genre 
+
+// blah blah => () {
+//   {
+//     image: '',
+//     genre: 'mana',
+//   },
+//   and so on
+// }
+
+// same with location on google maps
+
+
+
+
+
 </script>
   
-
-
-
-
-
-
-
 
 <style scoped>
 .event-list {

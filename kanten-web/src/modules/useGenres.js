@@ -9,7 +9,7 @@ import { ref } from 'vue'
     {
       id: "genre_two",
       genre: "DEFT",
-      logo: "https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/deft-text.svg?alt=media&token=6fefdb95-87ab-4abb-a776-8b436235b4b6",
+      // logo: manaclubLogo,
     },
     {
       id: "genre_three",
