@@ -1,25 +1,4 @@
 <template>
-
-    <!-- <div v-if="events">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>{{ events.artist }}</p>
-        <p>{{ events.genre }}</p>
-        
-    </div> -->
-    test:
- <div v-for="event in events">
-
-    test singleitem:{{ event.id }}
-</div>
     <div v-for="event in eventSingleItem" :key="event">
         <div class="front-img">
             <div>
@@ -220,7 +199,7 @@ const eventSingleItem = computed(() => {
 
 <style scoped>
 .front-img {
-    padding-top: 9vh;
+    padding-top: 7vh;
 }
 
 .front-img img {
@@ -230,7 +209,7 @@ const eventSingleItem = computed(() => {
 }
 
 .front-img-text {
-    height: 81vh;
+    height: 85vh;
     padding-left: 10%;
     display: flex;
     flex-direction: column;
@@ -263,7 +242,7 @@ const eventSingleItem = computed(() => {
 .front-img-bottom {
     display: flex;
     flex-direction: row;
-    padding-top: 30vh;
+    padding-top: 35vh;
 }
 
 .front-img-date {
@@ -371,6 +350,10 @@ const eventSingleItem = computed(() => {
     padding-bottom: 70px;
 }
 
+.about-left p {
+    padding-right: 50px;
+}
+
 .about-right {
     width: 50%;
     padding-bottom: 70px;
@@ -413,6 +396,18 @@ const eventSingleItem = computed(() => {
 }
 
 @media only screen and (max-width: 1140px) {
+    .front-img-text {
+        height: 75vh;
+    }
+
+    .front-img-top h1 {
+        font-size: 80px;
+    }
+
+    .front-img-bottom {
+        padding-top: 30vh;
+    }
+
     .ticket-box-left {
     padding-right: 300px;
     }
@@ -430,9 +425,47 @@ const eventSingleItem = computed(() => {
     }
 }
 
+
+@media only screen and (max-width: 960px) {
+    .front-img {
+    padding-top: 10vh;
+    }
+
+    .front-img-text {
+        height: 65vh;
+    }
+
+    .front-img-top {
+        padding-top: 60px;
+    }
+
+    .front-img-top h1 {
+        font-size: 70px;
+        transform: scaleY(1.4);
+    }
+
+    .front-img-bottom {
+        padding-top: 25vh;
+    }
+}
+
 @media only screen and (max-width: 905px) {
     .ticket-box-left {
     padding-right: 150px;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .front-img-text {
+        height: 60vh;
+    }
+
+    .front-img-top h1 {
+        font-size: 60px;
+    }
+
+    .front-img-bottom {
+        padding-top: 20vh;
     }
 }
 
@@ -477,6 +510,19 @@ const eventSingleItem = computed(() => {
 }
 
 @media only screen and (max-width: 770px) {
+    .front-img-text {
+        height: 55vh;
+    }
+
+    .front-img-top h1 {
+        font-size: 50px;
+        padding-top: 6px;
+    }
+
+    .front-img-bottom {
+        padding-top: 20vh;
+    }
+
     .ticket-box h3{
         font-size: 50px;
     }
@@ -486,6 +532,19 @@ const eventSingleItem = computed(() => {
 }
 
 @media only screen and (max-width: 700px) {
+    .front-img-text {
+        height: 50vh;
+    }
+
+    .front-img-top h1 {
+        font-size: 50px;
+        transform: scaleY(1.4);
+    }
+
+    .front-img-bottom {
+        padding-top: 15vh;
+    }
+
     .ticket-box-info {
     display: flex;
     flex-direction: column;
@@ -495,6 +554,21 @@ const eventSingleItem = computed(() => {
         justify-content: flex-start;
         align-self: flex-start;
         padding-top: 12px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .front-img-text {
+        height: 45vh;
+    }
+
+    .front-img-top h1 {
+        font-size: 45px;
+        transform: scaleY(1.3);
+    }
+
+    .front-img-bottom {
+        padding-top: 10vh;
     }
 }
 
@@ -508,7 +582,86 @@ const eventSingleItem = computed(() => {
   }  
 }
 
+@media only screen and (max-width: 580px) {
+    .front-img-text {
+        height: 40vh;
+    }
 
+    .front-img-top {
+        padding-top: 45px;
+    }
+
+    .front-img-top h1 {
+        font-size: 45px;
+        transform: scaleY(1.3);
+    }
+
+    .front-img-bottom {
+        padding-top: 10vh;
+    }
+
+    .front-img-bottom p {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .front-img-text {
+        height: 35vh;
+    }
+
+    .front-img-top h1 {
+        font-size: 40px;
+        transform: scaleY(1.2);
+        padding-top: 2px;
+    }
+
+    .front-img-bottom {
+        padding-top: 7vh;
+    }
+
+    .front-img-bottom p {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .front-img-text {
+        height: 30vh;
+    }
+
+    .front-img-top p {
+        font-size: 16px;
+    }
+
+    .front-img-top h1 {
+        font-size: 40px;
+        transform: scaleY(1.0);
+    }
+
+    .front-img-bottom {
+        padding-top: 4vh;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .front-img-text {
+        height: 27vh;
+    }
+
+    .front-img-top {
+        padding-top: 40px;
+    }
+
+    .front-img-top h1 {
+        font-size: 35px;
+        padding-top: 0;
+    }
+
+    .front-img-bottom {
+        padding-top: 3vh;
+    }
+}
 
 
 /* end responsive */
