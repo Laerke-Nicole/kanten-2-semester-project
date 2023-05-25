@@ -214,9 +214,19 @@ onMounted(() => {
 
 
 
+// let logoone = ref('LINK TO FIREBASE LOGO')
 
+// paste so that logoone links to genre 
 
+// blah blah => () {
+//   {
+//     image: '',
+//     genre: 'mana',
+//   },
+//   and so on
+// }
 
+// same with location on google maps
 
 </script>
 

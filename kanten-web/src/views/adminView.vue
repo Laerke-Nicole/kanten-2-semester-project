@@ -97,12 +97,8 @@
             </option> 
           </select>
 
-          <!-- <select v-model="newEventGenre" class="genres border-0 py-1.5 pl-6 pr-20">
-            <option class="genre" v-for="genre in genres" :value="genre.genre" :key="genre">
-                <img :src="genres.logo" alt="">
-            </option> 
-          </select> -->
-        
+          <input v-on:change="logoIMG" class="image" alt="event image" type="file" label="File input" width="100" height="100" @change="uploadImg">
+          
 
           <!-- image -->
           <input v-on:change="imgURL" class="image" alt="event image" type="file" label="File input" width="200" height="200" @change="uploadImg">
@@ -142,7 +138,7 @@
                 
               <div>
                 <p> {{ event.genre }} </p>
-                <img :src="event.logo">
+                <img :src="event.logoIMG">
                 <p> {{ event.des }} </p>
                 <p>{{ event.ageGroup }} </p>
                 <p> {{ event.price }} </p>
@@ -255,6 +251,7 @@ const addEventParameters = () => {
   newEventPrice
   newEventCategory
   newEventGenre 
+  logoIMG
   imgURL
   uploadBtnDisabled
 }
@@ -273,6 +270,7 @@ const newEventAgeGroup = ref('')
 const newEventPrice = ref('')
 const newEventCategory = ref('')
 const newEventGenre = ref('')
+const logoIMG = ref('')
 const imgURL = ref('')
 const uploadBtnDisabled = ref('true')
 
@@ -292,6 +290,7 @@ const addEvent = () => {
     price: newEventPrice.value,
     category: newEventCategory.value,
     genre: newEventGenre.value,
+    logoIMG: logoIMG.value,
     imgURL: imgURL.value,
     done: false,
     order: Date.now(),
@@ -308,6 +307,7 @@ const addEvent = () => {
   newEventPrice.value = ''
   newEventCategory.value = ''
   newEventGenre.value = ''
+  logoIMG.value = ''
   imgURL.value = ''
 }
 
@@ -347,6 +347,7 @@ onMounted(() => {
         price: doc.data().price,
         category: doc.data().category,
         genre: doc.data().genre,
+        logoIMG: doc.data().logoIMG,
         imgURL: doc.data().imgURL,
         done: doc.data().done,
       }
@@ -369,6 +370,8 @@ const uploadImg = async(event) => {
 const metadata = {
   contentType: 'image/jpeg'
 };
+
+
 
 
 // Upload file and metadata to the object 'images/mountains.jpg'
@@ -411,21 +414,17 @@ uploadTask.on('state_changed',
     }
   }, 
   () => {
-    // Upload completed successfully, now we can get the download URL
+    // Upload completed successfully - get the download URL
     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
       console.log('File available at', downloadURL);
 
       imgURL.value = downloadURL // update variable imgURL and put the image URL link in it. 
+      logoIMG.value = downloadURL
       uploadBtnDisabled.value = false // enable button after image uploaded is complete
     });
   }  
 );
 }
-
-
-
-
-
 
 </script>
   

@@ -143,7 +143,7 @@
   
 <script setup>
 // imports
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, ref, computed, toRefs } from 'vue'
 import { getStorage, ref as refFB } from 'firebase/storage'
 import { 
   collection, onSnapshot,   
@@ -152,13 +152,6 @@ import {
 } from 'firebase/firestore';
 import { db } from '@/firebase'
 
-// importing modules
-import dates from '@/modules/useDates'
-import months from '@/modules/useMonths'
-import categories from '@/modules/useCategories'
-import genres from '@/modules/useGenres' 
-import venues from '@/modules/useVenues' 
-import AdminView from './AdminView.vue';
 
 const storage = getStorage();
 
@@ -210,18 +203,20 @@ onMounted(() => {
   });
 })
 
+const props = defineProps({
+id: String
+})
+
+const { id } = toRefs(props)
 
 
 const eventSingleItem = computed(() => {
-   
-  //debugger
-  //console.log("test id", events.value[0])
-      return events.value.filter(item => item.id == "1op6Nq7I4MuXsHwhIozU")
+    return events.value.filter(item => item.id == id.value)
 })
 
 
 </script>
-  
+
 
 <style scoped>
 .front-img {
