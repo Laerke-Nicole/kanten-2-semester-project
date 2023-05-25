@@ -56,7 +56,8 @@ const eventdb = () => {
   const imgURL = ref('')
   const uploadBtnDisabled = ref('true')
 
-  // get events - writes out the value we wrote in the input onto the event itself
+  
+  // get events data from firebase and writes out the value we wrote in the input onto the event itself
   onMounted(() => {
     onSnapshot(eventsCollectionQuery, (querySnapshot) => {
       const fbEvents = [];
