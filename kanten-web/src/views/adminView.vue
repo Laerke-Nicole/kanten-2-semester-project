@@ -182,12 +182,11 @@
   
 <script setup>
 // imports
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { getStorage, ref as refFB, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import { 
-  collection, onSnapshot,   
+  collection,   
   addDoc, doc, deleteDoc, updateDoc, 
-  query, orderBy
 } from 'firebase/firestore';
 import { db } from '@/firebase'
 import eventdb from '../modules/eventdb' 
@@ -204,22 +203,8 @@ const { events } = eventdb()
 const storage = getStorage();
 
 
-
-
-
 // firebase refs
 const eventsCollectionRef = collection(db, 'events')
-
-// // order the events
-// const eventsCollectionQuery = query(eventsCollectionRef, orderBy("order", "desc"));
-
-
-
-// // // events
-// // const events = ref([
-
-// // ])
-
 
 // storing which parameters that will react to "add" button
 const addEventParameters = () => {
@@ -307,38 +292,6 @@ const toggleDone = id => {
 
 }
 
-
-// // // get data from firebase - writes out the value we wrote in the input onto the uploaded event 
-// // onMounted(() => {
-// //   onSnapshot(eventsCollectionQuery, (querySnapshot) => {
-// //     const fbEvents = [];
-// //     querySnapshot.forEach((doc) => {
-// //       const event = {
-// //         id: doc.id,
-// //         artist: doc.data().artist,
-// //         artistDes: doc.data().artistDes,
-// //         date: doc.data().date,
-// //         month: doc.data().month,
-// //         time: doc.data().time,
-// //         venue: doc.data().venue,
-// //         des: doc.data().des,
-// //         urlSales: doc.data().urlSales,
-// //         ageGroup: doc.data().ageGroup,
-// //         price: doc.data().price,
-// //         category: doc.data().category,
-// //         genre: doc.data().genre,
-// //         imgURL: doc.data().imgURL,
-// //         done: doc.data().done,
-// //       }
-// //       fbEvents.push(event)
-// //     });
-// //     events.value = fbEvents
-// //   });
-// // })
-
-
-
-
 // Firebase storage upload image + get download URL + enable button after image uploaded
 const uploadImg = async(event) => {
   let file = event.target.files[0]; // get the file
@@ -351,12 +304,9 @@ const metadata = {
 };
 
 
-
-
 // Upload file and metadata to the object 'images/mountains.jpg'
 const storageRef = refFB(storage, 'images/' + file.name);
 const uploadTask = uploadBytesResumable(storageRef, file, metadata);
-
 
 
 // Listen for state changes, errors, and completion of the upload.
