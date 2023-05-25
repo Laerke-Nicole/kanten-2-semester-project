@@ -5,47 +5,10 @@
       <p>For unge drevet af unge</p>
       <h1>Kommende events</h1>
     </div>
-
-    <!-- sorting in events -->
-    <div class="sorting-events flex flex-row">
-        <a href=""><p class="sorting-event-p">Event</p></a>
-        <a href=""><p>Kalender</p></a>
-        <a href=""><p>Genre</p></a>
-    </div>
-
-    <!-- <div class="btn-container flex flex-col">
-      <div class="flex">
-        <div v-for="category in categories" :key="category" class="category-list">
-          <button type="button" class="filter-btn" data-id="shakes">
-            <p>{{ category.category }}</p>
-          </button> 
-        </div>
-      </div>
-      
-      <div class="flex">
-        <div v-for="month in months" :key="month" class="category-list">
-          <button type="button" class="filter-btn" data-id="shakes">
-            <p>{{ month.month }}</p>
-          </button> 
-        </div>
-      </div>
-      
-      <div class="flex">
-        <div v-for="genre in genres" :key="genre" class="category-list">
-          <button type="button" class="filter-btn" data-id="shakes">
-            <p>{{ genre.genre }}</p>
-          </button> 
-        </div>
-      </div>
-      
-    </div> -->
   </div>
-
 
   <div class="events-list-background secondary-background-img">
       <!-- loop with event -->
-      
-       
         <div v-for="event in events" :key="event">
           <RouterLink :to="{ name: 'event', params: { id: event.id }}">
             <div class="event-list primary-background-img">
@@ -268,26 +231,6 @@ onMounted(() => {
   padding-bottom: 6px;
   font-size: 80px;
 }
-
-.sorting-events {
-  display: flex;
-  flex-direction: row;
-}
-
-.sorting-events a {
-  margin: 0 5% 0 5%;
-  margin-left: 0 !important;
-}
-
-.sorting-events p {
-  padding: 6px;
-}
-
-.sorting-events p:hover {
-  color: var(--hover-color);
-
-}
-
 
 /* event list */
 .events-list-background {
