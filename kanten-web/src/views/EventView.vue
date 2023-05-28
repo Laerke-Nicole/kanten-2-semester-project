@@ -19,10 +19,26 @@
                         <p> {{ event.time }} </p>
                     </div>
                     
-                    <div>
-                        <img :src="event.logo" alt="genre logo">
-                    </div>
+                    
                 </div>
+            </div>
+        </div>
+
+        <div class="logo">
+            <div v-if="event.genre == 'MANA CLUB'">
+                <img :src="manaclubLogo" alt="">
+            </div>
+
+            <div v-if="event.genre == 'DEFT'">
+                <img :src="deftLogo" alt="">
+            </div>
+
+            <div v-if="event.genre =='VERTEX'">
+                <img :src="vertexLogo" alt="">
+            </div>
+
+            <div v-if="event.genre == 'X-MASSIVE DUB'">
+                <img :src="xmassivedubLogo" alt="">
             </div>
         </div>
 
@@ -62,10 +78,10 @@
                     <h2>Lokation</h2>
 
                     <div>
-                        <div v-if="'Finsensgade 1, 6700 Esbjerg'">
+                        <div v-if="event.venue == 'Finsensgade 1, 6700 Esbjerg'">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2261.612888288896!2d8.452881877198035!3d55.469414913782494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b212b863b9f21%3A0xda996a903b7c0df7!2sFinsensgade%201%2C%206700%20Esbjerg!5e0!3m2!1sen!2sdk!4v1685273094919!5m2!1sen!2sdk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-                        <div v-else="'GL Novrupvej 14, 6705 Esbjerg'">
+                        <div v-if="event.venue == 'GL Novrupvej 14, 6705 Esbjerg'">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2261.179441131073!2d8.486998077198415!3d55.47697021320252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b2145d7c77159%3A0x2bc63adfd5ed6add!2sGl%20Novrupvej%2014%2C%206705%20Esbjerg!5e0!3m2!1sen!2sdk!4v1685273149906!5m2!1sen!2sdk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
@@ -203,6 +219,13 @@ const eventSingleItem = computed(() => {
 })
 
 
+let manaclubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/mana-club-text.svg?alt=media&token=6cabf297-be39-43c2-a6f3-3af9d0ab7bf3')
+let deftLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/deft-text.svg?alt=media&token=6fefdb95-87ab-4abb-a776-8b436235b4b6')
+let vertexLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/vertex-text.svg?alt=media&token=42be8067-5452-4209-8678-cd08f5b22429')
+let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/x-massive-dub-text.svg?alt=media&token=d6cbe42d-5c89-4fad-b9c1-75e410fd8466')
+
+
+
 </script>
 
 
@@ -265,6 +288,9 @@ const eventSingleItem = computed(() => {
     color: var(--white-text);
 }
 
+.logo img {
+    height: 100px;
+}
 
 /* tickets */
 .ticket-list-box {

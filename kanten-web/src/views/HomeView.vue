@@ -12,49 +12,45 @@
         <div v-for="event in events" :key="event">
           <RouterLink :to="{ name: 'event', params: { id: event.id }}">
             <div class="event-list primary-background-img">
-            <!-- image -->
-            <div class="event-card-img">
-              <img :src="event.imgURL" alt="event image">
-            </div>
+              <!-- image -->
+              <div class="event-card-img">
+                <img :src="event.imgURL" alt="event image">
+              </div>
 
-            <!-- shown information -->
-            <div class="event-card-content">
-              <p>{{ event.category }}</p>
-              <h3>{{ event.artist }}</h3>
+              <!-- shown information -->
+              
+                <div class="event-card-content">
+                  <p>{{ event.category }}</p>
+                  <h3>{{ event.artist }}</h3>
+                  
+                  <div class="event-card-buttom flex">
+                    <div class="event-card-date"> 
+                      <h5>{{ event.date }}</h5>
+                      <h5>{{ event.month }}</h5>
+                      <h5>{{ event.time }}</h5>
+                    </div>
+                </div>
+                <div class="event-card-logo">
+                      <div v-if="event.genre == 'MANA CLUB'">
+                        <img :src="manaclubLogo" alt="genre logo">
+                      </div>
 
-              <div class="event-card-date"> 
-                <h5>{{ event.date }}</h5>
-                <h5>{{ event.month }}</h5>
-                <h5>{{ event.time }}</h5>
+                      <div v-if="event.genre == 'DEFT'">
+                        <img :src="deftLogo" alt="genre logo">
+                      </div>
+
+                      <div v-if="event.genre == 'VERTEX'">
+                        <img :src="vertexLogo" alt="genre logo">
+                      </div>
+
+                      <div v-if="event.genre == 'X-MASSIVE DUB'">
+                        <img :src="xmassivedubLogo" alt="genre logo">
+                      </div>
+                    </div>
               </div>
             </div>
-
-
-
-
-
-            <!-- show logo for genre -->
-            <!-- <div class="event-card-genre-logos">
-                <div v-if="genres.genre === 'MANA CLUB'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/mana-club-text.svg?alt=media&token=6cabf297-be39-43c2-a6f3-3af9d0ab7bf3" alt="genre logo">
-                </div>
-
-                <div v-else-if="genres.genre === 'DEFT'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/deft-text.svg?alt=media&token=6fefdb95-87ab-4abb-a776-8b436235b4b6" alt="genre logo">
-                </div>
-
-                <div v-else-if="genres.genre === 'VERTEX'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/vertex-text.svg?alt=media&token=42be8067-5452-4209-8678-cd08f5b22429" alt="genre logo">
-                </div>
-
-                <div v-else="genres.genre === 'X-MASSIVE DUB'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/x-massive-dub-text.svg?alt=media&token=d6cbe42d-5c89-4fad-b9c1-75e410fd8466" alt="genre logo">
-                </div>
-            </div> -->
-            </div>
-        
       </RouterLink>
-        </div>
+      </div>
       
      
      
@@ -151,7 +147,6 @@
   </div>
 
 
-
 </template>
 
  
@@ -165,13 +160,6 @@ import {
   query, orderBy
 } from 'firebase/firestore';
 import { db } from '@/firebase'
-
-// importing modules
-import dates from '@/modules/useDates'
-import months from '@/modules/useMonths'
-import categories from '@/modules/useCategories'
-import genres from '@/modules/useGenres' 
-import venues from '@/modules/useVenues' 
 
 const storage = getStorage();
 
@@ -222,12 +210,10 @@ onMounted(() => {
 })
 
 
-
-// sorting
-
-
-
-
+let manaclubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/mana-club-text.svg?alt=media&token=6cabf297-be39-43c2-a6f3-3af9d0ab7bf3')
+let deftLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/deft-text.svg?alt=media&token=6fefdb95-87ab-4abb-a776-8b436235b4b6')
+let vertexLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/vertex-text.svg?alt=media&token=42be8067-5452-4209-8678-cd08f5b22429')
+let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/x-massive-dub-text.svg?alt=media&token=d6cbe42d-5c89-4fad-b9c1-75e410fd8466')
 
 
 
@@ -291,6 +277,11 @@ onMounted(() => {
   padding-right: 24px;
 }
 
+.event-card-buttom {
+  display: flex;
+  flex-direction: row;  
+}
+
 .event-card-date {
   display: flex;
   flex-direction: row;
@@ -300,6 +291,16 @@ onMounted(() => {
 
 .event-card-content h5 {
   font-size: 40px;
+}
+
+.event-card-logo {
+  display: flex;
+  align-items: flex-end;
+}
+
+.event-card-logo img {
+  height: 70px;
+  width: auto;
 }
 
 
