@@ -12,13 +12,13 @@
         <div v-for="event in events" :key="event">
           <RouterLink :to="{ name: 'event', params: { id: event.id }}">
             <div class="event-list primary-background-img">
-              <!-- image -->
-              <div class="event-card-img">
-                <img :src="event.imgURL" alt="event image">
-              </div>
+              <div class="flex ">
+                <!-- image -->
+                <div class="event-card-img">
+                  <img :src="event.imgURL" alt="event image">
+                </div>
 
-              <!-- shown information -->
-              
+                <!-- shown information -->
                 <div class="event-card-content">
                   <p>{{ event.category }}</p>
                   <h3>{{ event.artist }}</h3>
@@ -29,25 +29,30 @@
                       <h5>{{ event.month }}</h5>
                       <h5>{{ event.time }}</h5>
                     </div>
+                  </div>
                 </div>
-                <div class="event-card-logo">
-                      <div v-if="event.genre == 'MANA CLUB'">
-                        <img :src="manaclubLogo" alt="genre logo">
-                      </div>
-
-                      <div v-if="event.genre == 'DEFT'">
-                        <img :src="deftLogo" alt="genre logo">
-                      </div>
-
-                      <div v-if="event.genre == 'VERTEX'">
-                        <img :src="vertexLogo" alt="genre logo">
-                      </div>
-
-                      <div v-if="event.genre == 'X-MASSIVE DUB'">
-                        <img :src="xmassivedubLogo" alt="genre logo">
-                      </div>
-                    </div>
               </div>
+              
+              <div class="event-card-buttom-logo flex">
+                <div class="event-card-logo">
+                  <div v-if="event.genre == 'MANA CLUB'">
+                    <img :src="manaclubLogo" alt="genre logo">
+                  </div>
+
+                  <div v-if="event.genre == 'DEFT'">
+                    <img :src="deftLogo" alt="genre logo">
+                  </div>
+
+                  <div v-if="event.genre == 'VERTEX'">
+                    <img :src="vertexLogo" alt="genre logo">
+                  </div>
+
+                  <div v-if="event.genre == 'X-MASSIVE DUB'">
+                    <img :src="xmassivedubLogo" alt="genre logo">
+                  </div>
+                </div>
+              </div>
+
             </div>
       </RouterLink>
       </div>
@@ -243,7 +248,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 
 .event-list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   clip-path: var(--edge-box);
   margin-bottom: 30px;
 }
@@ -254,8 +259,9 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 .event-card-img {
-  padding: 40px 0 50px 10%;
+  padding: 40px 0 0 10%;
 }
+
 .event-card-img img {
   height: 200px;
   clip-path: var(--edge-event-card);
@@ -293,16 +299,20 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   font-size: 40px;
 }
 
+.event-card-buttom-logo {
+  display: flex;
+  align-self: flex-end;
+}
+
 .event-card-logo {
   display: flex;
-  align-items: flex-end;
+  padding: 0 18px 18px 0;
 }
 
 .event-card-logo img {
   height: 70px;
   width: auto;
 }
-
 
 /* comment section */
 .comment-section {
