@@ -31,7 +31,7 @@
             <div class="ticket-box primary-background-img flex flex-col">
                 <div class="ticket-box-info flex flex-row">
                     <div class="ticket-box-left">
-                        <div class="flex flex-row gap-2">
+                        <div class="flex flex-row gap-2 pb-2">
                             <p> {{ event.date }} </p>
                             <p> {{ event.month }} </p>
                             <p> {{ event.time }} </p>
@@ -60,8 +60,17 @@
                 </div>
                 <div class="location-box flex flex-col">
                     <h2>Lokation</h2>
-                    <div>google maps</div>
-                    <p>{{ event.venue }}</p>
+
+                    <div>
+                        <div v-if="'Finsensgade 1, 6700 Esbjerg'">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2261.612888288896!2d8.452881877198035!3d55.469414913782494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b212b863b9f21%3A0xda996a903b7c0df7!2sFinsensgade%201%2C%206700%20Esbjerg!5e0!3m2!1sen!2sdk!4v1685273094919!5m2!1sen!2sdk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div v-else="'GL Novrupvej 14, 6705 Esbjerg'">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2261.179441131073!2d8.486998077198415!3d55.47697021320252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b2145d7c77159%3A0x2bc63adfd5ed6add!2sGl%20Novrupvej%2014%2C%206705%20Esbjerg!5e0!3m2!1sen!2sdk!4v1685273149906!5m2!1sen!2sdk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <p class="pt-2">{{ event.venue }}</p>
                 </div>
             </div>
         </div>
@@ -280,7 +289,7 @@ const eventSingleItem = computed(() => {
 }
 
 .ticket-box-left h3 {
-    font-size: 60px;
+    font-size: 50px;
     text-transform: uppercase;
 }
 
@@ -550,6 +559,14 @@ const eventSingleItem = computed(() => {
     flex-direction: column;
     }
 
+    .ticket-box-left {
+        padding-right: 24px;
+    }
+
+    .ticket-box-left h3 {
+        font-size: 40px;
+    }
+
     .ticket-box-right {
         justify-content: flex-start;
         align-self: flex-start;
@@ -642,6 +659,10 @@ const eventSingleItem = computed(() => {
     .front-img-bottom {
         padding-top: 4vh;
     }
+
+    .ticket-box-left h3 {
+        font-size: 36px;
+    }
 }
 
 @media only screen and (max-width: 400px) {
@@ -660,6 +681,10 @@ const eventSingleItem = computed(() => {
 
     .front-img-bottom {
         padding-top: 3vh;
+    }
+
+    .ticket-box-left h3 {
+        font-size: 30px;
     }
 }
 

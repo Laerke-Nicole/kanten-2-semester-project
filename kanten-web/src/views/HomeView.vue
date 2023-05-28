@@ -130,7 +130,7 @@
                 </fieldset>
                 <p class="pb-2 text-sm">Du kan altid afmelde dit nyhedsbrev ved at klikke på linket i footeren af vores emails. </p>
               </div>
-              <div class="content__gdprLegal pb-5">
+              <div class="content__gdprLegal pb-6">
                 <p class="text-sm">Vi bruger Mailchimp som vores marketingplatform. Ved at klikke nedenfor for at abonnere, anerkender du, at dine oplysninger vil blive overført til Mailchimp til behandling. <a href="https://mailchimp.com/legal/terms" target="_blank" class="underline">Lær mere om Mailchimps privatlivspolitik her. </a></p>
               </div>
             </div>
@@ -142,7 +142,6 @@
             <div class="optionalParent">
               <div class="clear foot">
                 <input type="submit" value="Tilmeld" name="subscribe" id="mc-embedded-subscribe" class="button1 button">
-                <p class="brandingLogo"><a href="http://eepurl.com/irYdf-" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
               </div>
             </div>
         </div>
@@ -266,7 +265,6 @@ onMounted(() => {
 /* event  */
 .event {
   padding: 50px 0;
-  
 }
 
 .event-card-img {
@@ -286,17 +284,18 @@ onMounted(() => {
 }
 
 .event-card-content h3 {
-  font-size: 70px;
+  font-size: 55px;
   padding-top: 12px;
-  transform: scaleY(1.5);
+  transform: scaleY(1.4);
   text-transform: uppercase;
+  padding-right: 24px;
 }
 
 .event-card-date {
   display: flex;
   flex-direction: row;
   gap: 12px;
-  padding-top: 60px;
+  padding-top: 75px;
 }
 
 .event-card-content h5 {
@@ -313,7 +312,7 @@ onMounted(() => {
   height: 0;
 }
 
-/* left side of comment side */
+/* comment section */
 
 .comment-section-left {
   display: flex;
@@ -325,19 +324,6 @@ onMounted(() => {
 .comment-section-button {
   padding-top: 24px;
 }
-
-/* right side of comment side */
-/* .comment-section-right {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.comment-section-right img {
-  width: 100px;
-} */
-
 
 /* newsletter */
 .news-letter {
@@ -414,18 +400,27 @@ onMounted(() => {
 
 
 /* responsive  */
+@media only screen and (max-width: 1030px) {
+  .event-card-content h3 {
+    font-size: 45px
+  }
+
+  .event-card-date {
+    padding-top: 85px;
+  }
+}
+
 @media only screen and (max-width: 930px) {
   .event-card-img img {
     height: 150px;
   }
 
-  .event-list h3 {
-    font-size: 60px
+  .event-card-content h3 {
+    font-size: 50px
   }
-  
 
   .event-card-date {
-    padding-top: 30px;
+    padding-top: 40px;
   }
 
   .event-list h5 {
@@ -436,6 +431,14 @@ onMounted(() => {
 @media only screen and (max-width: 850px) {
   .button1 {
     font-size: 15px !important;
+  }
+
+  .event-card-content h3 {
+    font-size: 40px
+  }
+
+  .event-card-date {
+    padding-top: 50px;
   }
 }
  
@@ -451,7 +454,7 @@ onMounted(() => {
   }
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 767px) {
   .event-card-img {
     padding: 30px 0 40px 10%;
   }
@@ -465,16 +468,16 @@ onMounted(() => {
   }
 
   .event-list h3 {
-    font-size: 45px;
+    font-size: 40px;
     padding-top: 6px;
   }
 
   .event-card-date {
-    padding-top: 40px;
+    padding-top: 35px;
   }
 
   .event-list h5 {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   .comment-section-left {
@@ -483,22 +486,78 @@ onMounted(() => {
 
   #mc_embed_signup_scroll h2 {
   font-size: 35px !important;
-}
+  }
 }
 
-@media only screen and (max-width: 610px) {
+@media only screen and (max-width: 710px) {
+  .event-card-img img {
+    height: 110px;
+  }
+
+  .event-card-content h3 {
+    font-size: 35px
+  }
+
+  .event-card-date {
+    padding-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 630px) {
   .event-card-img img {
     height: 100px;
   }
 
   .event-list h3 {
-    font-size: 40px;
-    transform: scaleY(1.2);
-    padding-top: 4px;
+    font-size: 30px;
+  }
+
+  .event-card-date {
+    padding-top: 25px;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .front-page-top h1 {
+    font-size: 60px;
   }
 
   .event-card-date {
     padding-top: 20px;
+  }
+
+  .event-list {
+    flex-direction: column;
+  }
+
+  .event-card-img {
+    padding-right: 10%;
+    padding-bottom: 18px;
+  }
+
+  .event-card-img img {
+    width: 100%;
+    height: auto;
+  }
+
+  .event-card-content {
+    padding: 0 10% 40px 10%;
+  }
+
+  .event-card-content p {
+    font-size: 16px;
+  }
+
+  .event-list h3 {
+    font-size: 40px;
+  }
+
+  .event-card-content h5 {
+    font-size: 20px;
+  }
+
+  .event-card-date {
+    padding-top: 16px;
   }
 }
 
@@ -512,24 +571,38 @@ onMounted(() => {
   }
 }
 
-@media only screen and (max-width: 610px) {
-  .event-list h3 {
-    font-size: 30px;
-    transform: scaleY(1.4);
-  }
-
-  .event-card-date {
-    padding-top: 30px;
-  }
-
+@media only screen and (max-width: 420px) {
   .front-page-top h1 {
-    font-size: 60px;
+    font-size: 50px;
+  }
+
+  .event-list h3 {
+    font-size: 35px;
   }
 }
 
 @media only screen and (max-width: 420px) {
   .front-page-top h1 {
     font-size: 50px;
+  }
+
+  .event-list h3 {
+    transform: scaleY(1.3);
+    font-size: 35px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .event-list h3 {
+    transform: scaleY(1.3);
+    font-size: 35px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .event-list h3 {
+    transform: scaleY(1.3);
+    font-size: 30px;
   }
 }
 
