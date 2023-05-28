@@ -8,69 +8,53 @@
   </div>
 
   <div class="events-list-background secondary-background-img">
-      <!-- loop with event -->
-        <div v-for="event in events" :key="event">
-          <RouterLink :to="{ name: 'event', params: { id: event.id }}">
-            <div class="event-list primary-background-img">
-              <div class="flex ">
-                <!-- image -->
-                <div class="event-card-img">
-                  <img :src="event.imgURL" alt="event image">
-                </div>
-
-                <!-- shown information -->
-                <div class="event-card-content">
-                  <p>{{ event.category }}</p>
-                  <h3>{{ event.artist }}</h3>
-                  
-                  <div class="event-card-buttom flex">
-                    <div class="event-card-date"> 
-                      <h5>{{ event.date }}</h5>
-                      <h5>{{ event.month }}</h5>
-                      <h5>{{ event.time }}</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="event-card-buttom-logo flex">
-                <div class="event-card-logo">
-                  <div v-if="event.genre == 'MANA CLUB'">
-                    <img :src="manaclubLogo" alt="genre logo">
-                  </div>
-
-                  <div v-if="event.genre == 'DEFT'">
-                    <img :src="deftLogo" alt="genre logo">
-                  </div>
-
-                  <div v-if="event.genre == 'VERTEX'">
-                    <img :src="vertexLogo" alt="genre logo">
-                  </div>
-
-                  <div v-if="event.genre == 'X-MASSIVE DUB'">
-                    <img :src="xmassivedubLogo" alt="genre logo">
-                  </div>
-                </div>
-              </div>
-
+    <!-- loop with event -->
+    <div v-for="event in events" :key="event">
+      <RouterLink :to="{ name: 'event', params: { id: event.id }}">
+        <div class="event-list primary-background-img">
+          <div class="event-list-top flex">
+            <!-- image -->
+            <div class="event-card-img">
+              <img :src="event.imgURL" alt="event image">
             </div>
+
+            <!-- shown information -->
+            <div class="event-card-content">
+              <p>{{ event.category }}</p>
+              <h3>{{ event.artist }}</h3>
+              
+              <div class="event-card-buttom flex">
+                <div class="event-card-date"> 
+                  <h5>{{ event.date }}</h5>
+                  <h5>{{ event.month }}</h5>
+                  <h5>{{ event.time }}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+          <div class="event-card-buttom-logo flex">
+            <div class="event-card-logo">
+              <div v-if="event.genre == 'MANA CLUB'">
+                <img :src="manaclubLogo" alt="genre logo">
+              </div>
+
+              <div v-if="event.genre == 'DEFT'">
+                <img :src="deftLogo" alt="genre logo">
+              </div>
+
+              <div v-if="event.genre == 'VERTEX'">
+                <img :src="vertexLogo" alt="genre logo">
+              </div>
+
+              <div v-if="event.genre == 'X-MASSIVE DUB'">
+                <img :src="xmassivedubLogo" alt="genre logo">
+              </div>
+            </div>
+          </div>
+        </div>
       </RouterLink>
-      </div>
-      
-     
-     
-    
-      
-
-
-
-   
-       
-
-
-
-
-
+    </div>
   </div>
 
   <!-- comment section -->
@@ -125,11 +109,11 @@
             
             <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
               <div class="content__gdpr">
-                <p class="pt-6">Venligst godkend at få tilsendt nyhedsbrev pr mail.</p>
+                <p class="pt-6">Venligst godkend at få sendt nyhedsbrev pr mail.</p>
                 <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
-                  <label class="checkbox subfield" for="gdpr_1167"><input type="checkbox" id="gdpr_1167" name="gdpr[1167]" value="Y" class="av-checkbox "><span>Jeg godkender at få tilsendt emails</span> </label>
+                  <label class="checkbox subfield" for="gdpr_1167"><input type="checkbox" id="gdpr_1167" name="gdpr[1167]" value="Y" class="av-checkbox "><span>Jeg godkender at få emails</span> </label>
                 </fieldset>
-                <p class="pb-2 text-sm">Du kan altid afmelde dit nyhedsbrev ved at klikke på linket i footeren af vores emails. </p>
+                <p class="pt-2 pb-2 text-sm">Du kan altid afmelde dit nyhedsbrev ved at klikke på linket i footeren af vores emails. </p>
               </div>
               <div class="content__gdprLegal pb-6">
                 <p class="text-sm">Vi bruger Mailchimp som vores marketingplatform. Ved at klikke nedenfor for at abonnere, anerkender du, at dine oplysninger vil blive overført til Mailchimp til behandling. <a href="https://mailchimp.com/legal/terms" target="_blank" class="underline">Lær mere om Mailchimps privatlivspolitik her. </a></p>
@@ -215,15 +199,11 @@ onMounted(() => {
 })
 
 
-let manaclubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/mana-club-text.svg?alt=media&token=6cabf297-be39-43c2-a6f3-3af9d0ab7bf3')
-let deftLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/deft-text.svg?alt=media&token=6fefdb95-87ab-4abb-a776-8b436235b4b6')
-let vertexLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/vertex-text.svg?alt=media&token=42be8067-5452-4209-8678-cd08f5b22429')
-let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/x-massive-dub-text.svg?alt=media&token=d6cbe42d-5c89-4fad-b9c1-75e410fd8466')
-
-
-
-
-
+// genre logos
+let manaclubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fmana-club-logo.svg?alt=media&token=a24bc5c3-bb9a-4ca9-87eb-6e255a585a5c')
+let deftLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fdeft-logo.svg?alt=media&token=2b28f9ee-3da3-4cbc-9251-635913d4d537')
+let vertexLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fvertex-logo.svg?alt=media&token=be93541a-5819-447a-85bb-14292790bb09')
+let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fx-massive-dub-logo.svg?alt=media&token=098e36ee-393e-40b2-980e-6061a30fb256')
 
 
 </script>
@@ -467,7 +447,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 
 @media only screen and (max-width: 767px) {
   .event-card-img {
-    padding: 30px 0 40px 10%;
+    padding: 30px 0 0 10%;
   }
 
   .event-card-content {
@@ -537,7 +517,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
     padding-top: 20px;
   }
 
-  .event-list {
+  .event-list-top {
     flex-direction: column;
   }
 
@@ -552,7 +532,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   }
 
   .event-card-content {
-    padding: 0 10% 40px 10%;
+    padding: 0 10% 0 10%;
   }
 
   .event-card-content p {
@@ -573,6 +553,10 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 @media only screen and (max-width: 540px) {
+  .event-card-logo img {
+    height: 50px;
+  }
+
   .comment-section h2 {
     font-size: 36px;
   }
@@ -616,9 +600,6 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
     font-size: 30px;
   }
 }
-
-
-
 
 /* responsive end */
 

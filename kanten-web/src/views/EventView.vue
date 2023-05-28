@@ -18,29 +18,11 @@
                         <p> {{ event.month }} </p>
                         <p> {{ event.time }} </p>
                     </div>
-                    
-                    
                 </div>
             </div>
         </div>
 
-        <div class="logo">
-            <div v-if="event.genre == 'MANA CLUB'">
-                <img :src="manaclubLogo" alt="">
-            </div>
-
-            <div v-if="event.genre == 'DEFT'">
-                <img :src="deftLogo" alt="">
-            </div>
-
-            <div v-if="event.genre =='VERTEX'">
-                <img :src="vertexLogo" alt="">
-            </div>
-
-            <div v-if="event.genre == 'X-MASSIVE DUB'">
-                <img :src="xmassivedubLogo" alt="">
-            </div>
-        </div>
+        
 
 
         <div class="ticket-list-box secondary-background-img">
@@ -69,7 +51,7 @@
 
 
         <div class="des-venue secondary-background-img-light">
-            <div class="flex flex-row">
+            <div class="des-venue-box flex flex-row">
                 <div class="des-box flex flex-col">
                     <h2>Hvad du kan forvente</h2>
                     <p>{{ event.des }}</p>
@@ -77,7 +59,7 @@
                 <div class="location-box flex flex-col">
                     <h2>Lokation</h2>
 
-                    <div>
+                    <div class="location">
                         <div v-if="event.venue == 'Finsensgade 1, 6700 Esbjerg'">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2261.612888288896!2d8.452881877198035!3d55.469414913782494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b212b863b9f21%3A0xda996a903b7c0df7!2sFinsensgade%201%2C%206700%20Esbjerg!5e0!3m2!1sen!2sdk!4v1685273094919!5m2!1sen!2sdk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
@@ -219,13 +201,6 @@ const eventSingleItem = computed(() => {
 })
 
 
-let manaclubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/mana-club-text.svg?alt=media&token=6cabf297-be39-43c2-a6f3-3af9d0ab7bf3')
-let deftLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/deft-text.svg?alt=media&token=6fefdb95-87ab-4abb-a776-8b436235b4b6')
-let vertexLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/vertex-text.svg?alt=media&token=42be8067-5452-4209-8678-cd08f5b22429')
-let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/x-massive-dub-text.svg?alt=media&token=d6cbe42d-5c89-4fad-b9c1-75e410fd8466')
-
-
-
 </script>
 
 
@@ -267,9 +242,6 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
     color: var(--white-headline);
 }
 
-
-
-
 /* bottom part of front img */
 .front-img-bottom {
     display: flex;
@@ -288,9 +260,6 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
     color: var(--white-text);
 }
 
-.logo img {
-    height: 100px;
-}
 
 /* tickets */
 .ticket-list-box {
@@ -395,7 +364,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 .about-headline h3 {
-    font-size: 50px;
+    font-size: 38px;
 }
 
 .about-right img {
@@ -454,6 +423,29 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
     }
 }
 
+@media only screen and (max-width: 1030px) {
+    .des-venue-box {
+        flex-direction: column;
+    }
+
+    .des-box {
+        width: 100%;
+    }
+
+    .des-box h2 {
+        padding-bottom: 8px;
+    }
+
+    .location-box {
+        width: 100%;
+    }
+
+    .location-box h2 {
+        padding-top: 50px;
+        padding-bottom: 8px;
+    }
+}
+
 @media only screen and (max-width: 985px) {
     .ticket-box-left {
     padding-right: 200px;
@@ -501,6 +493,10 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 
     .front-img-bottom {
         padding-top: 20vh;
+    }
+
+    .about-headline h3 {
+        font-size: 36px;
     }
 }
 
@@ -665,6 +661,10 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 
     .front-img-bottom p {
         font-size: 16px;
+    }
+
+    .location iframe {
+        width: 100%;
     }
 }
 

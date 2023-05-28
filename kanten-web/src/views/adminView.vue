@@ -350,21 +350,6 @@ uploadTask.on('state_changed',
 );
 }
 
-// paste so that logoone links to genre 
-
-// blah blah => () {
-//   {
-//     image: '',
-//     genre: 'mana',
-//   },
-//   and so on
-// }
-
-// same with location on google maps
-
-
-
-
 
 </script>
   
