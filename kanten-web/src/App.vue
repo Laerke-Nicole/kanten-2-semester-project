@@ -297,8 +297,7 @@ nav a.router-link-exact-active {
     .footer-socials {
       padding-top: 60px;
       padding-left: 0;
-      align-items: flex-start;
-      /* margin: 0 auto; */
+      margin: 0 auto;
     }
 
     .footer-logo {
