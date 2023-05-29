@@ -538,6 +538,11 @@ const eventSingleItem = computed(() => {
     .collage-images {
         flex-direction: column;
     }
+
+    .collage-images img {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }
 
 @media only screen and (max-width: 770px) {

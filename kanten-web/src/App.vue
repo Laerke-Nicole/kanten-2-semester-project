@@ -1,38 +1,18 @@
 <script setup>
 // imports
 import { RouterLink, RouterView } from 'vue-router'
-
-
 import { onMounted, ref } from 'vue'
-import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from '@/firebase'
 
 // tailwind imports
 import {
   Dialog,
   DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Popover,
-  PopoverButton,
   PopoverGroup,
-  PopoverPanel,
 } from '@headlessui/vue'
 import {
-  ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/vue/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
-
-
-const mobileMenuOpen = ref(false)
-
 
 //register/sign in 
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
@@ -60,6 +40,7 @@ const handleSignOut = () => {
   });
 };
 
+const mobileMenuOpen = ref(false)
 
 </script>
 
@@ -87,7 +68,7 @@ const handleSignOut = () => {
       </div>
 
       <!-- links in navigation -->
-      <PopoverGroup class="hidden lg:flex lg:gap-x-12">
+      <PopoverGroup class="hidden lg:flex lg:gap-x-12" >
         <RouterLink to='/'>Events</RouterLink>
         <RouterLink to='/about'>Om Kanten</RouterLink>
         <RouterLink to='/volounteers'>De frivillige</RouterLink>
@@ -320,6 +301,8 @@ nav a.router-link-exact-active {
     .footer-socials {
       padding-top: 60px;
       padding-left: 0;
+      align-items: flex-start;
+      /* margin: 0 auto; */
     }
 
     .footer-logo {
