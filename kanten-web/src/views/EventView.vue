@@ -1,10 +1,11 @@
 <template>
+
+    <!-- top part of page -->
     <div v-for="event in eventSingleItem" :key="event">
         <div class="front-img">
             <div>
                 <img :src="event.imgURL">
             </div>
-            
 
             <div class="front-img-text">
                 <div class="front-img-top">
@@ -23,8 +24,7 @@
         </div>
 
         
-
-
+        <!-- get tickets section -->
         <div class="ticket-list-box secondary-background-img">
             <div class="ticket-box primary-background-img flex flex-col">
                 <div class="ticket-box-info flex flex-row">
@@ -50,6 +50,7 @@
         </div>
 
 
+        <!-- description and location section -->
         <div class="des-venue secondary-background-img-light">
             <div class="des-venue-box flex flex-row">
                 <div class="des-box flex flex-col">
@@ -74,6 +75,7 @@
         </div>
 
 
+        <!-- event starts -->
         <div class="event-start">
             <div>
                 <h2>Eventet starter</h2>
@@ -85,6 +87,7 @@
         </div>
 
 
+        <!-- about artist -->
         <div class="about tertiary-background-img">
             <div class="about-box primary-background-img">
                 <div class="about-content-box flex flex-row">
@@ -107,6 +110,7 @@
     </div>  
     
 
+    <!-- collage -->
     <div class="collage secondary-background-img-light">
         <div class="collage-images flex flex-row">
             <div class="collage-images-left flex flex-col">
@@ -120,26 +124,21 @@
                 <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-5.jpg?alt=media&token=52ef7641-3543-4ac7-9499-b792eb90253f" alt="collage image-5">
                 <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-6.jpg?alt=media&token=5f152216-7b1f-4e66-83e0-773373ca839e" alt="collage image-6">
             </div>
-
         </div>
     </div>
-</template>
 
+</template>
 
   
 <script setup>
 // imports
 import { onMounted, ref, computed, toRefs } from 'vue'
-import { getStorage, ref as refFB } from 'firebase/storage'
 import { 
   collection, onSnapshot,   
-
   query, orderBy
 } from 'firebase/firestore';
 import { db } from '@/firebase'
 
-
-const storage = getStorage();
 
 // firebase refs
 const eventsCollectionRef = collection(db, 'events')
@@ -148,11 +147,8 @@ const eventsCollectionRef = collection(db, 'events')
 const eventsCollectionQuery = query(eventsCollectionRef, orderBy("order", "desc"));
 
 
-
 // events
-let events = ref([
- 
-])
+let events = ref([])
 
 console.log("events ref", events)
 
@@ -199,7 +195,6 @@ const { id } = toRefs(props)
 const eventSingleItem = computed(() => {
     return events.value.filter(item => item.id == id.value)
 })
-
 
 </script>
 
@@ -295,6 +290,7 @@ const eventSingleItem = computed(() => {
     align-self: center;
 }
 
+
 /* description and location */
 .des-venue {
     padding: 50px 10% 70px 10%;
@@ -354,6 +350,10 @@ const eventSingleItem = computed(() => {
     padding-bottom: 70px;
 }
 
+.about-headline h3 {
+    font-size: 38px;
+}
+
 .about-left p {
     padding-right: 50px;
 }
@@ -361,10 +361,6 @@ const eventSingleItem = computed(() => {
 .about-right {
     width: 50%;
     padding-bottom: 70px;
-}
-
-.about-headline h3 {
-    font-size: 38px;
 }
 
 .about-right img {
@@ -389,8 +385,6 @@ const eventSingleItem = computed(() => {
     padding-right: 0;
 }
  
-
-
 
 /* responsive */
 @media only screen and (max-width: 1200px) {
@@ -719,8 +713,6 @@ const eventSingleItem = computed(() => {
     }
 }
 
-
 /* end responsive */
-
 
 </style>

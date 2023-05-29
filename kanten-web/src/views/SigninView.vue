@@ -1,19 +1,20 @@
 <template>
+
     <div class="login-page tertiary-background-img">
         <form class="form primary-background-img">
             <h3 class="form-title">Log ind</h3>
+
+            <!-- email -->
             <div class="input-container">
                 <p><input type="text" placeholder="E-mail" v-model="email"></p>
             </div>
+            
+            <!-- password -->
             <div class="input-container">
                 <p><input type="password" placeholder="Adgangskode" v-model="password"></p>
                 <p v-if="errMsg">{{ errMsg }}</p>
             </div>
                 <p><button @click.prevent="logIn" type="submit" class="button1">Log ind</button></p>
-            <!-- <RouterLink to='/'><p class="underline text-right">Glemt adgangskode?</p></RouterLink> -->
-            
-            <!-- <p class="signup-link mt-7">Ingen bruger?</p>
-            <RouterLink to='/register'><p class="underline">Opret en bruger</p></RouterLink>  -->
         </form>
     </div>
 
@@ -114,11 +115,5 @@ const logIn = () => {
     margin-top: 24px !important;
     width: 100%;
 }
-
-
-
-
-
-
 
 </style>

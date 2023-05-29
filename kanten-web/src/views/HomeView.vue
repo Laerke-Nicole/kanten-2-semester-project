@@ -1,4 +1,5 @@
 <template>
+
   <!-- front page -->
   <div class="front-page primary-background-img">
     <div class="front-page-top">
@@ -7,6 +8,8 @@
     </div>
   </div>
 
+
+  <!-- event list -->
   <div class="events-list-background secondary-background-img">
     <!-- loop with event -->
     <div v-for="event in events" :key="event">
@@ -57,6 +60,7 @@
     </div>
   </div>
 
+
   <!-- comment section -->
   <div class="primary-background-img">
     <div class="divider">
@@ -75,15 +79,7 @@
           <button class="button1">Kommentarer</button>
         </div>
       </div>
-
-      <!-- right side of comment section -->
-      <!-- <div class="comment-section-right">
-        <div class="comment-section-discord-logo">
-          <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/discord-logo.svg?alt=media&token=7e359cc2-56f9-4186-9edf-6806f4f3f0d1" alt="discord logo">
-        </div>
-      </div> -->
     </div>
-    
   </div>
 
 
@@ -135,22 +131,17 @@
     <!--End mc_embed_signup-->
   </div>
 
-
 </template>
 
  
 <script setup>
 // imports
 import { onMounted, ref } from 'vue'
-import { getStorage, ref as refFB } from 'firebase/storage'
 import { 
   collection, onSnapshot,   
-
   query, orderBy
 } from 'firebase/firestore';
 import { db } from '@/firebase'
-
-const storage = getStorage();
 
 // firebase refs
 const eventsCollectionRef = collection(db, 'events')
@@ -159,14 +150,10 @@ const eventsCollectionRef = collection(db, 'events')
 const eventsCollectionQuery = query(eventsCollectionRef, orderBy("order", "desc"));
 
 
-
 // events
 const events = ref([
  
 ])
-
-
-
 
 
 // get events - writes out the value we wrote in the input onto the event itself
@@ -205,7 +192,6 @@ let deftLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appsp
 let vertexLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fvertex-logo.svg?alt=media&token=be93541a-5819-447a-85bb-14292790bb09')
 let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fx-massive-dub-logo.svg?alt=media&token=098e36ee-393e-40b2-980e-6061a30fb256')
 
-
 </script>
 
 
@@ -219,6 +205,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   padding-bottom: 6px;
   font-size: 80px;
 }
+
 
 /* event list */
 .events-list-background {
@@ -234,10 +221,6 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 /* event  */
-.event {
-  padding: 50px 0;
-}
-
 .event-card-img {
   padding: 40px 0 0 10%;
 }
@@ -294,6 +277,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   width: auto;
 }
 
+
 /* comment section */
 .comment-section {
   display: flex;
@@ -302,8 +286,6 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 .divider {
   height: 0;
 }
-
-/* comment section */
 
 .comment-section-left {
   display: flex;
@@ -315,6 +297,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 .comment-section-button {
   padding-top: 24px;
 }
+
 
 /* newsletter */
 .news-letter {
@@ -378,17 +361,6 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   height: auto !important;
 }
 
-/* .genre_one {
-  background-color: red;
-  color: red;
-} */
-
-
-
-
-
-
-
 
 /* responsive  */
 @media only screen and (max-width: 1030px) {
@@ -420,16 +392,16 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 @media only screen and (max-width: 850px) {
-  .button1 {
-    font-size: 15px !important;
-  }
-
   .event-card-content h3 {
     font-size: 40px
   }
 
   .event-card-date {
     padding-top: 50px;
+  }
+
+  .button1 {
+    font-size: 15px !important;
   }
 }
  
@@ -601,13 +573,8 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   }
 }
 
+
 /* responsive end */
-
-
-
-
-
-
 
 </style>
 

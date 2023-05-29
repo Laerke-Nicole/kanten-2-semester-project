@@ -186,6 +186,15 @@ nav a.router-link-exact-active {
   color: var(--hover-color);
 }
 
+.log-in-system {
+  gap: 16px;
+  align-items: center;
+}
+
+.signout {
+  margin: 0;
+}
+
 .hamburgermenu-box a {
   color: var(--black-headline);
   font-family: var(--text-font);
@@ -200,11 +209,6 @@ nav a.router-link-exact-active {
   color: var(--hover-color);
 }
 
-.log-in-system {
-  gap: 16px;
-  align-items: center;
-}
-
 .hamburgermenu-top-content {
   padding-top: 40px;
 }
@@ -214,11 +218,6 @@ nav a.router-link-exact-active {
   color: var(--black-text);
   font-family: var(--text-font);
 }
-
-.signout {
-  margin: 0;
-}
-
 
 .footer {
   display: flex;
@@ -282,9 +281,6 @@ nav a.router-link-exact-active {
 }
 
 
-
-
-
 /* responsive  */
 
 @media only screen and (max-width: 680px) {
@@ -318,7 +314,5 @@ nav a.router-link-exact-active {
 }
 
 /* responsive end */
-
-
 
 </style>

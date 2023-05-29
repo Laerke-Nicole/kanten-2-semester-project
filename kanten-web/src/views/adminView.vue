@@ -50,8 +50,6 @@
               <input v-model="newEventTime" class="time border-0 py-1.5 pl-6 pr-20" type="text" name="time" placeholder="KL:">
             </div>
           </div>
-          
-          <!-- <input v-model="newEventDate" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="date" placeholder="Add a date"> -->
 
           <!-- venue -->
           <div class="top-dropdown-p">
@@ -96,31 +94,23 @@
               <p>{{ genre.genre }}</p>
             </option> 
           </select>
-          
-
 
           <!-- image -->
           <input v-on:change="imgURL" class="image" alt="event image" type="file" label="File input" width="200" height="200" @change="uploadImg">
-
-
-
-
 
           <!-- button that adds event -->
           <div class="control">
             <button @click="" :disabled="addEventParameters.uploadBtnDisabled" class="button2 mt-10">Add</button>
           </div>
-
         </p>
-
-        
       </div>
     </form>
 
-
+    <!-- divider with "events" -->
     <div>
       <h2 class="event-h2">Events</h2>
     </div>
+
     <!-- events in a list -->
     <div v-for="event in events" class="card">
       <div class="card-content mb-4">
@@ -142,12 +132,6 @@
                 <p> {{ event.price }} </p>
                 <p> {{ event.urlSales }} </p>
               </div>
-              
-                
-                
-                
-                
-
             </div>
             
             <div class="y-n-buttons">
@@ -166,15 +150,8 @@
     </div>
   </div>
 
-
-
-
 </template>
-  
-  
-  
-  
-  
+
   
 <script setup>
 // imports
@@ -350,7 +327,6 @@ uploadTask.on('state_changed',
 );
 }
 
-
 </script>
   
 
@@ -366,13 +342,6 @@ h1 {
   color: var(--white-headline);
   font-size: 60px;
   margin-bottom: 16px;
-  
-
-}
-
-.top-dropdown-p p {
-  color: var(--white-text);
-  margin-top: 12px;
 }
 
 /* whole event list parameters */
@@ -386,6 +355,11 @@ h1 {
   margin-bottom: 12px;
   width: 100%;
   background-color: var(--secondary-color);
+}
+
+.top-dropdown-p p {
+  color: var(--white-text);
+  margin-top: 12px;
 }
 
 select {
@@ -411,11 +385,6 @@ select {
   transition: 0.3s;
 }
 
-.button2 {
-  width: 150px;
-}
-
-
 .button {
   background-color: var(--red-cross);
   color: var(--black-headline);
@@ -424,6 +393,55 @@ select {
   line-height: normal;
 }
 
+.button2 {
+  width: 150px;
+}
+
+
+/* parameters to add in adminn */
+.date-dropdown {
+  display: flex;
+  gap: 16px;
+}
+
+.date-dropdown p {
+  color: var(--white-text);
+}
+
+.time {
+  margin-bottom: 12px;
+  height: 40px;
+}
+
+.venue-menu {
+  color: var(--black-text);
+}
+
+.price {
+  color: var(--black-text);
+  margin-bottom: 10px;
+}
+
+.price ::placeholder {
+  color: var(--black-text);
+}
+
+/* genre dropdown styling */
+.genres {
+  color: var(--black-text);
+}
+
+.genre {
+  color: var(--black-headline);  
+}
+
+.image-input {
+  color: var(--white-text);
+  margin-bottom: 12px;
+}
+
+
+/* divider with "events" */
 .event-h2 {
   color: var(--white-headline);
   margin-bottom: 16px;
@@ -456,6 +474,7 @@ h4 {
   padding-top: 16px;
 }
 
+
 /* an event thats done */
 .has-background-success {
   background-color: var(--green-check-box);
@@ -464,6 +483,7 @@ h4 {
 .has-text-success {
   color: var(--green-check);
 }
+
 
 /* check button */
 .is-success {
@@ -477,66 +497,8 @@ h4 {
   background-color: var(--grey-check);
 }
 
-.date-dropdown {
-  display: flex;
-  gap: 16px;
-}
-
-.date-dropdown p {
-  color: var(--white-text);
-}
-
-.time {
-  margin-bottom: 12px;
-  height: 40px;
-}
-
-.price {
-  color: var(--black-text);
-  margin-bottom: 10px;
-}
-
-.price ::placeholder {
-  color: var(--black-text);
-}
-
-/* genre dropdown styling */
-.genres {
-  color: var(--black-text);
-}
-
-.genre {
-  color: var(--black-headline);  
-}
-
-.left-col {
-  display: flex;
-  align-items: center;
-  padding-bottom: 8px;
-}
-
-.right-col {
-  display: flex;
-  align-items: center;
-}
-
-.venue-menu {
-  color: var(--black-text);
-}
-
-/* image upload */
-
-.image-input {
-  color: var(--white-text);
-  margin-bottom: 12px;
-}
-
-
-
-
 
 /* responsive  */
-
 @media only screen and (max-width: 860px) {
   .control .input {
     width: 400px;
