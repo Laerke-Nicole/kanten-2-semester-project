@@ -62,7 +62,7 @@ const mobileMenuOpen = ref(false)
 
       <!-- hamburgebar icon -->
       <div class="flex lg:hidden">
-        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = true">
+        <button type="button" title="hamburgerbar" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = true">
           <Bars3Icon class="h-6 w-6" aria-hidden="true" />
         </button>
       </div>

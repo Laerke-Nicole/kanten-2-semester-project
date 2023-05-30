@@ -4,7 +4,7 @@
     <div v-for="event in eventSingleItem" :key="event">
         <div class="front-img">
             <div>
-                <img :src="event.imgURL">
+                <img :src="event.imgURL" alt="image for event">
             </div>
 
             <div class="front-img-text">
