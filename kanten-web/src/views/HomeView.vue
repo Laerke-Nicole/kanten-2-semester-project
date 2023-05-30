@@ -3,7 +3,7 @@
   <!-- front page -->
   <div class="front-page primary-background-img">
     <div class="front-page-top">
-      <p>For unge drevet af unge</p>
+      <p class="slogan-text text-lg">For unge drevet af unge</p>
       <h1>Kommende events</h1>
     </div>
   </div>
@@ -481,6 +481,10 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 @media only screen and (max-width: 610px) {
+  .slogan-text {
+    font-size: 16px;
+  }
+  
   .front-page-top h1 {
     font-size: 60px;
   }
