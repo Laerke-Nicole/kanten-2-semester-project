@@ -55,7 +55,7 @@ const mobileMenuOpen = ref(false)
       <div class="flex lg:flex-1">
         <RouterLink to='/'>
           <div>
-            <img class="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart-small.svg?alt=media&token=33e9c95c-fad9-4827-ae1e-5032e7d9070d" alt="" />
+            <img class="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart-small.svg?alt=media&token=33e9c95c-fad9-4827-ae1e-5032e7d9070d" alt="kantens logo" />
           </div>
         </RouterLink>
       </div>
@@ -93,7 +93,7 @@ const mobileMenuOpen = ref(false)
         <!-- top part with Kantens logo -->
         <div class="flex items-center justify-between">
           <RouterLink to='/' class="-m-1.5 p-1.5">
-            <img class="h-8 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart-small.svg?alt=media&token=33e9c95c-fad9-4827-ae1e-5032e7d9070d" alt="kanten-logo" />
+            <img class="h-8 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart-small.svg?alt=media&token=33e9c95c-fad9-4827-ae1e-5032e7d9070d" alt="kantens logo" />
           </RouterLink>
 
           <!-- x button to close menu -->
@@ -142,7 +142,7 @@ const mobileMenuOpen = ref(false)
       <div class="footer-socials">
         <RouterLink to='/'>
           <div class="footer-logo">
-            <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart.svg?alt=media&token=44a06326-7c9a-47a5-bc7b-cc03f6a6af6f" alt="">
+            <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart.svg?alt=media&token=44a06326-7c9a-47a5-bc7b-cc03f6a6af6f" alt="kantens logo footer">
           </div>
         </RouterLink>
         
