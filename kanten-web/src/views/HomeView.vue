@@ -75,9 +75,11 @@
             eller skriv hvad du synes om Kanten</p>
         </div>
 
-        <div class="comment-section-button">
-          <button class="button1">Kommentarer</button>
-        </div>
+        <RouterLink to="//www.facebook.com/kanten.esbjerg/reviews/" target="_blank">
+          <div class="comment-section-button">
+            <button class="button1">Kommentarer</button>
+          </div>
+        </RouterLink>
       </div>
     </div>
   </div>
