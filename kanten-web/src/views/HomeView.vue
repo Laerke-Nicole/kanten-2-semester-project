@@ -407,90 +407,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   }
 }
  
-
-@media only screen and (max-width: 780px) {
-  .news-letter-form input {
-    width: 80%;
-  }
-
-  .news-letter-buttom {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .event-card-img {
-    padding: 30px 0 0 10%;
-  }
-
-  .event-card-content {
-    padding-top: 30px;
-  }
-
-  .event-card-img img {
-    height: 125px;
-  }
-
-  .event-list h3 {
-    font-size: 40px;
-    padding-top: 6px;
-  }
-
-  .event-card-date {
-    padding-top: 35px;
-  }
-
-  .event-list h5 {
-    font-size: 24px;
-  }
-
-  .comment-section-left {
-    padding-top: 20%;
-  }
-
-  #mc_embed_signup_scroll h2 {
-  font-size: 35px !important;
-  }
-}
-
-@media only screen and (max-width: 710px) {
-  .event-card-img img {
-    height: 110px;
-  }
-
-  .event-card-content h3 {
-    font-size: 35px
-  }
-
-  .event-card-date {
-    padding-top: 30px;
-  }
-}
-
-@media only screen and (max-width: 630px) {
-  .event-card-img img {
-    height: 100px;
-  }
-
-  .event-list h3 {
-    font-size: 30px;
-  }
-
-  .event-card-date {
-    padding-top: 25px;
-  }
-}
-
-@media only screen and (max-width: 610px) {
-  .slogan-text {
-    font-size: 16px;
-  }
-  
-  .front-page-top h1 {
-    font-size: 60px;
-  }
-
+@media only screen and (max-width: 800px) {
   .event-card-date {
     padding-top: 20px;
   }
@@ -518,15 +435,54 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   }
 
   .event-list h3 {
+    font-size: 50px;
+  }
+
+  .event-card-content h5 {
+    font-size: 26px;
+  }
+
+  .event-card-date {
+    padding-top: 16px;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .news-letter-form input {
+    width: 80%;
+  }
+
+  .news-letter-buttom {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .comment-section-left {
+    padding-top: 20%;
+  }
+
+  #mc_embed_signup_scroll h2 {
+  font-size: 35px !important;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .slogan-text {
+    font-size: 16px;
+  }
+  
+  .front-page-top h1 {
+    font-size: 60px;
+  }
+
+  .event-list h3 {
     font-size: 40px;
   }
 
   .event-card-content h5 {
     font-size: 20px;
-  }
-
-  .event-card-date {
-    padding-top: 16px;
   }
 }
 
@@ -550,23 +506,6 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   }
 
   .event-list h3 {
-    font-size: 35px;
-  }
-}
-
-@media only screen and (max-width: 420px) {
-  .front-page-top h1 {
-    font-size: 50px;
-  }
-
-  .event-list h3 {
-    transform: scaleY(1.3);
-    font-size: 35px;
-  }
-}
-
-@media only screen and (max-width: 420px) {
-  .event-list h3 {
     transform: scaleY(1.3);
     font-size: 35px;
   }
@@ -577,7 +516,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
     transform: scaleY(1.3);
     font-size: 30px;
   }
-}
+} 
 
 
 /* responsive end */

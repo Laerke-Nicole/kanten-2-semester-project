@@ -312,6 +312,12 @@ nav a.router-link-exact-active {
     }
 }
 
+@media only screen and (max-width: 400px) {
+    .footer-information p {
+      font-size: 14px;
+    }
+}
+
 /* responsive end */
 
 </style>
