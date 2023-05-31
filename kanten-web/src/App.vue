@@ -154,7 +154,7 @@ const mobileMenuOpen = ref(false)
             <RouterLink to="//www.instagram.com/kanten_esbjerg/" target="_blank">
               <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/instagram-logo.svg?alt=media&token=d5cc537a-36c3-455c-80f0-4427def5fad5" alt="instagram logo">
             </RouterLink>
-            <RouterLink to="//discord.gg/x9gEQyUn" target="_blank">
+            <RouterLink to="//discord.gg/Q7zUx2kjZF" target="_blank">
               <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/discord-logo.svg?alt=media&token=7e359cc2-56f9-4186-9edf-6806f4f3f0d1" alt="discord logo">
             </RouterLink>
           </div>

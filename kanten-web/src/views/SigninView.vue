@@ -5,13 +5,15 @@
             <h3 class="form-title">Log ind</h3>
 
             <!-- email -->
-            <div class="input-container">
-                <p><input type="text" placeholder="E-mail" v-model="email"></p>
+            <div class="input-container pt-2">
+                <p>E-mail</p>
+                <p><input type="text" v-model="email"></p>
             </div>
             
             <!-- password -->
-            <div class="input-container">
-                <p><input type="password" placeholder="Adgangskode" v-model="password"></p>
+            <div class="input-container pt-1">
+                <p>Adgangskode</p>
+                <p><input type="password" v-model="password"></p>
                 <p v-if="errMsg">{{ errMsg }}</p>
             </div>
                 <p><button @click.prevent="logIn" type="submit" class="button1">Log ind</button></p>
@@ -73,10 +75,11 @@ const logIn = () => {
 .form {
   background-color: var(--secondary-color);
   display: block;
-  padding: 1rem;
-  padding-bottom: 2rem;
+  padding: 3rem;
+  padding-bottom: 4rem;
   max-width: 350px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  clip-path: var(--edge-event-card);
 }
 
 .form-title {
@@ -86,7 +89,7 @@ const logIn = () => {
 
 .input-container {
   position: relative;
-  width: 300px;
+  width: 250px;
 }
 
 .input-container input, .form button {
@@ -97,23 +100,33 @@ const logIn = () => {
 .input-container input {
   padding: 1rem;
   padding-right: 3rem;
-  width: 300px;
+  width: 100%;
   background-color: var(--white-headline);
   outline: none;
   box-shadow: 0px 10px 20px -18px;
   border: 2px solid var(--primary-color);
-  padding: 10px 0 10px 25px;
+  padding: 10px 0 10px 10px;
   margin: 6px 0;
-}
-
-.input-container input::placeholder {
-    color: var(--black-text);
-    font-family: var(--text-font);
 }
 
 .button1 {
     margin-top: 24px !important;
     width: 100%;
+}
+
+
+/* responsive */
+@media only screen and (max-width: 500px) {
+    .form {
+    padding: 2rem;
+    padding-bottom: 3rem;
+    max-width: 300px;
+    }
+
+    .input-container {
+    position: relative;
+    width: 200px;
+    }
 }
 
 </style>
