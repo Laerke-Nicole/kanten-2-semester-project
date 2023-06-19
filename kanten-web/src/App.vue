@@ -184,6 +184,8 @@ nav a:hover {
 
 nav a.router-link-exact-active {
   color: var(--hover-color);
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .log-in-system {

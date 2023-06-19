@@ -4,7 +4,7 @@
   <div class="front-page primary-background-img">
     <div class="front-page-top">
       <p class="slogan-text text-lg">For unge drevet af unge</p>
-      <h1>Kommende events</h1>
+      <h1>Kommende events hos Kanten</h1>
     </div>
   </div>
 
@@ -205,7 +205,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 
 .front-page-top h1 {
   padding-bottom: 6px;
-  font-size: 80px;
+  font-size: 70px;
 }
 
 
@@ -376,6 +376,10 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 @media only screen and (max-width: 930px) {
+  .front-page-top h1 {
+    font-size: 60px;
+  }
+
   .event-card-img img {
     height: 150px;
   }
@@ -448,6 +452,10 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 @media only screen and (max-width: 780px) {
+  .front-page-top h1 {
+    font-size: 50px;
+  }
+
   .news-letter-form input {
     width: 80%;
   }
@@ -469,12 +477,13 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 @media only screen and (max-width: 610px) {
+  .front-page-top h1 {
+    font-size: 45px;
+    padding-right: 10%;
+  }
+
   .slogan-text {
     font-size: 16px;
-  }
-  
-  .front-page-top h1 {
-    font-size: 60px;
   }
 
   .event-list h3 {
@@ -501,10 +510,6 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 @media only screen and (max-width: 420px) {
-  .front-page-top h1 {
-    font-size: 50px;
-  }
-
   .event-list h3 {
     transform: scaleY(1.3);
     font-size: 35px;
