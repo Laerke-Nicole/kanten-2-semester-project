@@ -55,7 +55,7 @@ const mobileMenuOpen = ref(false)
       <div class="flex lg:flex-1">
         <RouterLink to='/'>
           <div>
-            <img class="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart-small.svg?alt=media&token=33e9c95c-fad9-4827-ae1e-5032e7d9070d" alt="kantens logo" />
+            <img class="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart-small.svg?alt=media&token=03ab941d-07ea-4ea2-b81c-8b21fcd2725e" alt="kantens logo" />
           </div>
         </RouterLink>
       </div>
