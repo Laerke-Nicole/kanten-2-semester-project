@@ -6,15 +6,16 @@
 
 
 :root {
-  --headline-font: metalista-web, serif;
-  --text-font: macho, sans-serif;
+  --headline-font: "oswald", sans-serif;
+  --text-font: "verdana-pro", sans-serif;
 }
 
 /*color swatches for Kanten color palette*/
 :root {
   /* main colors */
-  --primary-color: #333333;
-  --secondary-color: #f9f9f9;
+  --primary-color: #000;
+  --secondary-color: #d23c3c;
+  --extra-light: #999999;
 
   --first-color: #A12028;
   --second-color: #EFDA10;
@@ -26,14 +27,14 @@
   --hover-color: #b66c43;
 
   /*color for text*/
-  --white-headline: #f9f9f9; /*color used for background and text*/
-  --white-text: #f3f3f3;
+  --white-headline: #f9f9f9;
+  --white-text: #cfd0d3;
 
-  --black-headline: #333333;
-  --black-text: #444444;
+  --black-headline: #000;
+  --black-text: #363636;
 
   /*background color*/
-  --background-color: #333333;
+  --background-color: #000;
 
   --grey-check: #d1d5db;
   --red-cross: #ef4444;

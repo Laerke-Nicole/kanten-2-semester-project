@@ -1,16 +1,16 @@
 <template>
 
   <!-- front page -->
-  <div class="front-page primary-background-img">
+  <div class="front-page">
     <div class="front-page-top">
       <p class="slogan-text text-lg">For unge drevet af unge</p>
-      <h1>Kommende events hos Kanten</h1>
+      <h1 class="uppercase">Kommende events</h1>
     </div>
   </div>
 
 
   <!-- event list -->
-  <div class="events-list-background secondary-background-img">
+  <div class="events-list-background">
     <!-- loop with event -->
     <div v-for="event in events" :key="event">
       <RouterLink :to="{ name: 'event', params: { id: event.id }}">
@@ -22,21 +22,25 @@
             </div>
 
             <!-- shown information -->
-            <div class="event-card-content">
-              <p>{{ event.category }}</p>
-              <h3>{{ event.artist }}</h3>
-              
-              <div class="event-card-buttom flex">
-                <div class="event-card-date"> 
-                  <h5>{{ event.date }}</h5>
-                  <h5>{{ event.month }}</h5>
-                  <h5>{{ event.time }}</h5>
-                </div>
+            <div class="event-card-content uppercase">
+              <div>
+                <p>{{ event.genre }}</p>
+                <h3>{{ event.artist }}</h3>
               </div>
+              
             </div>
           </div>
-            
-          <div class="event-card-buttom-logo flex">
+          
+          <div class="event-card-buttom-logo flex justify-between">
+            <div class="event-card-buttom flex flex-col uppercase">
+              <div class="event-card-date flex gap-2"> 
+                <p>{{ event.date }}</p>
+                <p>{{ event.month }}</p>
+              </div>
+              <p>{{ event.time }}</p>
+              <p>{{ event.venue }}</p>
+            </div>
+
             <div class="event-card-logo">
               <div v-if="event.genre == 'MANA CLUB'">
                 <img :src="manaclubLogo" alt="genre logo">
@@ -59,31 +63,6 @@
       </RouterLink>
     </div>
   </div>
-
-
-  <!-- comment section -->
-  <div class="primary-background-img">
-    <div class="divider">
-        <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/section-divider.svg?alt=media&token=d7049148-7ea7-43f8-9895-2478464b257b" alt="wave">
-      </div>
-
-    <div class="comment-section">
-      <div class="comment-section-left">
-        <div class="comment-section-text">
-          <h2>Hvad synes andre om Kanten</h2>
-          <p>Læs andre folks oplevelse på vores Discord server <br>
-            eller skriv hvad du synes om Kanten</p>
-        </div>
-
-        <RouterLink to="//www.facebook.com/kanten.esbjerg/reviews/" target="_blank">
-          <div class="comment-section-button">
-            <button class="button1">Kommentarer</button>
-          </div>
-        </RouterLink>
-      </div>
-    </div>
-  </div>
-
 
   <!-- news letter section -->
   <div class="news-letter tertiary-background-img">
@@ -189,10 +168,10 @@ onMounted(() => {
 
 
 // genre logos
-let manaclubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fmana-club-logo.svg?alt=media&token=a24bc5c3-bb9a-4ca9-87eb-6e255a585a5c')
-let deftLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fdeft-logo.svg?alt=media&token=2b28f9ee-3da3-4cbc-9251-635913d4d537')
-let vertexLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fvertex-logo.svg?alt=media&token=be93541a-5819-447a-85bb-14292790bb09')
-let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fx-massive-dub-logo.svg?alt=media&token=098e36ee-393e-40b2-980e-6061a30fb256')
+let manaclubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fmana-club-logo.svg?alt=media&token=695a4a1f-0a04-4160-8adf-d1a1cec56db3')
+let deftLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fdeft-logo.svg?alt=media&token=9d7c820e-bd50-4fe7-aa00-cdf520e84bef')
+let vertexLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fvertex-logo.svg?alt=media&token=b9f346bd-df7b-421b-bf84-5c6145f618b9')
+let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fx-massive-dub-logo.svg?alt=media&token=9a6ffabe-3708-47ac-9b38-68fd7c346128')
 
 </script>
 
@@ -206,6 +185,11 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 .front-page-top h1 {
   padding-bottom: 6px;
   font-size: 70px;
+  color: var(--white-headline)
+}
+
+.slogan-text {
+  color: var(--white-text);
 }
 
 
@@ -241,27 +225,15 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 .event-card-content h3 {
-  font-size: 55px;
-  padding-top: 12px;
-  transform: scaleY(1.4);
+  font-size: 38px;
   text-transform: uppercase;
   padding-right: 24px;
 }
 
-.event-card-buttom {
-  display: flex;
-  flex-direction: row;  
-}
-
-.event-card-date {
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-  padding-top: 75px;
-}
-
-.event-card-content h5 {
-  font-size: 40px;
+.event-card-buttom p {
+  font-weight: 600;
+  color: var(--extra-light);
+  line-height: 1.2;
 }
 
 .event-card-buttom-logo {
@@ -270,12 +242,11 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 .event-card-logo {
-  display: flex;
-  padding: 0 18px 18px 0;
+  padding: 18px;
 }
 
 .event-card-logo img {
-  height: 70px;
+  height: 45px;
   width: auto;
 }
 
@@ -364,48 +335,35 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 
-/* responsive  */
-@media only screen and (max-width: 1030px) {
-  .event-card-content h3 {
-    font-size: 45px
-  }
-
-  .event-card-date {
-    padding-top: 85px;
-  }
+/* chat */
+.event-card-img {
+  width: 350px;
+  height: auto;
+  overflow: hidden;
+  clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 10%);
 }
 
-@media only screen and (max-width: 930px) {
-  .front-page-top h1 {
-    font-size: 60px;
-  }
+.event-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+
+
+
+/* responsive  */
+@media only screen and (max-width: 930px) {
   .event-card-img img {
     height: 150px;
-  }
-
-  .event-card-content h3 {
-    font-size: 50px
   }
 
   .event-card-date {
     padding-top: 40px;
   }
-
-  .event-list h5 {
-    font-size: 30px;
-  }
 }
 
 @media only screen and (max-width: 850px) {
-  .event-card-content h3 {
-    font-size: 40px
-  }
-
-  .event-card-date {
-    padding-top: 50px;
-  }
-
   .button1 {
     font-size: 15px !important;
   }
@@ -434,28 +392,12 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
     padding: 0 10% 0 10%;
   }
 
-  .event-card-content p {
-    font-size: 16px;
-  }
-
-  .event-list h3 {
-    font-size: 50px;
-  }
-
-  .event-card-content h5 {
-    font-size: 26px;
-  }
-
   .event-card-date {
     padding-top: 16px;
   }
 }
 
 @media only screen and (max-width: 780px) {
-  .front-page-top h1 {
-    font-size: 50px;
-  }
-
   .news-letter-form input {
     width: 80%;
   }
@@ -477,11 +419,6 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 @media only screen and (max-width: 610px) {
-  .front-page-top h1 {
-    font-size: 45px;
-    padding-right: 10%;
-  }
-
   .slogan-text {
     font-size: 16px;
   }
@@ -489,17 +426,9 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   .event-list h3 {
     font-size: 40px;
   }
-
-  .event-card-content h5 {
-    font-size: 20px;
-  }
 }
 
 @media only screen and (max-width: 540px) {
-  .event-card-logo img {
-    height: 50px;
-  }
-
   .comment-section h2 {
     font-size: 36px;
   }
