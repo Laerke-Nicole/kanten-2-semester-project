@@ -92,33 +92,24 @@
     <div id="mc_embed_signup" class="news-letter-card primary-background-img">
       <form action="https://easv365.us21.list-manage.com/subscribe/post?u=3e04c9aa23d2cf67b4490960e&amp;id=27f0872f15&amp;v_id=112&amp;f_id=007f54e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
         <div id="mc_embed_signup_scroll">
-          <h2>Nyhedsbrev</h2>
+          <h2 class="uppercase">Nyhedsbrev</h2>
 
-          <div class="indicates-required"><span class="asterisk">*</span> angiver påkrævet</div>
-
-          <div class="mc-field-group news-letter-form">
-            <label for="mce-FNAME">Dit navn </label>
-            <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
-          </div>
+            <div class="mc-field-group news-letter-form">
+              <input type="text" value="Navn" name="FNAME" class="" id="mce-FNAME">
+            </div>
 
             <div class="mc-field-group">
-              <label for="mce-EMAIL">Din mailadresse  <span class="asterisk">*</span>
-              </label>
-              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+              <input type="email" value="Mailadresse" name="EMAIL" class="required email" id="mce-EMAIL" required>
             </div>
-            
+
             <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
               <div class="content__gdpr">
-                <p class="pt-6">Venligst godkend at få sendt nyhedsbrev pr mail.</p>
                 <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
                   <label class="checkbox subfield" for="gdpr_1167"><input type="checkbox" id="gdpr_1167" name="gdpr[1167]" value="Y" class="av-checkbox "><span>Jeg godkender at få emails</span> </label>
                 </fieldset>
-                <p class="pt-2 pb-2 text-sm">Du kan altid afmelde dit nyhedsbrev ved at klikke på linket i footeren af vores emails. </p>
-              </div>
-              <div class="content__gdprLegal pb-6">
-                <p class="text-sm">Vi bruger Mailchimp som vores marketingplatform. Ved at klikke nedenfor for at abonnere, anerkender du, at dine oplysninger vil blive overført til Mailchimp til behandling. <a href="https://mailchimp.com/legal/terms" target="_blank" class="underline">Lær mere om Mailchimps privatlivspolitik her. </a></p>
               </div>
             </div>
+
             <div id="mce-responses" class="clear foot">
               <div class="response" id="mce-error-response" style="display:none"></div>
               <div class="response" id="mce-success-response" style="display:none"></div>
@@ -244,6 +235,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 #mc_embed_signup_scroll h2 {
   font-size: 45px !important;
   margin: 0 !important;
+  padding-bottom: 24px;
 }
 
 .indicates-required {
@@ -253,7 +245,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 .mc-field-group {
-  padding: 0 !important;
+  padding-bottom: 12px !important;
   color: var(--black-headline);
   font-family: var(--text-font);
 }
