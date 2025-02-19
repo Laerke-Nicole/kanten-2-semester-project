@@ -71,14 +71,12 @@ const mobileMenuOpen = ref(false)
       <PopoverGroup class="hidden lg:flex lg:gap-x-12 white-text" >
         <RouterLink to='/'>Events</RouterLink>
         <RouterLink to='/about'>Om Kanten</RouterLink>
-        <RouterLink to='/volounteers'>De frivillige</RouterLink>
         <RouterLink to='/contact'>Kontakt</RouterLink>
       </PopoverGroup>
 
       
       <!-- right side with log in system -->
       <div class="log-in-system hidden lg:flex lg:flex-1 lg:justify-end">
-        <RouterLink to='/sign-in'>Log ind</RouterLink>
         <button @click="handleSignOut" v-if="isLoggedIn" class="button1 signout mt-3">Log ud</button>
         <!-- <RouterLink to='/register'>Register</RouterLink> -->
       </div>
@@ -108,13 +106,11 @@ const mobileMenuOpen = ref(false)
             <div class="hamburgermenu-top-content space-y-2 py-6">
               <RouterLink to='/' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Events</RouterLink>
               <RouterLink to='/about' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Om Kanten</RouterLink>
-              <RouterLink to='/volounteers' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">De frivillige</RouterLink>
               <RouterLink to='/contact' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Kontakt</RouterLink>
             </div>
 
             <!-- log in in hamburger menu -->
             <div class="hamburgermenu-buttom-content py-6">
-              <RouterLink to='/sign-in' class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log ind</RouterLink>
               <!-- <RouterLink to='/register' class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Register</RouterLink> -->
               <button @click="handleSignOut" v-if="isLoggedIn" class="button1 mt-3">Log ud</button>
             </div>

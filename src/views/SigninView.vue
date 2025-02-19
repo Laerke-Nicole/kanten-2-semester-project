@@ -1,7 +1,7 @@
 <template>
 
-    <div class="login-page tertiary-background-img">
-        <form class="form primary-background-img">
+    <div class="login-page">
+        <form class="form">
             <h3 class="form-title">Log ind</h3>
 
             <!-- email -->
