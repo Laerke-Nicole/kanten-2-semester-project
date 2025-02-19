@@ -46,7 +46,7 @@ const mobileMenuOpen = ref(false)
 
 <template>
 
-<header class="bg-white">
+<header class="black-bg">
 
     <!-- navigation on big screen -->
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
@@ -55,20 +55,20 @@ const mobileMenuOpen = ref(false)
       <div class="flex lg:flex-1">
         <RouterLink to='/'>
           <div>
-            <img class="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart-small.svg?alt=media&token=03ab941d-07ea-4ea2-b81c-8b21fcd2725e" alt="kantens logo" />
+            <img class="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/Standart%20small%20neg.png?alt=media&token=c3af2587-a422-41b9-8e98-70f2b91097a4" alt="kantens logo" />
           </div>
         </RouterLink>
       </div>
 
       <!-- hamburgebar icon -->
       <div class="flex lg:hidden">
-        <button type="button" title="hamburgerbar" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = true">
+        <button type="button" title="hamburgerbar" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 white-text" @click="mobileMenuOpen = true">
           <Bars3Icon class="h-6 w-6" aria-hidden="true" />
         </button>
       </div>
 
       <!-- links in navigation -->
-      <PopoverGroup class="hidden lg:flex lg:gap-x-12" >
+      <PopoverGroup class="hidden lg:flex lg:gap-x-12 white-text" >
         <RouterLink to='/'>Events</RouterLink>
         <RouterLink to='/about'>Om Kanten</RouterLink>
         <RouterLink to='/volounteers'>De frivillige</RouterLink>
@@ -88,7 +88,7 @@ const mobileMenuOpen = ref(false)
     <!-- mobile navigation -->
     <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
       <div class="fixed inset-0 z-10" />
-      <DialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+      <DialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto black-bg px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
 
         <!-- top part with Kantens logo -->
         <div class="flex items-center justify-between">
@@ -97,7 +97,7 @@ const mobileMenuOpen = ref(false)
           </RouterLink>
 
           <!-- x button to close menu -->
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
+          <button type="button" class="-m-2.5 rounded-md p-2.5 white-text" @click="mobileMenuOpen = false">
             <XMarkIcon class="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
@@ -129,37 +129,47 @@ const mobileMenuOpen = ref(false)
 
 
   <!-- footer -->
-  <footer>
-    <div class="footer primary-background-img">
-      <div class="footer-information">
-        <h2>Kanten</h2>
-        <p>GL NOVRUPVEJ 14, 6705 ESBJERG Ø</p>
-        <p>+45 28  97 11 85</p>
-        <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
-        <p class="last-p">COPYRIGHT KANTEN 2022</p>
-      </div>
-
-      <div class="footer-socials">
+  <footer class="pt-20">
+    <div class="black-bg flex justify-around">
+      <div>
         <RouterLink to='/'>
           <div class="footer-logo">
-            <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/logo-standart.svg?alt=media&token=44a06326-7c9a-47a5-bc7b-cc03f6a6af6f" alt="kantens logo footer">
+            <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/Logo%20Standart%20neg.png?alt=media&token=a5d87678-3172-4ecf-b13f-417f5b9f6b4b" alt="kantens logo footer">
           </div>
         </RouterLink>
-        
-        <div>
-          <div class="socials-logo">
+      </div>
+
+      <div class="flex gap-24">
+        <div class="flex flex-col gap-2">
+          <h4 class="white-headline pb-4">KANTEN</h4>
+          <p class="white-text text-sm">Gl Novrupvej 14, 6705 Esbjerg Ø</p>
+          <p class="white-text text-sm">+45 28  97 11 85</p>
+          <p class="white-text text-sm">Musikforeningenkanten@gmail.com</p>
+        </div>
+  
+        <div class="flex flex-col gap-2">
+          <h4 class="white-headline pb-4">ABOUT</h4>
+          <p class="white-text text-sm">Vilkår & betingelser</p>
+          <p class="white-text text-sm">Privatlivspolitik</p>
+          <div class="flex gap-4 pt-4">
             <RouterLink to="//www.facebook.com/kanten.esbjerg/" target="_blank">
-              <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/facebook-logo.svg?alt=media&token=7d6d5851-a412-4c26-9a61-2f63764b2285" alt="facebook logo">
-            </RouterLink>
-            <RouterLink to="//www.instagram.com/kanten_esbjerg/" target="_blank">
-              <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/instagram-logo.svg?alt=media&token=d5cc537a-36c3-455c-80f0-4427def5fad5" alt="instagram logo">
-            </RouterLink>
-            <RouterLink to="//discord.gg/Q7zUx2kjZF" target="_blank">
-              <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/discord-logo.svg?alt=media&token=7e359cc2-56f9-4186-9edf-6806f4f3f0d1" alt="discord logo">
-            </RouterLink>
+                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/facebook-logo.svg?alt=media&token=7d6d5851-a412-4c26-9a61-2f63764b2285" alt="facebook logo" class="h-7">
+              </RouterLink>
+              <RouterLink to="//www.instagram.com/kanten_esbjerg/" target="_blank">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/instagram-logo.svg?alt=media&token=d5cc537a-36c3-455c-80f0-4427def5fad5" alt="instagram logo" class="h-7">
+              </RouterLink>
+              <RouterLink to="//discord.gg/Q7zUx2kjZF" target="_blank">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/discord-logo.svg?alt=media&token=7e359cc2-56f9-4186-9edf-6806f4f3f0d1" alt="discord logo" class="h-7">
+              </RouterLink>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- copyright -->
+    <div class="five-percent pt-16">
+      <hr class="footer-hr">
+      <p class="text-center text-xs pt-4 pb-4 light-text">Copyright © 2024 Kanten</p>
     </div>
   </footer>
 
@@ -173,17 +183,17 @@ header {
 }
 
 nav a {
-  color: var(--black-headline);
+  color: var(--white-text);
   font-family: var(--text-font);
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: var(--hover-color);
+  color: var(--white-headline);
 }
 
 nav a.router-link-exact-active {
-  color: var(--hover-color);
+  color: var(--white-headline);
   text-decoration: underline;
   font-weight: bold;
 }
@@ -198,17 +208,21 @@ nav a.router-link-exact-active {
 }
 
 .hamburgermenu-box a {
-  color: var(--black-headline);
+  color: var(--white-text);
   font-family: var(--text-font);
   transition: 0.3s;
 }
 
 .hamburgermenu-box a:hover {
-  color: var(--hover-color);
+  color: var(--black-headline);
 }
 
 .hamburgermenu-box a.router-link-exact-active {
-  color: var(--hover-color);
+  color: var(--white-headline);
+}
+
+.hamburgermenu-box a.router-link-exact-active:hover {
+  color: var(--black-headline);
 }
 
 .hamburgermenu-top-content {
@@ -221,105 +235,8 @@ nav a.router-link-exact-active {
   font-family: var(--text-font);
 }
 
-.footer {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  padding-bottom: 70px;
-  padding-top: 50px;
-}
-
-.footer-information {
-  display: flex;
-  flex-direction: column;
-  padding-left: 10%;
-  width: 50%;
-}
-
-.footer-information h2 {
-  color: var(--black-headline);
-  font-size: 60px;
-  line-height: 1;
-}
-
-.footer-information p {
-  padding-bottom: 8px;
-}
-
-.last-p {
-  padding: 0 !important;
-}
-
-.footer-socials {
-  padding-left: 10%;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-logo {
-  padding-bottom: 50px;
-}
-
+/* footer */
 .footer-logo img {
-  height: 70px;
+  height: 100px;
 }
-
-.socials-logo {
-  display: flex;
-  gap: 14px;
-}
-
-.socials-logo img {
-  height: 45px;
-  transition: 0.3s;
-}
-
-.socials-logo img:hover {
-  scale: 1.1;
-}
-
-
-/* responsive  */
-
-@media only screen and (max-width: 680px) {
-    .footer {
-      flex-direction: column;
-      padding: 10%;
-      align-items: flex-start;
-    }
-
-    .footer-information {
-      padding: 0;
-    }
-
-    .footer-socials {
-      padding-top: 60px;
-      padding-left: 0;
-      margin: 0 auto;
-    }
-
-    .footer-logo {
-      padding-bottom: 32px;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .footer {
-      padding: 10%;
-      align-items: flex-start;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .footer-information p {
-      font-size: 14px;
-    }
-}
-
-/* responsive end */
-
 </style>

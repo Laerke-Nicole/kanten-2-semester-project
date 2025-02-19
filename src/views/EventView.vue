@@ -1,131 +1,38 @@
 <template>
 
     <!-- top part of page -->
-    <div v-for="event in eventSingleItem" :key="event">
-        <div class="front-img">
-            <div>
-                <img :src="event.imgURL" alt="image for event">
-            </div>
-
-            <div class="front-img-text">
-                <div class="front-img-top">
-                    <p>{{ event.genre }}</p>
-                    <h1>{{ event.artist }}</h1>
-                </div>
-
-                <div class="front-img-bottom">
-                    <div class="front-img-date">
-                        <p> {{ event.date }} </p>
-                        <p> {{ event.month }} </p>
-                        <p> {{ event.time }} </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
-        <!-- get tickets section -->
-        <div class="ticket-list-box secondary-background-img">
-            <div class="ticket-box primary-background-img flex flex-col">
-                <div class="ticket-box-info flex flex-row">
-                    <div class="ticket-box-left">
-                        <div class="flex flex-row gap-2 pb-2">
-                            <p> {{ event.date }} </p>
-                            <p> {{ event.month }} </p>
-                            <p> {{ event.time }} </p>
-                        </div>
-
-                        <div>
-                            <h3>{{ event.artist }}</h3>
-                        </div>
-                    </div>
-
-                    <div class="ticket-box-right">
-                        <div>
-                            <a :href="event.urlSales" target="_blank"><button class="button1">Gratis billetter</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- description and location section -->
-        <div class="des-venue secondary-background-img-light">
-            <div class="des-venue-box flex flex-row">
-                <div class="des-box flex flex-col">
-                    <h2>Hvad du kan forvente</h2>
-                    <p>{{ event.des }}</p>
-                </div>
-                <div class="location-box flex flex-col">
-                    <h2>Lokation</h2>
-
-                    <div class="location">
-                        <div v-if="event.venue == 'Finsensgade 1, 6700 Esbjerg'">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2261.612888288896!2d8.452881877198035!3d55.469414913782494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b212b863b9f21%3A0xda996a903b7c0df7!2sFinsensgade%201%2C%206700%20Esbjerg!5e0!3m2!1sen!2sdk!4v1685273094919!5m2!1sen!2sdk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                        <div v-if="event.venue == 'GL Novrupvej 14, 6705 Esbjerg'">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2261.179441131073!2d8.486998077198415!3d55.47697021320252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464b2145d7c77159%3A0x2bc63adfd5ed6add!2sGl%20Novrupvej%2014%2C%206705%20Esbjerg!5e0!3m2!1sen!2sdk!4v1685273149906!5m2!1sen!2sdk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-
-                    <p class="pt-2">{{ event.venue }}</p>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- event starts -->
-        <div class="event-start">
-            <div>
-                <h2>Eventet starter</h2>
-            </div>
-            
-            <div class="event-start-date text-center">
-                <p>{{ event.date }} {{ event.month }} {{ event.time }}</p>
-            </div>
-        </div>
-
-
+    <div v-for="event in eventSingleItem" :key="event" class="pt-36">
         <!-- about artist -->
-        <div class="about tertiary-background-img">
-            <div class="about-box primary-background-img">
-                <div class="about-content-box flex flex-row">
-                    <div class="about-left">
-                        <div class="about-headline flex gap-1">
-                            <h3>Om</h3>
-                            <h3>{{ event.artist }}</h3>
-                        </div>
-                        
-                        <div>
-                            <p>{{ event.artistDes }}</p>
-                        </div>
-                    </div>
-                    <div class="about-right">
-                        <img :src="event.imgURL" alt="event image">
-                    </div>
-                </div>
+        <section class="flex flex-row five-percent">
+            <div class="flex flex-col justify-center items-center">
+                <h1 class="white-headline text-center pb-6 uppercase">Hvem er<br/>{{ event.artist }}</h1>
+                <p class="white-text text-center pb-8 ten-percent">{{ event.artistDes }}</p>
+                <button class="button2">HØR PÅ SPOTIFY</button>
             </div>
-        </div>
+
+            <div>
+                <img :src="event.imgURL" alt="image of artist">
+            </div>
+        </section>
     </div>  
-    
 
-    <!-- collage -->
-    <div class="collage secondary-background-img-light">
-        <div class="collage-images flex flex-row">
-            <div class="collage-images-left flex flex-col">
-                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-1.jpg?alt=media&token=f83ae4ec-1806-42ee-9598-8fafda5b1a30" alt="collage image-1">
-                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-2.jpg?alt=media&token=17a1c776-a52f-418f-9213-fdf9b04bc6a2" alt="collage image-2">
-                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-3.jpg?alt=media&token=5a569a19-5b00-4bbe-89ab-6ad0a5737a14" alt="collage image-3">
-            </div>
+    <section class="five-percent pt-28 pb-28">
+        <h4 class="uppercase white-headline text-3xl pb-6">Hvad du kan forvente</h4>
+        <p class="white-text max-w-3xl">Til koncerten på Kanten kan du forvente en vild og uforglemmelig aften. Der vil blive fyret op for musikken med beats I elsker og en fantastisk stemning med andre unge. Kanten er kendt for sine store fester, hvor der altid er masser af alkohol og sjov. Kom og dans natten lang og oplev en fest uden lige!</p>
+    </section>
 
-            <div class="collage-images-right flex flex-col">
-                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-4.jpg?alt=media&token=59922db7-f09d-4bec-96e4-199becf88560" alt="collage image-4">
-                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-5.jpg?alt=media&token=52ef7641-3543-4ac7-9499-b792eb90253f" alt="collage image-5">
-                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-6.jpg?alt=media&token=5f152216-7b1f-4e66-83e0-773373ca839e" alt="collage image-6">
-            </div>
+    <section class="flex flex-row five-percent">
+        <div>
+            <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-6.jpg?alt=media&token=5f152216-7b1f-4e66-83e0-773373ca839e" alt="image of artist">
         </div>
-    </div>
+
+        <div class="flex flex-col justify-center items-center">
+            <h5 class="light-text pb-6 font-normal">Hvad venter du på?</h5>
+            <h1 class="white-headline text-center pb-6 uppercase">Bestil biletter</h1>
+            <p class="white-text text-center pb-8 ten-percent">Sikre dig dine <span class="font-bold">GRATIS</span> biletter til vores fede event her!</p>
+            <button class="button2">FÅ DINE GRATIS BILETTER</button>
+        </div>
+    </section>
 
 </template>
 
@@ -369,22 +276,7 @@ const eventSingleItem = computed(() => {
 }
 
 
-/* collage images */
-.collage-images {
-    padding: 50px 0;
-}
-.collage-images img {
-    padding: 1%;
-}
 
-.collage-images-left img {
-    padding-left: 0;
-}
-
-.collage-images-right img {
-    padding-right: 0;
-}
- 
 
 /* responsive */
 @media only screen and (max-width: 1200px) {
@@ -527,15 +419,6 @@ const eventSingleItem = computed(() => {
 
     .about-right img {
         width: 100%;
-    }
-
-    .collage-images {
-        flex-direction: column;
-    }
-
-    .collage-images img {
-        padding-right: 0;
-        padding-left: 0;
     }
 }
 

@@ -8,103 +8,52 @@
     <!-- add event -->
     <form @submit.prevent="addEvent">
       <div class="field">
-
-        <!-- input field when adding event -->
-        <p class="control">
+        <div class="control">
           <!-- artist -->
           <input v-model="newEventArtist" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="artist" placeholder="Add an artist">
           <input v-model="newEventArtistDes" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="artistdes" placeholder="Add an artist description">
-          
+
           <!-- date -->
           <div class="top-dropdown-p w-full">
             <p>Select a date and time in the dropdown: </p>
           </div>
+          <div class="date-dropdown pb-2">
+            <p>Date</p>
+            <input v-model="newEventDate" class="date border-0 py-1.5 pl-6 pr-20" type="text" name="date" placeholder="Day, date. month, year">
+          </div>
 
-          <div class="date-dropdown">
-            <div class="dates-dropdown">
-              <div>
-                <p>Date </p>
-              </div>
-              <select v-model="newEventDate" class="date dates border-0 py-1.5 pl-6 pr-20"> 
-              <option v-for="date in dates" :key="date" >
-                <p>{{ date.date }}</p>
-              </option>
-            </select>
-            </div>
-
-            <div class="month-dropdown">
-              <div>
-                <p>Month </p>
-              </div>
-              <select v-model="newEventMonth" class="month dates border-0 py-1.5 pl-6 pr-20">
-              <option v-for="month in months" :key="month" >
-                <p>{{ month.month }}</p>
-              </option>
-            </select>
-            </div>
-
-            <div class="time-dropdown">
-              <div>
-                <p>Time</p>
-              </div>
-              <input v-model="newEventTime" class="time border-0 py-1.5 pl-6 pr-20" type="text" name="time" placeholder="KL:">
-            </div>
+          <div class="time-dropdown">
+            <p>Time</p>
+            <input v-model="newEventTime" class="time border-0 py-1.5 pl-6 pr-20" type="text" name="time" placeholder="KL: 00:00 - 00:00">
           </div>
 
           <!-- venue -->
           <div class="top-dropdown-p">
-            <p>Select a venue in the dropdown: </p>
+            <p>Select a venue in the dropdown:</p>
           </div>
-
           <select v-model="newEventVenue" class="venue-dropdown border-0 py-1.5 pl-6 pr-20">
-              <option class="venue-menu" v-for="venue in venues" :key="venue">
-                <p>{{ venue.venue }}</p>
-              </option>
-            </select>
-
-          <!-- description -->
-          <input v-model="newEventDes" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="des" placeholder="Add a brief description">
-
-          <!-- sales url -->
-          <input v-model="newEventUrlSales" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="sales_url" placeholder="Add a sales url">
-
-          <!-- group age -->
-          <input v-model="newEventAgeGroup" class="input border-0 py-1.5 pl-7 pr-20" type="text" name="age" placeholder="Add a target group age">
-
-          <!-- price -->
-          <input v-model="newEventPrice" type="text" name="price" class="price border-0 py-1.5 pl-7 pr-20" placeholder="0.00 DKK"/>
-
-          <!-- category -->
-          <div class="top-dropdown-p">
-            <p>Select a category in the dropdown: </p>
-          </div>
-          <select v-model="newEventCategory" class="category border-0 py-1.5 pl-6 pr-20">
-            <option v-for="category in categories" :key="category">
-              <p>{{ category.category }}</p>
-            </option> 
+            <option v-for="venue in venues" :key="venue">{{ venue.venue }}</option>
           </select>
 
           <!-- genre -->
           <div class="top-dropdown-p">
-            <p>Select a genre in the dropdown: </p>
+            <p>Select a genre in the dropdown:</p>
           </div>
           <select v-model="newEventGenre" class="genres border-0 py-1.5 pl-6 pr-20">
-            <!--  <option selected disabled value="Select a venue">Please select a venue...</option> -->
-            <option class="genre" v-for="genre in genres" :value="genre.genre" :key="genre">
-              <p>{{ genre.genre }}</p>
-            </option> 
+            <option v-for="genre in genres" :value="genre.genre" :key="genre">{{ genre.genre }}</option>
           </select>
 
           <!-- image -->
-          <input v-on:change="imgURL" class="image" alt="event image" type="file" label="File input" width="200" height="200" @change="uploadImg">
+          <input @change="uploadImg" class="image" type="file" alt="event image">
 
-          <!-- button that adds event -->
+          <!-- submit button -->
           <div class="control">
-            <button @click="" :disabled="addEventParameters.uploadBtnDisabled" class="button2 mt-10">Add</button>
+            <button :disabled="addEventParameters.uploadBtnDisabled" class="button2 mt-10">Add</button>
           </div>
-        </p>
+        </div>
       </div>
     </form>
+
 
     <!-- divider with "events" -->
     <div>
@@ -112,7 +61,7 @@
     </div>
 
     <!-- events in a list -->
-    <div v-for="event in events" class="card">
+    <div v-for="event in events" :key="event.id" class="card">
       <div class="card-content mb-4">
         <div class="content p-2 w-full border-0 py-1.5 pl-7 pr-20" :class="{ 'has-background-success' : event.done}">
             <div class="column mt-5" :class="{ 'has-text-success' : event.done }">
@@ -120,14 +69,13 @@
                 <img :src="event.imgURL">
                 <h4> {{ event.artist }} </h4>
                 <p> {{ event.artistDes }} </p>
-                <p> {{ event.date }} {{ event.month }} {{ event.time }} </p>
-                <p> {{ event.category }} </p>
+                <p> {{ event.date }}</p>
+                <p> {{ event.time }} </p>
                 <p> {{ event.venue }} </p>
               </div>
                 
               <div>
                 <p> {{ event.genre }} </p>
-                <p> {{ event.des }} </p>
                 <p>{{ event.ageGroup }} </p>
                 <p> {{ event.price }} </p>
                 <p> {{ event.urlSales }} </p>
@@ -165,9 +113,6 @@ import { db } from '@/firebase'
 import eventdb from '../modules/eventdb' 
 
 // importing modules
-import dates from '@/modules/useDates'
-import months from '@/modules/useMonths'
-import categories from '@/modules/useCategories'
 import genres from '@/modules/useGenres' 
 import venues from '@/modules/useVenues' 
 
@@ -184,14 +129,11 @@ const addEventParameters = () => {
   newEventArtist
   newEventArtistDes
   newEventDate 
-  newEventMonth
   newEventTime
   newEventVenue 
-  newEventDes
   newEventUrlSales 
   newEventAgeGroup
   newEventPrice
-  newEventCategory
   newEventGenre 
   imgURL
   uploadBtnDisabled
@@ -202,14 +144,11 @@ const addEventParameters = () => {
 const newEventArtist = ref('')
 const newEventArtistDes = ref('')
 const newEventDate = ref('')
-const newEventMonth = ref('')
 const newEventTime = ref('')
 const newEventVenue = ref('')
-const newEventDes = ref('')
 const newEventUrlSales = ref('')
 const newEventAgeGroup = ref('')
 const newEventPrice = ref('')
-const newEventCategory = ref('')
 const newEventGenre = ref('')
 const imgURL = ref('')
 const uploadBtnDisabled = ref('true')
@@ -221,14 +160,11 @@ const addEvent = () => {
     artist: newEventArtist.value,
     artistDes: newEventArtistDes.value,
     date: newEventDate.value,
-    month: newEventMonth.value,
     time: newEventTime.value,
     venue: newEventVenue.value,
-    des: newEventDes.value,
     urlSales: newEventUrlSales.value,
     ageGroup: newEventAgeGroup.value,
     price: newEventPrice.value,
-    category: newEventCategory.value,
     genre: newEventGenre.value,
     imgURL: imgURL.value,
     done: false,
@@ -237,14 +173,11 @@ const addEvent = () => {
   newEventArtist.value = ''
   newEventArtistDes.value = ''
   newEventDate.value = ''
-  newEventMonth.value = ''
   newEventTime.value = ''
   newEventVenue.value = ''
-  newEventDes.value = ''
   newEventUrlSales.value = ''
   newEventAgeGroup.value = ''
   newEventPrice.value = ''
-  newEventCategory.value = ''
   newEventGenre.value = ''
   imgURL.value = ''
 }
@@ -401,6 +334,7 @@ select {
 /* parameters to add in adminn */
 .date-dropdown {
   display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
@@ -531,10 +465,6 @@ h4 {
     width: 400px;
   }
 
-  .category {
-    width: 400px;
-  }
-
   .genres {
     width: 400px;
   }
@@ -570,10 +500,6 @@ h4 {
   }
 
   .price {
-    width: 300px;
-  }
-
-  .category {
     width: 300px;
   }
 
@@ -613,10 +539,6 @@ h4 {
   }
 
   .price {
-    width: 270px;
-  }
-
-  .category {
     width: 270px;
   }
 

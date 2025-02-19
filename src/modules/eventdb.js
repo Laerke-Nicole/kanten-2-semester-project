@@ -26,14 +26,8 @@ const eventdb = () => {
     newEventArtist
     newEventArtistDes
     newEventDate 
-    newEventMonth
     newEventTime
     newEventVenue 
-    newEventDes
-    newEventUrlSales 
-    newEventAgeGroup
-    newEventPrice
-    newEventCategory
     newEventGenre 
     imgURL
     uploadBtnDisabled
@@ -44,14 +38,8 @@ const eventdb = () => {
   const newEventArtist = ref('')
   const newEventArtistDes = ref('')
   const newEventDate = ref('')
-  const newEventMonth = ref('')
   const newEventTime = ref('')
   const newEventVenue = ref('')
-  const newEventDes = ref('')
-  const newEventUrlSales = ref('')
-  const newEventAgeGroup = ref('')
-  const newEventPrice = ref('')
-  const newEventCategory = ref('')
   const newEventGenre = ref('')
   const imgURL = ref('')
   const uploadBtnDisabled = ref('true')
@@ -70,11 +58,6 @@ const eventdb = () => {
           month: doc.data().month,
           time: doc.data().time,
           venue: doc.data().venue,
-          des: doc.data().des,
-          urlSales: doc.data().urlSales,
-          ageGroup: doc.data().ageGroup,
-          price: doc.data().price,
-          category: doc.data().category,
           genre: doc.data().genre,
           imgURL: doc.data().imgURL,
           done: doc.data().done,
@@ -97,14 +80,8 @@ const eventdb = () => {
     newEventArtist,
     newEventArtistDes,
     newEventDate,
-    newEventMonth,
     newEventTime,
     newEventVenue,
-    newEventDes,
-    newEventUrlSales,
-    newEventAgeGroup,
-    newEventPrice,
-    newEventCategory,
     newEventGenre,
     imgURL,
     uploadBtnDisabled,

@@ -1,68 +1,91 @@
 <template>
-
-  <!-- front page -->
-  <div class="front-page">
-    <div class="front-page-top">
-      <p class="slogan-text text-lg">For unge drevet af unge</p>
-      <h1 class="uppercase">Kommende events</h1>
-    </div>
-  </div>
-
-
   <!-- event list -->
-  <div class="events-list-background">
+  <div class="py-36 five-percent">
+    <p class="text-lg white-text pb-4">For unge drevet af unge</p>
+    <h1 class="uppercase white-headline pb-12">Kommende events</h1>
+
     <!-- loop with event -->
-    <div v-for="event in events" :key="event">
-      <RouterLink :to="{ name: 'event', params: { id: event.id }}">
-        <div class="event-list primary-background-img">
-          <div class="event-list-top flex">
+    <div class="flex flex-col gap-8">
+      <div v-for="event in events" :key="event">
+        <RouterLink :to="{ name: 'event', params: { id: event.id }}">
+          <div class="flex primary-background-img edge-box relative">
             <!-- image -->
-            <div class="event-card-img">
-              <img :src="event.imgURL" alt="event image">
+            <div class="flex">
+              <div class="p-6">
+                <img :src="event.imgURL" alt="event image" class="h-52 edge-event-card">
+              </div>
             </div>
 
             <!-- shown information -->
-            <div class="event-card-content uppercase">
+            <div class="uppercase pt-6 pb-6 flex flex-col justify-between">
               <div>
-                <p>{{ event.genre }}</p>
+                <p class="pb-2">{{ event.genre }}</p>
                 <h3>{{ event.artist }}</h3>
               </div>
-              
-            </div>
-          </div>
-          
-          <div class="event-card-buttom-logo flex justify-between">
-            <div class="event-card-buttom flex flex-col uppercase">
-              <div class="event-card-date flex gap-2"> 
+
+              <div class="flex flex-col uppercase">
                 <p>{{ event.date }}</p>
-                <p>{{ event.month }}</p>
+                <p>{{ event.time }}</p>
+                <p>{{ event.venue }}</p>
               </div>
-              <p>{{ event.time }}</p>
-              <p>{{ event.venue }}</p>
             </div>
 
-            <div class="event-card-logo">
+            <div class="absolute bottom-0 right-0 p-4">
               <div v-if="event.genre == 'MANA CLUB'">
-                <img :src="manaclubLogo" alt="genre logo">
+                <img :src="manaclubLogo" alt="genre logo" class="h-10">
               </div>
 
               <div v-if="event.genre == 'DEFT'">
-                <img :src="deftLogo" alt="genre logo">
+                <img :src="deftLogo" alt="genre logo" class="h-10">
               </div>
 
               <div v-if="event.genre == 'VERTEX'">
-                <img :src="vertexLogo" alt="genre logo">
+                <img :src="vertexLogo" alt="genre logo" class="h-10">
               </div>
 
               <div v-if="event.genre == 'X-MASSIVE DUB'">
-                <img :src="xmassivedubLogo" alt="genre logo">
+                <img :src="xmassivedubLogo" alt="genre logo" class="h-10">
               </div>
             </div>
           </div>
-        </div>
-      </RouterLink>
+        </RouterLink>
+      </div>
     </div>
   </div>
+
+
+  <!-- genres -->
+  <section class="white-bg pt-16 pb-16 five-percent">
+    <div>
+      <h3 class="text-center pb-12">VORES MUSIKGENRE</h3>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-8 md:gap-20 justify-center items-center">
+      <div class="flex flex-col justify-center items-center">
+        <img :src="deftLogo" alt="genre logo" class="h-20">
+        <h5 class="pt-6 text-3xl">DEFT</h5>
+        <p>Hip hop</p>
+      </div>
+
+      <div class="flex flex-col justify-center items-center">
+        <img :src="manaclubLogo" alt="genre logo" class="h-20">
+        <h5 class="pt-6 text-3xl">MANA CLUB</h5>
+        <p>Tecno</p>
+      </div>
+
+      <div class="flex flex-col justify-center items-center">
+        <img :src="vertexLogo" alt="genre logo" class="h-20">
+        <h5 class="pt-6 text-3xl">VERTEX</h5>
+        <p>House</p>
+      </div>
+
+      <div class="flex flex-col justify-center items-center">
+        <img :src="xmassivedubLogo" alt="genre logo" class="h-20">
+        <h5 class="pt-6 text-3xl">X-MASSIVE DUB</h5>
+        <p>Dancehall & raggae</p>
+      </div>
+    </div>
+  </section>
 
   <!-- news letter section -->
   <div class="news-letter tertiary-background-img">
@@ -103,7 +126,7 @@
             <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_3e04c9aa23d2cf67b4490960e_27f0872f15" tabindex="-1" value=""></div>
             <div class="optionalParent">
               <div class="clear foot">
-                <input type="submit" value="Tilmeld" name="subscribe" id="mc-embedded-subscribe" class="button1 button">
+                <input type="submit" value="TILMELD" name="subscribe" id="mc-embedded-subscribe" class="button1">
               </div>
             </div>
         </div>
@@ -112,6 +135,32 @@
     <!--End mc_embed_signup-->
   </div>
 
+
+  <!-- collage -->
+  <div class="black-bg flex gap-4 five-percent">
+    <!-- left column with one image -->
+    <div class="w-1/2">
+      <img
+        class="w-full h-full object-cover"
+        src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-1.jpg?alt=media&token=f83ae4ec-1806-42ee-9598-8fafda5b1a30"
+        alt="collage image-1"
+      />
+    </div>
+
+    <!-- right column with two stacked images -->
+    <div class="flex flex-col gap-4 w-1/2">
+      <img
+        class="w-full h-1/2 object-cover"
+        src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-4.jpg?alt=media&token=59922db7-f09d-4bec-96e4-199becf88560"
+        alt="collage image-2"
+      />
+      <img
+        class="w-full h-1/2 object-cover"
+        src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-3.jpg?alt=media&token=5a569a19-5b00-4bbe-89ab-6ad0a5737a14"
+        alt="collage image-3"
+      />
+    </div>
+  </div>
 </template>
 
  
@@ -147,14 +196,12 @@ onMounted(() => {
         artist: doc.data().artist,
         artistDes: doc.data().artistDes,
         date: doc.data().date,
-        month: doc.data().month,
         time: doc.data().time,
         venue: doc.data().venue,
         des: doc.data().des,
         urlSales: doc.data().urlSales,
         ageGroup: doc.data().ageGroup,
         price: doc.data().price,
-        category: doc.data().category,
         genre: doc.data().genre,
         imgURL: doc.data().imgURL,
         done: doc.data().done,
@@ -178,104 +225,12 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 
 <style scoped>
 /* front page */
-.front-page {
-  padding: 150px 0 40px 10%;
-}
-
-.front-page-top h1 {
-  padding-bottom: 6px;
-  font-size: 70px;
-  color: var(--white-headline)
-}
-
-.slogan-text {
-  color: var(--white-text);
-}
-
-
-/* event list */
-.events-list-background {
-  width: 100%;
-  padding: 50px 10%;
-}
-
-.event-list {
-  display: flex;
-  flex-direction: column;
-  clip-path: var(--edge-box);
-  margin-bottom: 30px;
-}
-
 /* event  */
-.event-card-img {
-  padding: 40px 0 0 10%;
-}
-
-.event-card-img img {
-  height: 200px;
-  clip-path: var(--edge-event-card);
-}
-
-/* content on event card */
-.event-card-content {
-  display: flex;
-  flex-direction: column;
-  padding-top: 40px;
-  padding-left: 18px;
-}
-
-.event-card-content h3 {
-  font-size: 38px;
-  text-transform: uppercase;
-  padding-right: 24px;
-}
-
-.event-card-buttom p {
-  font-weight: 600;
-  color: var(--extra-light);
-  line-height: 1.2;
-}
-
-.event-card-buttom-logo {
-  display: flex;
-  align-self: flex-end;
-}
-
-.event-card-logo {
-  padding: 18px;
-}
-
-.event-card-logo img {
-  height: 45px;
-  width: auto;
-}
-
-
-/* comment section */
-.comment-section {
-  display: flex;
-}
-
-.divider {
-  height: 0;
-}
-
-.comment-section-left {
-  display: flex;
-  flex-direction: column;
-  /* width: 60%; */
-  padding: 12% 0 70px 10%;
-}
-
-.comment-section-button {
-  padding-top: 24px;
-}
-
 
 /* newsletter */
 .news-letter {
   width: 100%;
-  padding: 50px 10%;
+  padding: 70px 10%;
 }
 
 .news-letter-card {
@@ -316,87 +271,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   margin: 0;
 }
 
-.button1 {
-  background-color:var(--primary-color) !important;
-  color: var(--white-text) !important;
-  font-size: 16px !important;
-  padding: 10px 30px !important;
-  margin-bottom: 12px !important;
-  cursor: pointer;
-  border: 0 !important;
-  transition: 0.3s !important;
-  font-family: var(--text-font) !important;
-  font-size: 16px !important;
-  overflow: hidden;
-  text-align: center !important;
-  z-index: 1 !important;
-  border-radius: 0 !important;
-  height: auto !important;
-}
-
-
-/* chat */
-.event-card-img {
-  width: 350px;
-  height: auto;
-  overflow: hidden;
-  clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 10%);
-}
-
-.event-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-
-
 /* responsive  */
-@media only screen and (max-width: 930px) {
-  .event-card-img img {
-    height: 150px;
-  }
-
-  .event-card-date {
-    padding-top: 40px;
-  }
-}
-
-@media only screen and (max-width: 850px) {
-  .button1 {
-    font-size: 15px !important;
-  }
-}
- 
-@media only screen and (max-width: 800px) {
-  .event-card-date {
-    padding-top: 20px;
-  }
-
-  .event-list-top {
-    flex-direction: column;
-  }
-
-  .event-card-img {
-    padding-right: 10%;
-    padding-bottom: 18px;
-  }
-
-  .event-card-img img {
-    width: 100%;
-    height: auto;
-  }
-
-  .event-card-content {
-    padding: 0 10% 0 10%;
-  }
-
-  .event-card-date {
-    padding-top: 16px;
-  }
-}
-
 @media only screen and (max-width: 780px) {
   .news-letter-form input {
     width: 80%;
@@ -409,49 +284,10 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 @media only screen and (max-width: 767px) {
-  .comment-section-left {
-    padding-top: 20%;
-  }
-
   #mc_embed_signup_scroll h2 {
   font-size: 35px !important;
   }
 }
-
-@media only screen and (max-width: 610px) {
-  .slogan-text {
-    font-size: 16px;
-  }
-
-  .event-list h3 {
-    font-size: 40px;
-  }
-}
-
-@media only screen and (max-width: 540px) {
-  .comment-section h2 {
-    font-size: 36px;
-  }
-
-  .comment-section p {
-    padding-right: 10%;
-  }
-}
-
-@media only screen and (max-width: 420px) {
-  .event-list h3 {
-    transform: scaleY(1.3);
-    font-size: 35px;
-  }
-}
-
-@media only screen and (max-width: 375px) {
-  .event-list h3 {
-    transform: scaleY(1.3);
-    font-size: 30px;
-  }
-} 
-
 
 /* responsive end */
 

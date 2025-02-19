@@ -10,35 +10,6 @@
 }
 
 
-/* background images */
-.primary-background-img {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/primary-img.jpg?alt=media&token=60f1a4d5-d484-42c4-807c-9f32551877dc');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.secondary-background-img {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/secondary-img.jpg?alt=media&token=cf401050-a933-4ebc-833a-78887cf410f8');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.secondary-background-img-light {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/secondary-img-light.jpg?alt=media&token=ea0579bf-0680-48dd-9564-5d47fae0345f');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.tertiary-background-img {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/tertiary-img.jpg?alt=media&token=9380b573-4687-43e0-97cc-c859584426a3');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 
 /*styling text*/
 h1, h2, h3, h4, h5, h6 {
@@ -49,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 60px;
 }
 
 h2 {
@@ -57,22 +28,24 @@ h2 {
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 38px;
 }
 
 p {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--black-text);
   font-family: var(--text-font);
 }
 
-/* making all p responsive for smaller screens */
-@media only screen and (max-width: 850px) {
-  p {
-    font-size: 15px;
-  }
+.five-percent {
+  padding-right: 5%;
+  padding-left: 5%;
 }
 
+.ten-percent {
+  padding-right: 10%;
+  padding-left: 10%;
+}
 
 /*styling button*/
 button {
@@ -82,10 +55,9 @@ button {
 /* black button */
 .button1 {
   background-color:var(--primary-color);
-  position: relative;
   color: var(--white-text);
   font-size: 16px;
-  padding: 10px 30px;
+  padding: 10px 25px;
   cursor: pointer;
   border: 0;
   transition: 0.3s;
@@ -94,11 +66,10 @@ button {
   text-decoration: none;
   overflow: hidden;
   text-align: center;
-  z-index: 1;
 }
 
 .button1:hover {
-  clip-path: var(--edge-button);
+  background-color: var(--black-text);
 }
 
 
@@ -112,10 +83,11 @@ button {
 
 /* white button */
 .button2 {
-  background-color:var(--secondary-color);
+  border: 1px solid var(--black-headline);
+  background-color:var(--white-headline);
   position: relative;
   color: var(--black-text);
-  padding: 10px 50px;
+  padding: 10px 25px;
   cursor: pointer;
   border: 0;
   transition: 0.3s;
@@ -124,17 +96,12 @@ button {
   text-decoration: none;
   overflow: hidden;
   text-align: center;
-  z-index: 1;
 }
 
 .button2:hover {
-  clip-path: var(--edge-button);
+  background-color: var(--white-text);
 }
 
-
-/* responsive button */
-@media only screen and (max-width: 850px) {
-  .button2 {
-    font-size: 15px;
-  }
+.footer-hr {
+  border-color: var(--black-text)
 }
