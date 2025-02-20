@@ -30,8 +30,8 @@ import { useRouter } from 'vue-router' //import router
 
 const email = ref("");
 const password = ref("");
-const errMsg = ref() //ERROR MESSAGE
-const router = useRouter() //get a reference to our vue router
+const errMsg = ref() 
+const router = useRouter() 
 
 const logIn = () => {
     console.log("set")

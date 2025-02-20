@@ -71,7 +71,7 @@ const mobileMenuOpen = ref(false)
       <PopoverGroup class="hidden lg:flex lg:gap-x-12 white-text" >
         <RouterLink to='/'>Events</RouterLink>
         <RouterLink to='/about'>Om Kanten</RouterLink>
-        <RouterLink to='/contact'>Kontakt</RouterLink>
+        <RouterLink to='/contact'>Kontakt os</RouterLink>
       </PopoverGroup>
 
       
@@ -106,7 +106,7 @@ const mobileMenuOpen = ref(false)
             <div class="hamburgermenu-top-content space-y-2 py-6">
               <RouterLink to='/' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Events</RouterLink>
               <RouterLink to='/about' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Om Kanten</RouterLink>
-              <RouterLink to='/contact' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Kontakt</RouterLink>
+              <RouterLink to='/contact' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Kontakt os</RouterLink>
             </div>
 
             <!-- log in in hamburger menu -->
@@ -136,15 +136,17 @@ const mobileMenuOpen = ref(false)
       </div>
 
       <div class="flex gap-24">
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-4">
           <h4 class="white-headline pb-4">KANTEN</h4>
-          <p class="white-text text-sm">Gl Novrupvej 14, 6705 Esbjerg Ø</p>
           <p class="white-text text-sm">+45 28  97 11 85</p>
           <p class="white-text text-sm">Musikforeningenkanten@gmail.com</p>
+          <p class="white-text text-sm">Gl Novrupvej 14, 6705 Esbjerg Ø</p>
         </div>
   
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-4">
           <h4 class="white-headline pb-4">ABOUT</h4>
+          <RouterLink to='/about'><p class="white-text text-sm">Om Kanten</p></RouterLink>
+          <RouterLink to='/contact'><p class="white-text text-sm">Kontakt os</p></RouterLink>
           <p class="white-text text-sm">Vilkår & betingelser</p>
           <p class="white-text text-sm">Privatlivspolitik</p>
           <div class="flex gap-4 pt-4">

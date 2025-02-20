@@ -92,14 +92,14 @@
     <div id="mc_embed_signup" class="news-letter-card primary-background-img">
       <form action="https://easv365.us21.list-manage.com/subscribe/post?u=3e04c9aa23d2cf67b4490960e&amp;id=27f0872f15&amp;v_id=112&amp;f_id=007f54e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
         <div id="mc_embed_signup_scroll">
-          <h2 class="uppercase">Nyhedsbrev</h2>
+          <h3 class="uppercase">Nyhedsbrev</h3>
 
             <div class="mc-field-group news-letter-form">
-              <input type="text" value="Navn" name="FNAME" class="" id="mce-FNAME">
+              <input type="text" placeholder="Navn" value="" name="FNAME" class="" id="mce-FNAME">
             </div>
 
             <div class="mc-field-group">
-              <input type="email" value="Mailadresse" name="EMAIL" class="required email" id="mce-EMAIL" required>
+              <input type="email" placeholder="Mailadresse" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
             </div>
 
             <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
@@ -232,8 +232,8 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   justify-content: center;
 }
 
-#mc_embed_signup_scroll h2 {
-  font-size: 45px !important;
+#mc_embed_signup_scroll h3 {
+  font-size: 38px !important;
   margin: 0 !important;
   padding-bottom: 24px;
 }
