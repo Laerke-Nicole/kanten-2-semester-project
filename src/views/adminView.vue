@@ -72,13 +72,7 @@
                 <p> {{ event.date }}</p>
                 <p> {{ event.time }} </p>
                 <p> {{ event.venue }} </p>
-              </div>
-                
-              <div>
                 <p> {{ event.genre }} </p>
-                <p>{{ event.ageGroup }} </p>
-                <p> {{ event.price }} </p>
-                <p> {{ event.urlSales }} </p>
               </div>
             </div>
             
@@ -131,9 +125,6 @@ const addEventParameters = () => {
   newEventDate 
   newEventTime
   newEventVenue 
-  newEventUrlSales 
-  newEventAgeGroup
-  newEventPrice
   newEventGenre 
   imgURL
   uploadBtnDisabled
@@ -146,9 +137,6 @@ const newEventArtistDes = ref('')
 const newEventDate = ref('')
 const newEventTime = ref('')
 const newEventVenue = ref('')
-const newEventUrlSales = ref('')
-const newEventAgeGroup = ref('')
-const newEventPrice = ref('')
 const newEventGenre = ref('')
 const imgURL = ref('')
 const uploadBtnDisabled = ref('true')
@@ -162,9 +150,6 @@ const addEvent = () => {
     date: newEventDate.value,
     time: newEventTime.value,
     venue: newEventVenue.value,
-    urlSales: newEventUrlSales.value,
-    ageGroup: newEventAgeGroup.value,
-    price: newEventPrice.value,
     genre: newEventGenre.value,
     imgURL: imgURL.value,
     done: false,
@@ -175,9 +160,6 @@ const addEvent = () => {
   newEventDate.value = ''
   newEventTime.value = ''
   newEventVenue.value = ''
-  newEventUrlSales.value = ''
-  newEventAgeGroup.value = ''
-  newEventPrice.value = ''
   newEventGenre.value = ''
   imgURL.value = ''
 }
@@ -347,34 +329,6 @@ select {
   height: 40px;
 }
 
-.venue-menu {
-  color: var(--black-text);
-}
-
-.price {
-  color: var(--black-text);
-  margin-bottom: 10px;
-}
-
-.price ::placeholder {
-  color: var(--black-text);
-}
-
-/* genre dropdown styling */
-.genres {
-  color: var(--black-text);
-}
-
-.genre {
-  color: var(--black-headline);  
-}
-
-.image-input {
-  color: var(--white-text);
-  margin-bottom: 12px;
-}
-
-
 /* divider with "events" */
 .event-h2 {
   color: var(--white-headline);
@@ -460,15 +414,6 @@ h4 {
   .venue-dropdown {
     width: 400px;
   }
-
-  .price {
-    width: 400px;
-  }
-
-  .genres {
-    width: 400px;
-  }
-
 }
 
 @media only screen and (max-width: 550px) {
@@ -498,15 +443,6 @@ h4 {
   .venue-dropdown {
     width: 300px;
   }
-
-  .price {
-    width: 300px;
-  }
-
-  .genres {
-    width: 300px;
-  }
-
 }
 
 
@@ -535,14 +471,6 @@ h4 {
   }
 
   .venue-dropdown {
-    width: 270px;
-  }
-
-  .price {
-    width: 270px;
-  }
-
-  .genres {
     width: 270px;
   }
 
