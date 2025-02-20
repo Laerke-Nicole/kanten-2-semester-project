@@ -12,7 +12,7 @@
             <!-- image -->
             <div class="flex">
               <div class="artist-img-container p-6">
-                <img :src="event.imgURL" alt="event image" class="artist-img h-52 edge-event-card">
+                <img :src="event.imgURL" alt="event image" class="artist-img h-64 edge-event-card">
               </div>
             </div>
 
@@ -178,8 +178,10 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 
 
 <style scoped>
-/* front page */
 /* event  */
+.card-container {
+  width: 100%;
+}
 
 /* newsletter */
 .news-letter {

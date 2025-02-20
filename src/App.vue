@@ -138,17 +138,17 @@ const mobileMenuOpen = ref(false)
       <div class="footer-content-container flex gap-24">
         <div class="flex flex-col gap-4">
           <h4 class="white-headline pb-4">KANTEN</h4>
-          <p class="white-text text-sm">+45 28  97 11 85</p>
-          <p class="white-text text-sm">Musikforeningenkanten@gmail.com</p>
-          <p class="white-text text-sm">Gl Novrupvej 14, 6705 Esbjerg Ø</p>
+          <p class="footer-link">+45 28  97 11 85</p>
+          <p class="footer-link">Musikforeningenkanten@gmail.com</p>
+          <p class="footer-link">Gl Novrupvej 14, 6705 Esbjerg Ø</p>
         </div>
   
         <div class="flex flex-col gap-4">
           <h4 class="white-headline pb-4">ABOUT</h4>
-          <RouterLink to='/about'><p class="white-text text-sm">Om Kanten</p></RouterLink>
-          <RouterLink to='/contact'><p class="white-text text-sm">Kontakt os</p></RouterLink>
-          <p class="white-text text-sm">Vilkår & betingelser</p>
-          <p class="white-text text-sm">Privatlivspolitik</p>
+          <RouterLink to='/about'><p class="footer-link">Om Kanten</p></RouterLink>
+          <RouterLink to='/contact'><p class="footer-link">Kontakt os</p></RouterLink>
+          <p class="footer-link">Vilkår & betingelser</p>
+          <p class="footer-link">Privatlivspolitik</p>
           <div class="flex gap-4 pt-4">
             <RouterLink to="//www.facebook.com/kanten.esbjerg/" target="_blank">
                 <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/facebook-logo.svg?alt=media&token=7d6d5851-a412-4c26-9a61-2f63764b2285" alt="facebook logo" class="h-7">
@@ -184,7 +184,7 @@ nav a {
   color: var(--white-text);
   font-family: var(--text-font);
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 nav a:hover {
@@ -210,7 +210,7 @@ nav a.router-link-exact-active {
   color: var(--white-text);
   font-family: var(--text-font);
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .hamburgermenu-box a:hover {
@@ -238,6 +238,11 @@ nav a.router-link-exact-active {
 /* footer */
 .footer-logo img {
   height: 100px;
+}
+
+.footer-link {
+  font-size: 15px;
+  color: var(--white-text);
 }
 
 

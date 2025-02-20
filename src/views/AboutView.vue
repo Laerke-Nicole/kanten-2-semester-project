@@ -1,8 +1,8 @@
 <template>
-    <section class="fifteen-percent pt-28 pb-20">
+    <section class="fifteen-percent pt-32 pb-20 flex flex-col items-center">
         <div class="pb-16">
             <h1 class="uppercase white-headline pb-4">Hvem er Kanten?</h1>
-            <p class="white-text">Musikforeningen Kanten er Esbjergs nye kulturfællesskab, som rummer byens musikalske vækstlag. Vi tror på at hjælpe undergroundartister til toppen og tilbyder en gratis scene for livekoncerter inden for hiphop, techno, reggae og house. Derudover afholder vi diskoteksarrangementer, hvor fællesskabet og festen er i centrum - helt GRATIS.</p>
+            <p class="white-text about-text">Musikforeningen Kanten er Esbjergs nye kulturfællesskab, som rummer byens musikalske vækstlag. Vi tror på at hjælpe undergroundartister til toppen og tilbyder en gratis scene for livekoncerter inden for hiphop, techno, reggae og house. Derudover afholder vi diskoteksarrangementer, hvor fællesskabet og festen er i centrum - helt GRATIS.</p>
         </div>  
 
         <div>
@@ -76,6 +76,10 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 </script>
 
 <style scoped>
+.about-text {
+    max-width: 690px;
+}
+
 .quotation-mark {
     margin-top: -50px;
     padding-right: 50px;
