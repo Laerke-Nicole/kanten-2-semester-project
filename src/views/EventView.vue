@@ -3,7 +3,7 @@
     <!-- top part of page -->
     <div v-for="event in eventSingleItem" :key="event" class="pt-36">
         <!-- about artist -->
-        <section class="flex flex-row five-percent gap-20">
+        <section class="about-artist flex flex-row five-percent gap-20">
             <div class="flex flex-col justify-center items-center">
                 <h1 class="white-headline text-center pb-6 uppercase">Hvem er<br/>{{ event.artist }}</h1>
                 <p class="white-text text-center pb-8 five-percent">{{ event.artistDes }}</p>
@@ -16,12 +16,12 @@
         </section>
     </div>  
 
-    <section class="five-percent pt-28 pb-28">
-        <h4 class="uppercase white-headline text-3xl pb-6">Hvad kan du forvente?</h4>
+    <section class="expect five-percent pt-28 pb-28">
+        <h2 class="uppercase white-headline pb-6">Hvad kan du forvente?</h2>
         <p class="white-text max-w-3xl">Til koncerten på Kanten kan du forvente en vild og uforglemmelig aften. Der vil blive fyret op for musikken med beats I elsker og en fantastisk stemning med andre unge. Kanten er kendt for sine store fester, hvor der altid er masser af alkohol og sjov. Kom og dans natten lang og oplev en fest uden lige!</p>
     </section>
 
-    <section class="flex flex-row five-percent gap-20">
+    <section class="tickets-container flex flex-row five-percent gap-20">
         <div>
             <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-6.jpg?alt=media&token=5f152216-7b1f-4e66-83e0-773373ca839e" alt="image of artist">
         </div>
@@ -365,6 +365,22 @@ const eventSingleItem = computed(() => {
 @media only screen and (max-width: 905px) {
     .ticket-box-left {
     padding-right: 150px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .about-artist {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .expect {
+        padding: 60px 5%;
+    }
+
+    .tickets-container {
+        flex-direction: column-reverse;
+        gap: 50px;
     }
 }
 

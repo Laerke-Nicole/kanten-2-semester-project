@@ -1,6 +1,6 @@
 <template>
 
-    <div class="login-page">
+    <section class="login-page">
         <form class="form">
             <h3 class="form-title">Log ind</h3>
 
@@ -18,7 +18,7 @@
             </div>
                 <p><button @click.prevent="logIn" type="submit" class="button1">Log ind</button></p>
         </form>
-    </div>
+    </section>
 
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="five-percent pt-48">
+    <section class="five-percent pt-48">
         <div class="flex flex-col gap-8 pb-16">
             <div>
                 <h1 class="white-headline pb-4 uppercase">Kontakt os</h1>
@@ -15,7 +15,7 @@
             </div>
 
         </div>
-    </div>
+    </section>
 </template>
 
 <script setup>

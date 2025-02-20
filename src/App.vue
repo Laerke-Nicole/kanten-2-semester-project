@@ -126,7 +126,7 @@ const mobileMenuOpen = ref(false)
 
   <!-- footer -->
   <footer class="pt-20">
-    <div class="black-bg flex justify-around">
+    <div class="footer-container black-bg flex justify-around">
       <div>
         <RouterLink to='/'>
           <div class="footer-logo">
@@ -135,7 +135,7 @@ const mobileMenuOpen = ref(false)
         </RouterLink>
       </div>
 
-      <div class="flex gap-24">
+      <div class="footer-content-container flex gap-24">
         <div class="flex flex-col gap-4">
           <h4 class="white-headline pb-4">KANTEN</h4>
           <p class="white-text text-sm">+45 28  97 11 85</p>
@@ -184,6 +184,7 @@ nav a {
   color: var(--white-text);
   font-family: var(--text-font);
   transition: 0.3s;
+  font-size: 14px;
 }
 
 nav a:hover {
@@ -209,6 +210,7 @@ nav a.router-link-exact-active {
   color: var(--white-text);
   font-family: var(--text-font);
   transition: 0.3s;
+  font-size: 14px;
 }
 
 .hamburgermenu-box a:hover {
@@ -236,5 +238,23 @@ nav a.router-link-exact-active {
 /* footer */
 .footer-logo img {
   height: 100px;
+}
+
+
+/* responsive */
+@media only screen and (max-width: 900px) {
+  footer {
+    padding: 60px 5% 0 5%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .footer-content-container {
+    flex-direction: column;
+    gap: 60px;
+  }
 }
 </style>

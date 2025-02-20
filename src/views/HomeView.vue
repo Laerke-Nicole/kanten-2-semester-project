@@ -1,6 +1,6 @@
 <template>
   <!-- event list -->
-  <div class="py-36 five-percent">
+  <section class="pt-36 pb-12 five-percent">
     <p class="text-lg white-text pb-4">For unge drevet af unge</p>
     <h1 class="uppercase white-headline pb-12">Kommende events</h1>
 
@@ -8,18 +8,18 @@
     <div class="flex flex-col gap-8">
       <div v-for="event in events" :key="event">
         <RouterLink :to="{ name: 'event', params: { id: event.id }}">
-          <div class="flex primary-background-img edge-box relative">
+          <div class="card-container flex primary-background-img edge-box relative">
             <!-- image -->
             <div class="flex">
-              <div class="p-6">
-                <img :src="event.imgURL" alt="event image" class="h-52 edge-event-card">
+              <div class="artist-img-container p-6">
+                <img :src="event.imgURL" alt="event image" class="artist-img h-52 edge-event-card">
               </div>
             </div>
 
             <!-- shown information -->
-            <div class="uppercase pt-6 pb-6 flex flex-col justify-between">
+            <div class="card-info uppercase pt-6 pb-6 flex flex-col justify-between">
               <div>
-                <p class="pb-2">{{ event.genre }}</p>
+                <p class="pb-2 genre">{{ event.genre }}</p>
                 <h3>{{ event.artist }}</h3>
               </div>
 
@@ -30,7 +30,7 @@
               </div>
             </div>
 
-            <div class="absolute bottom-0 right-0 p-4">
+            <div class="genre-icon absolute bottom-0 right-0 p-4">
               <div v-if="event.genre == 'MANA CLUB'">
                 <img :src="manaclubLogo" alt="genre logo" class="h-10">
               </div>
@@ -51,44 +51,11 @@
         </RouterLink>
       </div>
     </div>
-  </div>
-
-
-  <!-- genres -->
-  <section class="white-bg pt-16 pb-16 five-percent">
-    <div>
-      <h3 class="text-center pb-12">VORES MUSIKGENRE</h3>
-    </div>
-
-    <div class="flex flex-col md:flex-row gap-8 md:gap-20 justify-center items-center">
-      <div class="flex flex-col justify-center items-center">
-        <img :src="deftLogo" alt="genre logo" class="h-20">
-        <h5 class="pt-6 text-3xl">DEFT</h5>
-        <p>Hip hop</p>
-      </div>
-
-      <div class="flex flex-col justify-center items-center">
-        <img :src="manaclubLogo" alt="genre logo" class="h-20">
-        <h5 class="pt-6 text-3xl">MANA CLUB</h5>
-        <p>Tecno</p>
-      </div>
-
-      <div class="flex flex-col justify-center items-center">
-        <img :src="vertexLogo" alt="genre logo" class="h-20">
-        <h5 class="pt-6 text-3xl">VERTEX</h5>
-        <p>House</p>
-      </div>
-
-      <div class="flex flex-col justify-center items-center">
-        <img :src="xmassivedubLogo" alt="genre logo" class="h-20">
-        <h5 class="pt-6 text-3xl">X-MASSIVE DUB</h5>
-        <p>Dancehall & raggae</p>
-      </div>
-    </div>
   </section>
 
+
   <!-- news letter section -->
-  <div class="news-letter tertiary-background-img">
+  <div class="news-letter">
     <div id="mc_embed_signup" class="news-letter-card primary-background-img">
       <form action="https://easv365.us21.list-manage.com/subscribe/post?u=3e04c9aa23d2cf67b4490960e&amp;id=27f0872f15&amp;v_id=112&amp;f_id=007f54e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
         <div id="mc_embed_signup_scroll">
@@ -204,7 +171,6 @@ onMounted(() => {
   });
 })
 
-
 // genre logos
 let manaclubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fmana-club-logo.svg?alt=media&token=695a4a1f-0a04-4160-8adf-d1a1cec56db3')
 let deftLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fdeft-logo.svg?alt=media&token=9d7c820e-bd50-4fe7-aa00-cdf520e84bef')
@@ -221,12 +187,12 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 /* newsletter */
 .news-letter {
   width: 100%;
-  padding: 70px 10%;
+  padding: 70px 10% 90px 10%;
 }
 
 .news-letter-card {
   clip-path: var(--edge-box);
-  padding: 50px 10% 50px 10%;
+  padding: 32px 1% 22px 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -264,6 +230,44 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 /* responsive  */
+@media only screen and (max-width: 900px) {
+  .card-container {
+    flex-direction: column;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+
+  .artist-img-container {
+    width: 100%;
+  }
+
+  .artist-img {
+    height: auto !important;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+
+  .card-info {
+    padding: 0 24px 24px 24px;
+  }
+
+  .card-info .genre {
+    padding-bottom: 0;
+  }
+
+  .card-info h3 {
+    font-size: 24px;
+    padding-bottom: 16px;
+  }
+
+  .news-letter {
+    padding: 12px 5% 60px 5%;
+  }
+
+  .news-letter-card {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+    padding: 20px 0 20px 2%;
+  }
+}
+
 @media only screen and (max-width: 780px) {
   .news-letter-form input {
     width: 80%;
@@ -280,6 +284,14 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   font-size: 35px !important;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .genre-icon {
+    position: relative;
+    padding-top: 0;
+  }
+}
+
 
 /* responsive end */
 
