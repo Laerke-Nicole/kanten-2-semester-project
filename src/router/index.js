@@ -42,6 +42,14 @@ const router = createRouter({
       },
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    // if the user goes back orforward then get the saved position
+    if (savedPosition) {
+      return savedPosition;
+    }
+    // or scroll to the top of the page
+    return { top: 0 };
+  },
 });
 
 
@@ -74,5 +82,6 @@ router.beforeEach(async (to, from, next) => {
     next();
   }
 });
+
 
 export default router
