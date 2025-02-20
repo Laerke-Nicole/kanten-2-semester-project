@@ -49,7 +49,7 @@ const mobileMenuOpen = ref(false)
 <header class="black-bg">
 
     <!-- navigation on big screen -->
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+    <nav class="mx-auto flex items-center justify-between p-6 lg:px-8">
 
       <!-- logo in top left corner -->
       <div class="flex lg:flex-1">
@@ -184,7 +184,7 @@ nav a {
   color: var(--white-text);
   font-family: var(--text-font);
   transition: 0.3s;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 nav a:hover {
@@ -210,7 +210,7 @@ nav a.router-link-exact-active {
   color: var(--white-text);
   font-family: var(--text-font);
   transition: 0.3s;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .hamburgermenu-box a:hover {
