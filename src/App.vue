@@ -165,7 +165,7 @@ const mobileMenuOpen = ref(false)
       </div>
 
       <div class="footer-content-container flex gap-24">
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1 footer-content-container-info">
           <h4 class="white-headline pb-4">KANTEN</h4>
           <p class="footer-link">+45 28  97 11 85</p>
           <p class="footer-link">Musikforeningenkanten@gmail.com</p>
@@ -180,13 +180,13 @@ const mobileMenuOpen = ref(false)
           <p class="footer-link">Privatlivspolitik</p>
           <div class="flex gap-4 pt-4">
             <RouterLink to="//www.facebook.com/kanten.esbjerg/" target="_blank">
-                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/facebook-logo.svg?alt=media&token=7d6d5851-a412-4c26-9a61-2f63764b2285" alt="facebook logo" class="h-7">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/facebook-logo.svg?alt=media&token=7d6d5851-a412-4c26-9a61-2f63764b2285" alt="facebook logo" class="h-5">
               </RouterLink>
               <RouterLink to="//www.instagram.com/kanten_esbjerg/" target="_blank">
-                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/instagram-logo.svg?alt=media&token=d5cc537a-36c3-455c-80f0-4427def5fad5" alt="instagram logo" class="h-7">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/instagram-logo.svg?alt=media&token=d5cc537a-36c3-455c-80f0-4427def5fad5" alt="instagram logo" class="h-5">
               </RouterLink>
               <RouterLink to="//discord.gg/Q7zUx2kjZF" target="_blank">
-                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/discord-logo.svg?alt=media&token=7e359cc2-56f9-4186-9edf-6806f4f3f0d1" alt="discord logo" class="h-7">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/discord-logo.svg?alt=media&token=7e359cc2-56f9-4186-9edf-6806f4f3f0d1" alt="discord logo" class="h-5">
               </RouterLink>
           </div>
         </div>
@@ -303,6 +303,10 @@ nav a.router-link-exact-active {
 .footer-link {
   font-size: 15px;
   color: var(--white-text);
+}
+
+.footer-content-container-info p {
+  font-size: 13px;
 }
 
 

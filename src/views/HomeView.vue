@@ -23,10 +23,9 @@
                 <h3>{{ event.artist }}</h3>
               </div>
 
-              <div class="flex flex-col uppercase">
+              <div class="card-info-time-date flex flex-col uppercase font-bold">
                 <p>{{ event.date }}</p>
                 <p>{{ event.time }}</p>
-                <p>{{ event.venue }}</p>
               </div>
             </div>
 
@@ -54,25 +53,40 @@
   </section>
 
 
+
+  <section class="content-info ten-percent py-12">
+    <div class="content-info-inner ten-percent">
+      <h3 class="uppercase white-headline pb-2">Oplev Esbjergs Musikalske Puls</h3>
+      <p class="white-text pb-4">Hos Musikforeningen Kanten bringer vi byens musikalske undergrund til live. Fra hiphop og techno til reggae og house – vores scene giver både nye og upcoming artister mulighed for at shine. Kom og vær en del af fællesskabet, oplev energiske livekoncerter og dans med til vores gratis diskoteksarrangementer. Musik, fest og fællesskab - <span class="font-bold">helt gratis.</span></p>
+    </div>
+  </section>
+
+
   <!-- news letter section -->
-  <div class="news-letter">
-    <div id="mc_embed_signup" class="news-letter-card primary-background-img">
-      <form action="https://easv365.us21.list-manage.com/subscribe/post?u=3e04c9aa23d2cf67b4490960e&amp;id=27f0872f15&amp;v_id=112&amp;f_id=007f54e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  <div class="news-letter py-12 ten-percent">
+    <div id="mc_embed_signup" class="news-letter-card primary-background-img grid grid-cols-12">
+      <div class="col-span-8 news-letter-img">
+        <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-6.jpg?alt=media&token=5f152216-7b1f-4e66-83e0-773373ca839e" alt="">
+      </div>
+
+      <form action="https://easv365.us21.list-manage.com/subscribe/post?u=3e04c9aa23d2cf67b4490960e&amp;id=27f0872f15&amp;v_id=112&amp;f_id=007f54e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-right col-span-4" target="_blank" novalidate>
         <div id="mc_embed_signup_scroll">
           <h3 class="uppercase">Nyhedsbrev</h3>
 
             <div class="mc-field-group news-letter-form">
+              <span class="pb-1 text-sm">Dit navn</span>
               <input type="text" placeholder="Navn" value="" name="FNAME" class="" id="mce-FNAME">
             </div>
 
             <div class="mc-field-group">
+              <span class="pb-1 text-sm">Din mail</span>
               <input type="email" placeholder="Mailadresse" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
             </div>
 
             <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
               <div class="content__gdpr">
                 <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
-                  <label class="checkbox subfield" for="gdpr_1167"><input type="checkbox" id="gdpr_1167" name="gdpr[1167]" value="Y" class="av-checkbox "><span>Jeg godkender at få emails</span> </label>
+                  <label class="checkbox subfield text-xs" for="gdpr_1167"><input type="checkbox" id="gdpr_1167" name="gdpr[1167]" value="Y" class="av-checkbox "><span>Jeg godkender at få emails</span> </label>
                 </fieldset>
               </div>
             </div>
@@ -95,7 +109,7 @@
 
 
   <!-- collage -->
-  <div class="black-bg flex gap-4 five-percent">
+  <div class="black-bg flex gap-4 five-percent pt-12">
     <!-- left column with one image -->
     <div class="w-1/2">
       <img
@@ -183,24 +197,44 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
   width: 100%;
 }
 
+.genre {
+  font-size: 13px;
+}
+
+.card-info-time-date p:first-child {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+
 /* newsletter */
 .news-letter {
   width: 100%;
-  padding: 70px 10% 90px 10%;
 }
 
 .news-letter-card {
   clip-path: var(--edge-box);
-  padding: 32px 1% 22px 5%;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.form-right {
+  padding: 20px;
+  margin: 0 !important;
+}
+
+#mc_embed_signup_scroll {
+  max-width: 500px;
 }
 
 #mc_embed_signup_scroll h3 {
   font-size: 38px !important;
   margin: 0 !important;
-  padding-bottom: 24px;
+  padding-bottom: 16px;
+}
+
+#mc_embed_signup .foot {
+  grid-template-columns: 1fr !important;
 }
 
 .indicates-required {
@@ -210,7 +244,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 .mc-field-group {
-  padding-bottom: 12px !important;
+  padding-bottom: 14px !important;
   color: var(--black-headline);
   font-family: var(--text-font);
 }
@@ -218,15 +252,25 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 .mc-field-group input {
   background-color: var(--white-headline) !important;
   outline: none !important;
-  box-shadow: 0px 10px 20px -18px !important;
-  border: 2px solid var(--primary-color) !important;
+  box-shadow: 0 !important;
+  border: 1px solid var(--primary-color) !important;
   border-radius: 0 !important;
-  margin: 4px 0;
+  font-size: 12px;
 }
 
 #mc-embedded-subscribe {
   margin: 0;
 }
+
+.news-letter-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#mc_embed_signup .mc-field-group {
+    width: 100%;
+  }
 
 /* responsive  */
 @media only screen and (max-width: 900px) {
@@ -263,7 +307,33 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 
   .news-letter-card {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
-    padding: 20px 0 20px 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .form-right {
+    width: 100%;
+  }
+
+  #mc_embed_signup .mc-field-group {
+    width: 100%;
+  }
+
+  .content-info {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+  .content-info-inner {
+    padding: 0;
+  }
+
+  #mc_embed_signup .foot {
+    grid-template-columns: 1fr !important;
+  }
+
+  #mc_embed_signup_scroll {
+    max-width: 100%;
   }
 }
 
