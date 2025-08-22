@@ -49,36 +49,47 @@ const mobileMenuOpen = ref(false)
 <header class="black-bg">
 
     <!-- navigation on big screen -->
-    <nav class="mx-auto flex items-center justify-between p-6 lg:px-8">
-
-      <!-- logo in top left corner -->
-      <div class="flex lg:flex-1">
+    <nav class="five-percent flex items-center justify-between">
+      <!-- logo on left -->
+      <div class="flex lg:flex-1 py-2">
         <RouterLink to='/'>
-          <div>
-            <img class="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/Standart%20small%20neg.png?alt=media&token=c3af2587-a422-41b9-8e98-70f2b91097a4" alt="kantens logo" />
-          </div>
+          <img class="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/Standart%20small%20neg.png?alt=media&token=c3af2587-a422-41b9-8e98-70f2b91097a4" alt="kantens logo" />
         </RouterLink>
       </div>
 
-      <!-- hamburgebar icon -->
+      <!-- everything else on right -->
+      <div class="hidden lg:flex lg:items-center gap-6">
+        <PopoverGroup class="flex white-text">
+          <RouterLink to='/'>Events</RouterLink>
+          <RouterLink to='/about'>Om Kanten</RouterLink>
+          <RouterLink to='/contact'>Kontakt os</RouterLink>
+        </PopoverGroup>
+
+
+        <!-- login button -->
+        <div class="log-in-system">
+          <button @click="handleSignOut" v-if="isLoggedIn" class="button1 signout mt-3">Log ud</button>
+        </div>
+      </div>
+
+      <div class="login-icon">
+        <a href="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+          </svg>
+        </a>
+        <a href="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- mobile hamburger button -->
       <div class="flex lg:hidden">
         <button type="button" title="hamburgerbar" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 white-text" @click="mobileMenuOpen = true">
           <Bars3Icon class="h-6 w-6" aria-hidden="true" />
         </button>
-      </div>
-
-      <!-- links in navigation -->
-      <PopoverGroup class="hidden lg:flex lg:gap-x-12 white-text" >
-        <RouterLink to='/'>Events</RouterLink>
-        <RouterLink to='/about'>Om Kanten</RouterLink>
-        <RouterLink to='/contact'>Kontakt os</RouterLink>
-      </PopoverGroup>
-
-      
-      <!-- right side with log in system -->
-      <div class="log-in-system hidden lg:flex lg:flex-1 lg:justify-end">
-        <button @click="handleSignOut" v-if="isLoggedIn" class="button1 signout mt-3">Log ud</button>
-        <!-- <RouterLink to='/register'>Register</RouterLink> -->
       </div>
     </nav>
 
@@ -95,7 +106,7 @@ const mobileMenuOpen = ref(false)
           </RouterLink>
 
           <!-- x button to close menu -->
-          <button type="button" class="-m-2.5 rounded-md p-2.5 white-text" @click="mobileMenuOpen = false">
+          <button type="" class="p-4" @click="mobileMenuOpen = false">
             <XMarkIcon class="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
@@ -104,10 +115,28 @@ const mobileMenuOpen = ref(false)
         <div class="mt-6 flow-root">
           <div class="hamburgermenu-box -my-6 divide-y divide-gray-500/10">
             <div class="hamburgermenu-top-content space-y-2 py-6">
-              <RouterLink to='/' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Events</RouterLink>
-              <RouterLink to='/about' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Om Kanten</RouterLink>
-              <RouterLink to='/contact' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Kontakt os</RouterLink>
+              <RouterLink to='/' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" @click="mobileMenuOpen = false">Events</RouterLink>
+              <RouterLink to='/about' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" @click="mobileMenuOpen = false">Om Kanten</RouterLink>
+              <RouterLink to='/contact' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" @click="mobileMenuOpen = false">Kontakt os</RouterLink>
             </div>
+
+
+            <!-- icons on mobile -->
+            <div class="menu-login-icon">
+              <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                </svg>
+                Din profil
+              </a>
+              <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                </svg>
+                Din kurv
+              </a>
+            </div>
+
 
             <!-- log in in hamburger menu -->
             <div class="hamburgermenu-buttom-content py-6">
@@ -184,7 +213,8 @@ nav a {
   color: var(--white-text);
   font-family: var(--text-font);
   transition: 0.3s;
-  font-size: 16px;
+  font-size: 14px;
+  padding: 10px;
 }
 
 nav a:hover {
@@ -196,6 +226,35 @@ nav a.router-link-exact-active {
   text-decoration: underline;
   font-weight: bold;
 }
+
+.login-icon {
+  display: flex;
+}
+
+.login-icon a:last-child {
+  padding-right: 0;
+}
+
+.menu-login-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.menu-login-icon a {
+  display: flex;
+  align-items: center;
+  font-size: 13px !important;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 0.5rem;
+}
+
+.menu-login-icon a:hover {
+  background-color: var(--white-headline);
+}
+
 
 .log-in-system {
   gap: 16px;
@@ -235,6 +294,7 @@ nav a.router-link-exact-active {
   font-family: var(--text-font);
 }
 
+
 /* footer */
 .footer-logo img {
   height: 100px;
@@ -247,6 +307,12 @@ nav a.router-link-exact-active {
 
 
 /* responsive */
+@media only screen and (max-width: 1024px) {
+  .login-icon {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   footer {
     padding: 60px 5% 0 5%;
