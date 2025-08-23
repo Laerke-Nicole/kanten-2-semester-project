@@ -1,5 +1,6 @@
 <template>
-    <div class="hero relative w-full">
+    
+  <div class="hero relative w-full">
   
         <div id="default-carousel" class="relative w-full h-full z-10" data-carousel="slide">
           
@@ -37,83 +38,14 @@
           </div>
     </div>
   </div>
-
-  <section class="five-percent hero-section-content pb-12">
-    <!-- breadcrumb -->
-        <div class="flex mb-6" aria-label="Breadcrumb">
-        <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-            <li class="inline-flex items-center">
-            <RouterLink 
-                to="/" 
-                class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
-            >
-                <svg 
-                class="w-4 h-4 me-2.5" 
-                aria-hidden="true" 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="currentColor" 
-                viewBox="0 0 20 20"
-                >
-                <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
-                </svg>
-                <span class="sr-only">Home</span>
-            </RouterLink>
-            </li>
-
-            <li>
-            <div class="flex items-center">
-                <svg 
-                class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" 
-                aria-hidden="true" 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 6 10"
-                >
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg>
-                <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400 underline">Kontakt os</span>
-            </div>
-            </li>
-        </ol>
-        </div>
-
-    <p class="white-text pb-2">Har du nogle spørgsmål?</p>
-    <h1 class="uppercase white-headline pb-4">Kontakt os</h1>
-    <p class="hero-content white-text pb-6">Her kan du finde vores kontaktoplysninger. Vi ser frem til at høre fra dig!</p>
-  </section>
-
-    <section class="fifteen-percent pt-12">
-        <div class="flex flex-col gap-8 pb-16">
-            <div>
-                <h1 class="white-headline pb-6 uppercase">Kontakt os</h1>
-                <h5 class="white-text pb-2">Vi sidder klar til at besvare dine henvendelser</h5>
-                <div v-for="hour in openingHours" :key="hour.time">
-                    <p class="white-text">{{ hour.time }}</p>
-                </div>
-            </div>
-
-            <div>
-                <p class="white-text"><span class="font-bold">Tlf: </span>+45 28 97 11 85</p>
-                <p class="white-text"><span class="font-bold">Mail: </span>Musikforeningenkanten@gmail.com</p>
-            </div>
-
-            <div>
-                <p class="white-text">Gl Novrupvej 14</p>
-                <p class="white-text">6705 Esbjerg</p>
-            </div>
-
-        </div>
-    </section>
 </template>
 
 <script setup>
-// import
-import { openingHours } from '../modules/useOpeningHours.js'
+import 'flowbite';
 
 </script>
 
-<style scoped>
-/* hero */
+<style  scoped>
 .hero {
   position: relative;
 }
@@ -124,9 +56,5 @@ import { openingHours } from '../modules/useOpeningHours.js'
 
 .slide-container img {
   object-fit: fill;
-}
-
-.hero-content {
-    max-width: 500px;
 }
 </style>

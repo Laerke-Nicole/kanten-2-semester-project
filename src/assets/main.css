@@ -76,7 +76,7 @@ button {
   border: 0;
   transition: 0.3s;
   font-family: var(--text-font);
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   overflow: hidden;
   text-align: center;
@@ -106,7 +106,7 @@ button {
   border: 0;
   transition: 0.3s;
   font-family: var(--text-font);
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   overflow: hidden;
   text-align: center;
@@ -115,6 +115,26 @@ button {
 .button2:hover {
   background-color: var(--white-text);
 }
+
+
+.genre-btn {
+  padding: 7px 14px;
+  border: 1px solid var(--white-headline);
+  color: var(--white-text);
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: var(--text-font);
+  font-size: 13px;
+  text-decoration: none;
+  overflow: hidden;
+  text-align: center;
+}
+
+.genre-btn:hover {
+  background-color: var(--white-headline);
+  color: var(--black-text);
+}
+
 
 .footer-hr {
   border-color: var(--black-text)

@@ -13,6 +13,7 @@
     "@headlessui/vue": "^1.7.13",
     "@heroicons/vue": "^2.0.18",
     "firebase": "^11.3.1",
+    "flowbite": "^3.1.2",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },

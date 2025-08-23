@@ -60,7 +60,8 @@ const mobileMenuOpen = ref(false)
       <!-- everything else on right -->
       <div class="hidden lg:flex lg:items-center gap-6">
         <PopoverGroup class="flex white-text">
-          <RouterLink to='/'>Events</RouterLink>
+          <RouterLink to='/'>Hjem</RouterLink>
+          <RouterLink to='/eventlist'>Kommende events</RouterLink>
           <RouterLink to='/about'>Om Kanten</RouterLink>
           <RouterLink to='/contact'>Kontakt os</RouterLink>
         </PopoverGroup>
@@ -115,7 +116,7 @@ const mobileMenuOpen = ref(false)
         <div class="mt-6 flow-root">
           <div class="hamburgermenu-box -my-6 divide-y divide-gray-500/10">
             <div class="hamburgermenu-top-content space-y-2 py-6">
-              <RouterLink to='/' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" @click="mobileMenuOpen = false">Events</RouterLink>
+              <RouterLink to='/eventlist' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" @click="mobileMenuOpen = false">Kommende events</RouterLink>
               <RouterLink to='/about' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" @click="mobileMenuOpen = false">Om Kanten</RouterLink>
               <RouterLink to='/contact' class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" @click="mobileMenuOpen = false">Kontakt os</RouterLink>
             </div>
@@ -166,10 +167,16 @@ const mobileMenuOpen = ref(false)
 
       <div class="footer-content-container flex gap-24">
         <div class="flex flex-col gap-1 footer-content-container-info">
-          <h4 class="white-headline pb-4">KANTEN</h4>
-          <p class="footer-link">+45 28  97 11 85</p>
-          <p class="footer-link">Musikforeningenkanten@gmail.com</p>
-          <p class="footer-link">Gl Novrupvej 14, 6705 Esbjerg Ø</p>
+          <div class="pb-4">
+            <h4 class="white-headline pb-4">KANTEN</h4>
+            <p class="footer-link"><span class="font-bold">Tlf: </span>+45 28  97 11 85</p>
+            <p class="footer-link"><span class="font-bold">Mail: </span>Musikforeningenkanten@gmail.com</p>
+          </div>
+
+          <div>
+            <p class="footer-link">Gl Novrupvej 14</p>
+            <p class="footer-link">6705 Esbjerg</p>
+          </div>
         </div>
   
         <div class="flex flex-col gap-4">
@@ -214,7 +221,7 @@ nav a {
   font-family: var(--text-font);
   transition: 0.3s;
   font-size: 14px;
-  padding: 10px;
+  padding: 10px 15px;
 }
 
 nav a:hover {

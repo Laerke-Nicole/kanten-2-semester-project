@@ -1,7 +1,24 @@
 <template>
-
     <!-- top part of page -->
-    <div v-for="event in eventSingleItem" :key="event" class="pt-36">
+    <div v-for="event in eventSingleItem" :key="event" class="pt-20">
+        <div class="hero pb-14">
+            <img :src="event.imgURL" alt="image of artist">
+
+            <div class="ten-percent flex justify-start items-center">
+                <div class="spotify-snippet">
+                    <iframe data-testid="embed-iframe" 
+                        style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/track/0dTdxwwH6FYsJL0l3TgSe2?utm_source=generator&theme=0" 
+                        width="100%" height="152" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
         <!-- about artist -->
         <section class="about-artist flex flex-row five-percent gap-20">
             <div class="flex flex-col justify-center items-center">
@@ -104,6 +121,17 @@ const eventSingleItem = computed(() => {
 
 
 <style scoped>
+.hero img {
+    height: 75vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.spotify-snippet {
+    transform: translateY(-30px);
+    max-width: 900px;
+}
+
 /* responsive */
 @media only screen and (max-width: 900px) {
     .about-artist {
