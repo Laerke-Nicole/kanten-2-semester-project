@@ -14,8 +14,8 @@
 <style scoped>
 @media only screen and (max-width: 900px) {
   .content-info {
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: 5%;
+    padding-left: 5%;
   }
 }
 </style>

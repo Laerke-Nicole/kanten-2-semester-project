@@ -4,14 +4,14 @@
         <div id="default-carousel" class="relative w-full h-full z-10" data-carousel="slide">
           
           <!-- Carousel wrapper -->
-          <div class="slide-container relative h-64 overflow-hidden md:h-96 rounded-none">
+          <div class="slide-container relative h-80 overflow-hidden md:h-96 rounded-none">
               <!-- Item 1 -->
               <div class="block duration-200 ease-in-out" data-carousel-item>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-4.jpg?alt=media&token=59922db7-f09d-4bec-96e4-199becf88560" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-5.jpg?alt=media&token=52ef7641-3543-4ac7-9499-b792eb90253f" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
               </div>
               <!-- Item 2 -->
               <div class="hidden duration-200 ease-in-out" data-carousel-item>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-1.jpg?alt=media&token=f83ae4ec-1806-42ee-9598-8fafda5b1a30" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-3.jpg?alt=media&token=5a569a19-5b00-4bbe-89ab-6ad0a5737a14" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
               </div>
               <!-- Item 3 -->
               <div class="hidden duration-200 ease-in-out" data-carousel-item>
@@ -19,11 +19,11 @@
               </div>
               <!-- Item 4 -->
               <div class="hidden duration-200 ease-in-out" data-carousel-item>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-3.jpg?alt=media&token=5a569a19-5b00-4bbe-89ab-6ad0a5737a14" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-1.jpg?alt=media&token=f83ae4ec-1806-42ee-9598-8fafda5b1a30" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
               </div>
               <!-- Item 5 -->
               <div class="hidden duration-200 ease-in-out" data-carousel-item>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-5.jpg?alt=media&token=52ef7641-3543-4ac7-9499-b792eb90253f" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-4.jpg?alt=media&token=59922db7-f09d-4bec-96e4-199becf88560" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
               </div>
           </div>
       
@@ -79,19 +79,19 @@
 
     <p class="white-text pb-2">Hvem er</p>
     <h1 class="uppercase white-headline pb-4">Kanten</h1>
-    <p class="hero-content white-text pb-6">Her kan du læse om hvem Kanten er, hvordan vi skiller os ud, vores passion og vores fire vilde musikgenre.</p>
+    <p class="hero-content white-text">Her kan du læse om hvem Kanten er, hvordan vi skiller os ud, vores passion og vores fire vilde musikgenre.</p>
   </section>
 
 
 
-    <section class="fifteen-percent py-20 flex flex-col items-center">
+    <section class="about-content-container fifteen-percent py-20 flex flex-col items-center">
         <div class="pb-12">
             <h3 class="uppercase white-headline pb-2">Et unikt fællesskab</h3>
             <p class="white-text about-text pb-4">Musikforeningen Kanten er Esbjergs nye kulturfællesskab, som rummer byens musikalske vækstlag. Vi tror på at hjælpe undergroundartister til toppen og tilbyder en gratis scene for livekoncerter inden for hiphop, techno, reggae og house. Derudover afholder vi diskoteksarrangementer, hvor fællesskabet og festen er i centrum.</p>
             <p class="white-text about-text">Og så koster alle billetter da også gratis! Det kan vi godt lide. Det handler om fællesskabet og at fremme underground artister - vi vil gerne have, at alle kan være med.</p>
         </div>
 
-        <div class="pb-12">
+        <div>
             <h3 class="uppercase white-headline pb-2">Vores vision</h3>
             <p class="white-text about-text">Vi ønsker at skabe et inkluderende rum for alle, der brænder for musik og kultur. Vores mål er at støtte og fremme lokale talenter, samtidig med at vi tilbyder en platform for diversitet og kreativitet. Hos Kanten er alle velkomne, uanset baggrund eller musikalsk præference.</p>
         </div>
@@ -104,26 +104,26 @@
         </div>
 
         <div class="flex flex-col md:flex-row gap-8 md:gap-20 justify-center items-center">
-            <div class="flex flex-col justify-center items-center">
-                <img :src="deftLogo" alt="genre logo" class="h-20">
+            <div class=" flex flex-col justify-center items-center">
+                <img :src="deftLogo" alt="genre logo" class="h-20 genre-logo">
                 <h4 class="pt-6">DEFT</h4>
                 <p>Hip hop</p>
             </div>
 
             <div class="flex flex-col justify-center items-center">
-                <img :src="manaclubLogo" alt="genre logo" class="h-20">
+                <img :src="manaclubLogo" alt="genre logo" class="h-20 genre-logo">
                 <h4 class="pt-6">MANA CLUB</h4>
                 <p>Tecno</p>
             </div>
 
             <div class="flex flex-col justify-center items-center">
-                <img :src="vertexLogo" alt="genre logo" class="h-20">
+                <img :src="vertexLogo" alt="genre logo" class="h-20 genre-logo">
                 <h4 class="pt-6">VERTEX</h4>
                 <p>House</p>
             </div>
 
             <div class="flex flex-col justify-center items-center">
-                <img :src="xmassivedubLogo" alt="genre logo" class="h-20">
+                <img :src="xmassivedubLogo" alt="genre logo" class="h-20 genre-logo">
                 <h4 class="pt-6">X-MASSIVE DUB</h4>
                 <p>Dancehall & reggae</p>
             </div>
@@ -133,7 +133,7 @@
 
     <!-- quote -->
     <section>
-        <div class="bg-black text-white pt-24 pb-10 fifteen-percent">
+        <div class="bg-black text-white pt-24 pb-10 fifteen-percent volunteer-container">
             <div class="z-10">
                 <h4 class="white-headline pb-8 leading-normal">At være frivillig hos Kanten har givet mig en masse uforglemmelige minder. Stemningen er altid i top, og folk giver den fuld gas til festerne.</h4>
                 <p class="white-text">Jane Doe, <span class="font-bold">Frivillig</span></p>
@@ -150,6 +150,14 @@
 <script setup>
 import 'flowbite';
 import { ref } from 'vue'
+import { onMounted } from "vue";
+import { nextTick } from 'vue';
+import { initCarousels } from 'flowbite';
+
+onMounted(async () => {
+  await nextTick();
+  initCarousels(); 
+});
 
 // genre logos
 let manaclubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/genre-logo%2Fmana-club-logo.svg?alt=media&token=695a4a1f-0a04-4160-8adf-d1a1cec56db3')
@@ -170,7 +178,13 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 }
 
 .slide-container img {
-  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: none;
 }
 
 .hero-content {
@@ -181,4 +195,19 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
     margin-top: -50px;
     padding-right: 50px;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .about-content-container, .volunteer-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .genre-logo {
+        height: 42px;
+    }
+}
+
 </style>

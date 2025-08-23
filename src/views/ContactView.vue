@@ -4,22 +4,22 @@
         <div id="default-carousel" class="relative w-full h-full z-10" data-carousel="slide">
           
           <!-- Carousel wrapper -->
-          <div class="slide-container relative h-64 overflow-hidden md:h-96 rounded-none">
+          <div class="slide-container relative h-80 overflow-hidden md:h-96 rounded-none">
               <!-- Item 1 -->
               <div class="block duration-200 ease-in-out" data-carousel-item>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-4.jpg?alt=media&token=59922db7-f09d-4bec-96e4-199becf88560" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-2.jpg?alt=media&token=17a1c776-a52f-418f-9213-fdf9b04bc6a2" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
               </div>
               <!-- Item 2 -->
               <div class="hidden duration-200 ease-in-out" data-carousel-item>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-1.jpg?alt=media&token=f83ae4ec-1806-42ee-9598-8fafda5b1a30" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-3.jpg?alt=media&token=5a569a19-5b00-4bbe-89ab-6ad0a5737a14" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
               </div>
               <!-- Item 3 -->
               <div class="hidden duration-200 ease-in-out" data-carousel-item>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-2.jpg?alt=media&token=17a1c776-a52f-418f-9213-fdf9b04bc6a2" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-4.jpg?alt=media&token=59922db7-f09d-4bec-96e4-199becf88560" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
               </div>
               <!-- Item 4 -->
               <div class="hidden duration-200 ease-in-out" data-carousel-item>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-3.jpg?alt=media&token=5a569a19-5b00-4bbe-89ab-6ad0a5737a14" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/kanten-web.appspot.com/o/collage%2Fimg-1.jpg?alt=media&token=f83ae4ec-1806-42ee-9598-8fafda5b1a30" class="absolute z-0 block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Hero image">
               </div>
               <!-- Item 5 -->
               <div class="hidden duration-200 ease-in-out" data-carousel-item>
@@ -79,14 +79,13 @@
 
     <p class="white-text pb-2">Har du nogle spørgsmål?</p>
     <h1 class="uppercase white-headline pb-4">Kontakt os</h1>
-    <p class="hero-content white-text pb-6">Her kan du finde vores kontaktoplysninger. Vi ser frem til at høre fra dig!</p>
+    <p class="hero-content white-text">Her kan du finde vores kontaktoplysninger. Vi ser frem til at høre fra dig!</p>
   </section>
 
-    <section class="fifteen-percent pt-12">
-        <div class="flex flex-col gap-8 pb-16">
+    <section class="fifteen-percent pt-12 contact-info-container">
+        <div class="flex flex-col gap-8">
             <div>
-                <h1 class="white-headline pb-6 uppercase">Kontakt os</h1>
-                <h5 class="white-text pb-2">Vi sidder klar til at besvare dine henvendelser</h5>
+                <h3 class="headline-content white-headline pb-2 uppercase">Vi sidder klar til at besvare dine henvendelser</h3>
                 <div v-for="hour in openingHours" :key="hour.time">
                     <p class="white-text">{{ hour.time }}</p>
                 </div>
@@ -109,6 +108,14 @@
 <script setup>
 // import
 import { openingHours } from '../modules/useOpeningHours.js'
+import { onMounted } from "vue";
+import { nextTick } from 'vue';
+import { initCarousels } from 'flowbite';
+
+onMounted(async () => {
+  await nextTick();
+  initCarousels(); 
+});
 
 </script>
 
@@ -123,10 +130,30 @@ import { openingHours } from '../modules/useOpeningHours.js'
 }
 
 .slide-container img {
-  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: none;
 }
 
 .hero-content {
     max-width: 500px;
+}
+
+.headline-content {
+    text-wrap: balance;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .contact-info-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
 }
 </style>

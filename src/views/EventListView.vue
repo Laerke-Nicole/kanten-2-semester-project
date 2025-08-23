@@ -5,7 +5,7 @@
     <h1 class="uppercase white-headline">Event oversigt</h1>
 
     <!-- genre filter buttons -->
-    <div class="flex gap-2 pt-6 pb-16">
+    <div class="filter-btns flex gap-2 pt-6 pb-16 flex-wrap">
       <!-- "ALLE" button resets filter -->
       <button 
         class="genre-btn" 
@@ -28,18 +28,18 @@
 
     <!-- filtered events -->
     <div class="flex flex-col gap-4">
-      <div v-for="event in filteredEvents" :key="event.id">
+      <div v-for="event in filteredEvents" :key="event.id" class="card-container">
         <RouterLink :to="{ name: 'event', params: { id: event.id }}">
-          <div class="card-container grid grid-cols-12 primary-background-img">
+          <div class="grid grid-cols-1 sm:grid-cols-12 primary-background-img p-4 gap-4">
             <!-- image -->
-            <div class="col-span-4 flex">
-              <div class="artist-img-container p-4">
+            <div class="artist-img-div col-span-1 sm:col-span-3 flex justify-center items-center">
+              <div class="artist-img-container">
                 <img :src="event.imgURL" alt="event image" class="artist-img h-24">
               </div>
             </div>
 
             <!-- info -->
-            <div class="card-info col-span-4 uppercase pt-6 pb-4 flex flex-col justify-between">
+            <div class="card-info col-span-1 sm:col-span-5 uppercase flex flex-col justify-between">
               <div>
                 <h4>{{ event.artist }}</h4>
                 <p class="pb-2 genre">{{ event.genre }}</p>
@@ -51,8 +51,8 @@
             </div>
 
             <!-- buy tickets -->
-            <div class="col-span-4 flex justify-center items-center p-4">
-              <button class="button1">Køb billetter</button>
+            <div class="tickets-btn col-span-1 sm:col-span-4 flex justify-center items-center">
+              <button class="button1">Se billetter</button>
             </div>
           </div>
         </RouterLink>
@@ -122,6 +122,15 @@ onMounted(() => {
   font-size: 15px;
 }
 
+.artist-img-div {
+  height: 100%;
+}
+
+.artist-img {
+  height: 100%;
+  object-fit: cover;
+}
+
 /* active genre button */
 .event-btn-active {
   background-color: var(--white-headline);
@@ -133,6 +142,7 @@ onMounted(() => {
 @media only screen and (max-width: 900px) {
   .card-container {
     flex-direction: column;
+    width: 100%;
   }
 
   .artist-img-container {
@@ -143,9 +153,6 @@ onMounted(() => {
     height: auto !important;
   }
 
-  .card-info {
-    padding: 0 24px 24px 24px;
-  }
 
   .card-info .genre {
     padding-bottom: 0;
@@ -162,7 +169,11 @@ onMounted(() => {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
+  .tickets-btn {
+    justify-content: flex-start;
+  }
+
   .genre-icon {
     position: relative;
     padding-top: 0;

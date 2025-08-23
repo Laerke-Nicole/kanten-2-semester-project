@@ -13,7 +13,7 @@
             <!-- image -->
             <div class="flex">
               <div class="artist-img-container p-6">
-                <img :src="event.imgURL" alt="event image" class="artist-img h-64 edge-event-card">
+                <img :src="event.imgURL" alt="event image" class="artist-img h-52 edge-event-card">
               </div>
             </div>
 
@@ -165,8 +165,7 @@ let xmassivedubLogo = ref('https://firebasestorage.googleapis.com/v0/b/kanten-we
 
 @media only screen and (max-width: 600px) {
   .genre-icon {
-    position: relative;
-    padding-top: 0;
+    display: none;
   }
 }
 </style>
